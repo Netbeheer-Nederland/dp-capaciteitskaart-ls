@@ -91,6 +91,7 @@ ConnectivityNode.class: grid
 Terminal.class: grid
 TopologicalNode.class: grid
 
+PowerTransformer -- Substation
 PowerTransformerEnd -- PowerTransformer
 PowerTransformerEnd -- BaseVoltage
 PowerTransformerEnd -- Terminal
