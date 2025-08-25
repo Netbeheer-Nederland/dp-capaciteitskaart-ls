@@ -1,0 +1,230 @@
+= Index
+
+== Classes
+
+[cols="1,2"]
+|===
+| Name | Description
+
+
+| xref::class/ACDCTerminal.adoc[`ACDCTerminal`]
+| +++An electrical connection point (AC or DC) to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes.+++
+
+| xref::class/Asset.adoc[`Asset`]
+| +++Tangible resource of the utility, including power system equipment, various end devices, cabinets, buildings, etc. For electrical network equipment, the role of the asset is defined through PowerSystemResource and its subclasses, defined mainly in the Wires model (refer to IEC61970-301 and model package IEC61970::Wires). Asset description places emphasis on the physical characteristics of the equipment fulfilling that role.+++
+
+| xref::class/BaseVoltage.adoc[`BaseVoltage`]
+| +++Defines a system base voltage which is referenced.+++
+
+| xref::class/BaseWork.adoc[`BaseWork`]
+| +++Common representation for work and work tasks.+++
+
+| xref::class/ConductingEquipment.adoc[`ConductingEquipment`]
+| +++The parts of the AC power system that are designed to carry current or that are conductively connected through terminals.+++
+
+| xref::class/ConnectivityNode.adoc[`ConnectivityNode`]
+| +++Connectivity nodes are points where terminals of AC conducting equipment are connected together with zero impedance.+++
+
+| xref::class/ConnectivityNodeContainer.adoc[`ConnectivityNodeContainer`]
+| +++A base class for all objects that may contain connectivity nodes or topological nodes.+++
+
+| xref::class/Contingency.adoc[`Contingency`]
+| +++An event threatening system reliability, consisting of one or more contingency elements.+++
+
+| xref::class/ContingencyElement.adoc[`ContingencyElement`]
+| +++An element of a system event to be studied by contingency analysis, representing a change in status of a single piece of equipment.+++
+
+| xref::class/ContingencyEquipment.adoc[`ContingencyEquipment`]
+| +++Equipment whose in service status is to change, such as a power transformer or AC line segment.+++
+
+| xref::class/DateTimeInterval.adoc[`DateTimeInterval`]
+| +++Interval between two date and time points, where the interval includes the start time but excludes end time.+++
+
+| xref::class/Document.adoc[`Document`]
+| +++Parent class for different groupings of information collected and managed as a part of a business process. It will frequently contain references to other objects, such as assets, people and power system resources.+++
+
+| xref::class/Equipment.adoc[`Equipment`]
+| +++The parts of a power system that are physical devices, electronic or mechanical.+++
+
+| xref::class/EquipmentContainer.adoc[`EquipmentContainer`]
+| +++A modelling construct to provide a root class for containing equipment.+++
+
+| xref::class/Flowgate.adoc[`Flowgate`]
+| +++A flowgate, is single or group of transmission elements intended to model MW flow impact relating to transmission limitations and transmission service usage.+++
+
+| xref::class/GeographicalRegion.adoc[`GeographicalRegion`]
+| +++A geographical region of a power system network model.+++
+
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+| +++This is a root class to provide common identification for all classes needing identification and naming attributes.+++
+
+| xref::class/Location.adoc[`Location`]
+| +++The place, scene, or point of something where someone or something has been, is, and/or will be at a given moment in time. It can be defined with one or more position points (coordinates) in a given coordinate system.+++
+
+| xref::class/Name.adoc[`Name`]
+| +++The Name class provides the means to define any number of human readable  names for an object. A name is <b>not</b> to be used for defining inter-object relationships. For inter-object relationships instead use the object identification 'mRID'.+++
+
+| xref::class/NameType.adoc[`NameType`]
+| +++Type of name. Possible values for attribute 'name' are implementation dependent but standard profiles may specify types. An enterprise may have multiple IT systems each having its own local name for the same object, e.g. a planning system may have different names from an EMS. An object may also have different names within the same IT system, e.g. localName as defined in CIM version 14. The definition from CIM14 is:
+The localName is a human readable name of the object. It is a free text name local to a node in a naming hierarchy similar to a file directory structure. A power system related naming hierarchy may be: Substation, VoltageLevel, Equipment etc. Children of the same parent in such a hierarchy have names that typically are unique among them.+++
+
+| xref::class/NameTypeAuthority.adoc[`NameTypeAuthority`]
+| +++Authority responsible for creation and management of names of a given type; typically an organization or an enterprise system.+++
+
+| xref::class/OperatingParticipant.adoc[`OperatingParticipant`]
+| +++An operator of multiple power system resource objects. Note multple operating participants may operate the same power system resource object. This can be used for modeling jointly owned units where each owner operates as a contractual share.+++
+
+| xref::class/OperatingShare.adoc[`OperatingShare`]
+| +++Specifies the operations contract relationship between a power system resource and a contract participant.+++
+
+| xref::class/PositionPoint.adoc[`PositionPoint`]
+| +++Set of spatial coordinates that determine a point, defined in the coordinate system specified in 'Location.CoordinateSystem'. Use a single position point instance to describe a point-oriented location. Use a sequence of position points to describe a line-oriented object (physical location of non-point oriented objects like cables or lines), or area of an object (like a substation or a geographical zone - in this case, have first and last position point with the same values).+++
+
+| xref::class/PowerSystemResource.adoc[`PowerSystemResource`]
+| +++A power system resource (PSR) can be an item of equipment such as a switch, an equipment container containing many individual items of equipment such as a substation, or an organisational entity such as sub-control area. Power system resources can have measurements associated.+++
+
+| xref::class/PowerTransformer.adoc[`PowerTransformer`]
+| +++An electrical device consisting of  two or more coupled windings, with or without a magnetic core, for introducing mutual coupling between electric circuits. Transformers can be used to control voltage and phase shift (active power flow).
+A power transformer may be composed of separate transformer tanks that need not be identical.
+A power transformer can be modelled with or without tanks and is intended for use in both balanced and unbalanced representations.   A power transformer typically has two terminals, but may have one (grounding), three or more terminals.
+The inherited association ConductingEquipment.BaseVoltage should not be used.  The association from TransformerEnd to BaseVoltage should be used instead.+++
+
+| xref::class/PowerTransformerEnd.adoc[`PowerTransformerEnd`]
+| +++A PowerTransformerEnd is associated with each Terminal of a PowerTransformer.
+The impedance values r, r0, x, and x0 of a PowerTransformerEnd represents a star equivalent as follows.
+1) for a two Terminal PowerTransformer the high voltage (TransformerEnd.endNumber=1) PowerTransformerEnd has non zero values on r, r0, x, and x0 while the low voltage (TransformerEnd.endNumber=2) PowerTransformerEnd has zero values for r, r0, x, and x0.  Parameters are always provided, even if the PowerTransformerEnds have the same rated voltage.  In this case, the parameters are provided at the PowerTransformerEnd which has TransformerEnd.endNumber equal to 1.
+2) for a three Terminal PowerTransformer the three PowerTransformerEnds represent a star equivalent with each leg in the star represented by r, r0, x, and x0 values.
+3) For a three Terminal transformer each PowerTransformerEnd shall have g, g0, b and b0 values corresponding to the no load losses distributed on the three PowerTransformerEnds. The total no load loss shunt impedances may also be placed at one of the PowerTransformerEnds, preferably the end numbered 1, having the shunt values on end 1.  This is the preferred way.
+4) for a PowerTransformer with more than three Terminals the PowerTransformerEnd impedance values cannot be used. Instead use the TransformerMeshImpedance or split the transformer into multiple PowerTransformers.
+Each PowerTransformerEnd must be contained by a PowerTransformer. Because a PowerTransformerEnd (or any other object) can not be contained by more than one parent, a PowerTransformerEnd can not have an association to an EquipmentContainer (Substation, VoltageLevel, etc).+++
+
+| xref::class/Project.adoc[`Project`]
+| +++A collection of related work. For construction projects and maintenance projects, multiple phases may be performed.+++
+
+| xref::class/RegisteredInterTie.adoc[`RegisteredInterTie`]
+| +++This class represents the inter tie resource.+++
+
+| xref::class/RegisteredResource.adoc[`RegisteredResource`]
+| +++A resource that is registered through the market participant registration system. Examples include generating unit, load, and non-physical generator or load.+++
+
+| xref::class/StreetAddress.adoc[`StreetAddress`]
+| +++General purpose street and postal address information.+++
+
+| xref::class/StreetDetail.adoc[`StreetDetail`]
+| +++Street details, in the context of address.+++
+
+| xref::class/SubGeographicalRegion.adoc[`SubGeographicalRegion`]
+| +++A subset of a geographical region of a power system network model.+++
+
+| xref::class/Substation.adoc[`Substation`]
+| +++A collection of equipment for purposes other than generation or utilization, through which electric energy in bulk is passed for the purposes of switching or modifying its characteristics.+++
+
+| xref::class/Terminal.adoc[`Terminal`]
+| +++An AC electrical connection point to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes.+++
+
+| xref::class/TopologicalNode.adoc[`TopologicalNode`]
+| +++For a detailed substation model a topological node is a set of connectivity nodes that, in the current network state, are connected together through any type of closed switches, including  jumpers. Topological nodes change as the current network state changes (i.e., switches, breakers, etc. change state).
+For a planning model, switch statuses are not used to form topological nodes. Instead they are manually created or deleted in a model builder tool. Topological nodes maintained this way are also called "busses".+++
+
+| xref::class/TownDetail.adoc[`TownDetail`]
+| +++Town details, in the context of address.+++
+
+| xref::class/TransformerEnd.adoc[`TransformerEnd`]
+| +++A conducting connection point of a power transformer. It corresponds to a physical transformer winding terminal.  In earlier CIM versions, the TransformerWinding class served a similar purpose, but this class is more flexible because it associates to terminal but is not a specialization of ConductingEquipment.+++
+
+| xref::class/VoltageLevel.adoc[`VoltageLevel`]
+| +++A collection of equipment at one common system voltage forming a switchgear. The equipment typically consists of breakers, busbars, instrumentation, control, regulation and protection devices as well as assemblies of all these.+++
+
+| xref::class/Work.adoc[`Work`]
+| +++Document used to request, initiate, track and record work.+++
+
+| xref::class/WorkDocument.adoc[`WorkDocument`]
+| +++Shadow class for Document, to isolate subclassing from this package. If any subclass gets normative and needs inheritance, it will inherit directly from Document.+++
+
+| xref::class/WorkLocation.adoc[`WorkLocation`]
+| +++Information about a particular location for various forms of work.+++
+
+| xref::class/WorkTask.adoc[`WorkTask`]
+| +++A task within a set of work.+++
+
+| xref::class/Zone.adoc[`Zone`]
+| +++Area divided off from other areas. It may be part of the electrical network, a land area where special restrictions apply, weather areas, etc. For weather, it is an area where a set of relatively homogenous weather measurements apply.+++
+
+|===
+
+== Types
+
+=== CIM data types
+
+[cols="1,2"]
+|===
+| Name | Description
+
+
+| xref::class/ActivePower.adoc[`ActivePower`]
+| +++Product of RMS value of the voltage and the RMS value of the in-phase component of the current.+++
+
+| xref::class/Voltage.adoc[`Voltage`]
+| +++Electrical voltage, can be both AC and DC.+++
+
+|===
+
+
+
+== Enumerations
+
+
+[cols="1,2"]
+|===
+| Name | Description
+
+| xref::enumeration/ContingencyEquipmentStatusKind.adoc[`ContingencyEquipmentStatusKind`]
+| +++Indicates the state which the contingency equipment is to be in when the contingency is applied.+++
+
+| xref::enumeration/InterTieDirection.adoc[`InterTieDirection`]
+| +++Direction of an intertie.+++
+
+| xref::enumeration/InUseStateKind.adoc[`InUseStateKind`]
+| +++Possible 'in use' states that an asset can be in.+++
+
+| xref::enumeration/RAGKind.adoc[`RAGKind`]
+| +++Traffic light colors coding scheme for categorising status.+++
+
+| xref::enumeration/ResourceRegistrationStatus.adoc[`ResourceRegistrationStatus`]
+| +++Types of resource registration status, for example:
+
+Active
+Mothballed
+Planned
+Decommissioned+++
+
+| xref::enumeration/ServiceRequestKind.adoc[`ServiceRequestKind`]
+| +++Kinds of service requests+++
+
+| xref::enumeration/UnitMultiplier.adoc[`UnitMultiplier`]
+| +++The unit multipliers defined for the CIM.  When applied to unit symbols, the unit symbol is treated as a derived unit. Regardless of the contents of the unit symbol text, the unit symbol shall be treated as if it were a single-character unit symbol. Unit symbols should not contain multipliers, and it should be left to the multiplier to define the multiple for an entire data type. 
+
+For example, if a unit symbol is "m2Pers" and the multiplier is "k", then the value is k(m**2/s), and the multiplier applies to the entire final value, not to any individual part of the value. This can be conceptualized by substituting a derived unit symbol for the unit type. If one imagines that the symbol "Þ" represents the derived unit "m2Pers", then applying the multiplier "k" can be conceptualized simply as "kÞ".
+
+For example, the SI unit for mass is "kg" and not "g".  If the unit symbol is defined as "kg", then the multiplier is applied to "kg" as a whole and does not replace the "k" in front of the "g". In this case, the multiplier of "m" would be used with the unit symbol of "kg" to represent one gram.  As a text string, this violates the instructions in IEC 80000-1. However, because the unit symbol in CIM is treated as a derived unit instead of as an SI unit, it makes more sense to conceptualize the "kg" as if it were replaced by one of the proposed replacements for the SI mass symbol. If one imagines that the "kg" were replaced by a symbol "Þ", then it is easier to conceptualize the multiplier "m" as creating the proper unit "mÞ", and not the forbidden unit "mkg".+++
+
+| xref::enumeration/UnitSymbol.adoc[`UnitSymbol`]
+| +++The derived units defined for usage in the CIM. In some cases, the derived unit is equal to an SI unit. Whenever possible, the standard derived symbol is used instead of the formula for the derived unit. For example, the unit symbol Farad is defined as "F" instead of "CPerV". In cases where a standard symbol does not exist for a derived unit, the formula for the unit is used as the unit symbol. For example, density does not have a standard symbol and so it is represented as "kgPerm3". With the exception of the "kg", which is an SI unit, the unit symbols do not contain multipliers and therefore represent the base derived unit to which a multiplier can be applied as a whole. 
+Every unit symbol is treated as an unparseable text as if it were a single-letter symbol. The meaning of each unit symbol is defined by the accompanying descriptive text and not by the text contents of the unit symbol.
+To allow the widest possible range of serializations without requiring special character handling, several substitutions are made which deviate from the format described in IEC 80000-1. The division symbol "/" is replaced by the letters "Per". Exponents are written in plain text after the unit as "m3" instead of being formatted as "m" with a superscript of 3  or introducing a symbol as in "m^3". The degree symbol "°" is replaced with the letters "deg". Any clarification of the meaning for a substitution is included in the description for the unit symbol.
+Non-SI units are included in list of unit symbols to allow sources of data to be correctly labelled with their non-SI units (for example, a GPS sensor that is reporting numbers that represent feet instead of meters). This allows software to use the unit symbol information correctly convert and scale the raw data of those sources into SI-based units. 
+The integer values are used for harmonization with IEC 61850.+++
+
+| xref::enumeration/WorkStatusKind.adoc[`WorkStatusKind`]
+| +++Kind of status, specific to work.+++
+
+| xref::enumeration/WorkTaskKind.adoc[`WorkTaskKind`]
+| +++Kinds of work tasks.+++
+
+| xref::enumeration/YesNo.adoc[`YesNo`]
+| +++Used as a flag set to Yes or No.+++
+
+| xref::enumeration/ZoneKind.adoc[`ZoneKind`]
+| +++Kind of zone.+++
+
+|===

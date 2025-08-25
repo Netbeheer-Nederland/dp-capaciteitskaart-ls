@@ -1,0 +1,60 @@
+= `RAGKind`
+:toclevels: 4
+
+
++++Traffic light colors coding scheme for categorising status.+++
+
+
+[cols="h,3",width=65%]
+|===
+| Type
+| Enumeration
+
+| URI
+| `this:RAGKind`
+
+
+| CIM standard (perspective)
+| IEC61970 (Grid)
+
+
+
+|===
+
+== Values
+
+[cols="1,1,5",width=100%]
+|===
+| Value | URI | Description
+
+| `amber`
+| `this:RAGKind.Amber`
+| n/a
+
+| `red`
+| `this:RAGKind.Red`
+| n/a
+
+| `transparant`
+| `this:RAGKind.Transparant`
+| n/a
+
+| `yellow`
+| `this:RAGKind.Yellow`
+| n/a
+|===
+
+== Used by
+
+
+[cols="1,1",width=65%]
+|===
+| Source class | Slot name
+
+
+
+| xref::class/VoltageLevel.adoc[`VoltageLevel`] | xref::class/VoltageLevel.adoc#generationConstraint[`generationConstraint`]
+
+
+|===
+

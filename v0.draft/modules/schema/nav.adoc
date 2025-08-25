@@ -1,0 +1,197 @@
+[.truncate]
+* Information model
+** xref::index.adoc[Index]
+** Classes
+*** xref::class/GeographicalRegion.adoc[GeographicalRegion (root)]
+
+*** xref::class/ACDCTerminal.adoc[ACDCTerminal]
+
+
+
+*** xref::class/Asset.adoc[Asset]
+
+
+
+*** xref::class/BaseVoltage.adoc[BaseVoltage]
+
+
+
+*** xref::class/BaseWork.adoc[BaseWork]
+
+
+
+*** xref::class/ConductingEquipment.adoc[ConductingEquipment]
+
+
+
+*** xref::class/ConnectivityNode.adoc[ConnectivityNode]
+
+
+
+*** xref::class/ConnectivityNodeContainer.adoc[ConnectivityNodeContainer]
+
+
+
+*** xref::class/Contingency.adoc[Contingency]
+
+
+
+*** xref::class/ContingencyElement.adoc[ContingencyElement]
+
+
+
+*** xref::class/ContingencyEquipment.adoc[ContingencyEquipment]
+
+
+
+*** xref::class/DateTimeInterval.adoc[DateTimeInterval]
+
+
+
+*** xref::class/Document.adoc[Document]
+
+
+
+*** xref::class/Equipment.adoc[Equipment]
+
+
+
+*** xref::class/EquipmentContainer.adoc[EquipmentContainer]
+
+
+
+*** xref::class/Flowgate.adoc[Flowgate]
+
+
+
+
+*** xref::class/IdentifiedObject.adoc[IdentifiedObject]
+
+
+
+*** xref::class/Location.adoc[Location]
+
+
+
+*** xref::class/Name.adoc[Name]
+
+
+
+*** xref::class/NameType.adoc[NameType]
+
+
+
+*** xref::class/NameTypeAuthority.adoc[NameTypeAuthority]
+
+
+
+*** xref::class/OperatingParticipant.adoc[OperatingParticipant]
+
+
+
+*** xref::class/OperatingShare.adoc[OperatingShare]
+
+
+
+*** xref::class/PositionPoint.adoc[PositionPoint]
+
+
+
+*** xref::class/PowerSystemResource.adoc[PowerSystemResource]
+
+
+
+*** xref::class/PowerTransformer.adoc[PowerTransformer]
+
+
+
+*** xref::class/PowerTransformerEnd.adoc[PowerTransformerEnd]
+
+
+
+*** xref::class/Project.adoc[Project]
+
+
+
+*** xref::class/RegisteredInterTie.adoc[RegisteredInterTie]
+
+
+
+*** xref::class/RegisteredResource.adoc[RegisteredResource]
+
+
+
+*** xref::class/StreetAddress.adoc[StreetAddress]
+
+
+
+*** xref::class/StreetDetail.adoc[StreetDetail]
+
+
+
+*** xref::class/SubGeographicalRegion.adoc[SubGeographicalRegion]
+
+
+
+*** xref::class/Substation.adoc[Substation]
+
+
+
+*** xref::class/Terminal.adoc[Terminal]
+
+
+
+*** xref::class/TopologicalNode.adoc[TopologicalNode]
+
+
+
+*** xref::class/TownDetail.adoc[TownDetail]
+
+
+
+*** xref::class/TransformerEnd.adoc[TransformerEnd]
+
+
+
+*** xref::class/VoltageLevel.adoc[VoltageLevel]
+
+
+
+*** xref::class/Work.adoc[Work]
+
+
+
+*** xref::class/WorkDocument.adoc[WorkDocument]
+
+
+
+*** xref::class/WorkLocation.adoc[WorkLocation]
+
+
+
+*** xref::class/WorkTask.adoc[WorkTask]
+
+
+
+*** xref::class/Zone.adoc[Zone]
+
+
+
+** CIM data types
+*** xref::class/ActivePower.adoc[ActivePower]
+*** xref::class/Voltage.adoc[Voltage]
+
+
+** Enumerations
+*** xref::enumeration/ContingencyEquipmentStatusKind.adoc[ContingencyEquipmentStatusKind]
+*** xref::enumeration/InterTieDirection.adoc[InterTieDirection]
+*** xref::enumeration/InUseStateKind.adoc[InUseStateKind]
+*** xref::enumeration/RAGKind.adoc[RAGKind]
+*** xref::enumeration/ResourceRegistrationStatus.adoc[ResourceRegistrationStatus]
+*** xref::enumeration/ServiceRequestKind.adoc[ServiceRequestKind]
+*** xref::enumeration/UnitMultiplier.adoc[UnitMultiplier]
+*** xref::enumeration/UnitSymbol.adoc[UnitSymbol]
+*** xref::enumeration/WorkStatusKind.adoc[WorkStatusKind]
+*** xref::enumeration/WorkTaskKind.adoc[WorkTaskKind]
+*** xref::enumeration/YesNo.adoc[YesNo]
+*** xref::enumeration/ZoneKind.adoc[ZoneKind]
