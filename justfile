@@ -14,7 +14,7 @@ _default:
 
 # Build the project
 [group("project")]
-build: clean _post-process-linkml-schema generate-json-schema generate-documentation generate-example-data validate-example-data
+build: clean _post-process-linkml-schema generate-shacl generate-documentation generate-example-data validate-example-data
     @echo "Building project…"
     @echo
     cp -r "artifacts/information_models" "artifacts/documentation/modules/schema/attachments/"
@@ -245,7 +245,8 @@ generate-documentation: _post-process-linkml-schema
     mkdir -p "artifacts/documentation/modules/schema"
     poetry run python -m linkml_asciidoc_generator.main \
         "artifacts/information_models/dp_capaciteitskaart_ls.schema.linkml.yml" \
-        "artifacts/documentation/modules/schema"
+        "artifacts/documentation/modules/schema" \
+        --relations-diagrams
     echo "- modules/schema/nav.adoc" >> artifacts/documentation/antora.yml
     @echo "… OK."
     @echo
@@ -272,22 +273,22 @@ generate-example-data: _post-process-linkml-schema
 
 # Generate JSON Schema
 [group("generators")]
-generate-json-schema: _post-process-linkml-schema
-    @echo "Generating JSON Schema…"
+generate-shacl: _post-process-linkml-schema
+    @echo "Generating SHACL …"
     @echo
-    mkdir -p "artifacts/schemas/json_schema"
-    poetry run gen-json-schema \
-        --not-closed \
+    mkdir -p "artifacts/schemas/shacl"
+    poetry run gen-shacl \
+        --non-closed \
         "artifacts/information_models/dp_capaciteitskaart_ls.schema.linkml.yml" \
-        > "artifacts/schemas/json_schema/dp_capaciteitskaart_ls.json_schema.json"
+        > "artifacts/schemas/shacl/dp_capaciteitskaart_ls.shacl.ttl"
     @echo "… OK."
     @echo
-    @echo "Generated JSON Schema at: artifacts/schemas/json_schema/dp_capaciteitskaart_ls.json_schema.json"
+    @echo "Generated SHACL at: artifacts/schemas/shacl/dp_capaciteitskaart_ls.shacl.ttl"
     @echo
 
 # Validate example data
 [group("validate")]
-validate-example-data: generate-json-schema generate-example-data
+validate-example-data: generate-shacl generate-example-data
     @echo "Validating example data against JSON schema…"
     @echo
     for example_file in artifacts/examples/*.json; do \

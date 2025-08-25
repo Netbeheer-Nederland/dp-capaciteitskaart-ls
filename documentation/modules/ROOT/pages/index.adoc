@@ -1,22 +1,19 @@
 = Capaciteitskaart LS
 
-
+The capacity heatmaps information model is defined to cover a superset of data
+exchanged by the NL Low Voltage (LV) system operators. A minimum set of data is
+defined that all operators are expected to conform to, along with a number of
+optional properties and data types.
 
 .Data Product
 [d2,svg,theme=4]
 ----
-grid-rows: 5
-grid-columns: 5
-
-horizontal-gap: 160
-vertical-gap: 80
-
 vars: {
   d2-config: {
+    layout-engine: elk
     pad: 20
   }
 }
-
 
 legend: "" {
   style: {
@@ -66,13 +63,6 @@ legend: "" {
 }
 
 classes: {
-  empty: {
-    label: ""
-    style: {
-      fill: transparent
-      stroke: transparent
-    }
-  }
   grid: {
     style: {
       fill: "#eccfcb"
@@ -91,15 +81,59 @@ classes: {
       shadow: true
     }
   }
-  dataset: {
-    style: {
-      shadow: true
-    }
-  }
 }
+
+direction: up
+
+GeographicalRegion.class: grid
+SubGeographicalRegion.class: grid
+Substation.class: grid
+VoltageLevel.class: grid
+BaseVoltage.class: grid
+Terminal.class: grid
+TopologicalNode.class: grid
+ConnectivityNode.class: grid
+ContingencyEquipment.class: grid
+OperatingShare.class: grid
+OperatingParticipant.class: grid
+Asset.class: enterprise
+WorkTask.class: enterprise
+Work.class: enterprise
+Project.class: enterprise
+PowerTransformer.class: grid
+PowerTransformerEnd.class: grid
+WorkLocation.class: enterprise
+Zone.class: enterprise
+Contingency.class: grid
+RegisteredInterTie.class: market
+Flowgate.class: market
+
+SubGeographicalRegion -> GeographicalRegion: "SubGeographicalRegion.Region"
+Substation -> SubGeographicalRegion: "Substation.Region"
+PowerTransformer -> Substation: "Equipment.EquipmentContainer"
+PowerTransformerEnd -> PowerTransformer: "PowerTransformerEnd.PowerTransformer"
+PowerTransformerEnd -> BaseVoltage: "TransformerEnd.BaseVoltage"
+PowerTransformerEnd -> Terminal: "TransformerEnd.Terminal"
+Terminal -> ConnectivityNode: "Terminal.ConnectivityNode"
+TopologicalNode -> Terminal: "TopologicalNode.Terminal"
+TopologicalNode -> ConnectivityNode: "TopologicalNode.ConnectivityNodes"
+ContingencyEquipment -> PowerTransformer: "ContingencyEquipment.Equipment"
+ContingencyEquipment -> Contingency: "ContingencyEquipment.Contingency"
+Asset -> PowerTransformer: "Asset.PowerSystemResources"
+WorkTask -> Asset: "WorkTask.Assets"
+WorkTask -> Work: "WorkTask.Work"
+WorkTask -> WorkLocation: "BaseWork.WorkLocation"
+Work -> Project: "Work.Project"
+VoltageLevel -> Substation: "VoltageLevel.Substation"
+VoltageLevel -> BaseVoltage: "VoltageLevel.BaseVoltage"
+VoltageLevel -> Zone: "PowerSystemResource.Location"
+OperatingShare -> VoltageLevel: "OperatingShare.PowerSystemResource"
+OperatingShare -> OperatingParticipant: "OperatingShare.OperatingParticipant"
+RegisteredInterTie -> ConnectivityNode: "RegisteredResource.MktConnectivityNode"
+RegisteredInterTie -> Flowgate: "RegisteredInterTie.Flowgate"
 ----
 
 == Additional artifacts
 
-* xref:schema:attachment$schemas/json_schema/dp_capaciteitskaart_ls.json_schema.json[JSON schema]
-* xref:schema:attachment$examples/dp_capaciteitskaart_ls.example.json[Example JSON instance data]
+* xref:schema:attachment$schemas/shacl/dp_capaciteitskaart_ls.shacl.ttl[SHACL]
+* xref:schema:attachment$examples/dp_capaciteitskaart_ls.example.json[Example JSON-LD instance data]
