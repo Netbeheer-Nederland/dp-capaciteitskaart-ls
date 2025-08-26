@@ -113,6 +113,20 @@ legend: "" {
 |===
 | Name | Type | Description | Inherited from
 
+| <<demandConstraint,`demandConstraint`>>
+//| [[slots_table.demandConstraint]]<<demandConstraint,`demandConstraint`>>
+| 1 +
+xref::enumeration/RAGKind.adoc[`RAGKind`]
+| +++A RAG definition of the demand constraints at the Equipment. A utility should provide details on how this RAG status is...+++
+| _n/a_
+
+| <<generationConstraint,`generationConstraint`>>
+//| [[slots_table.generationConstraint]]<<generationConstraint,`generationConstraint`>>
+| 1 +
+xref::enumeration/RAGKind.adoc[`RAGKind`]
+| +++A RAG definition of the generation constraints at the Equipment. A utility should provide details on how this RAG status is...+++
+| _n/a_
+
 | <<mustStudy,`mustStudy`>>
 //| [[slots_table.mustStudy]]<<mustStudy,`mustStudy`>>
 | 0..1 +
@@ -153,6 +167,32 @@ https://w3id.org/linkml/String[`string`]
 
 
 //[discrete]
+[#demandConstraint]
+=== `demandConstraint`
++++A RAG definition of the demand constraints at the Equipment. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:Contingency.demandConstraint`
+| Cardinality
+| 1
+| Type
+| xref::enumeration/RAGKind.adoc[`RAGKind`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.demandConstraint,&#10548;>>
+--
+////
+
+
+//[discrete]
 [#description]
 === `description`
 +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.+++
@@ -177,6 +217,32 @@ https://w3id.org/linkml/String[`string`]
 [.text-left]
 --
 <<slots_table.description,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#generationConstraint]
+=== `generationConstraint`
++++A RAG definition of the generation constraints at the Equipment. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:Contingency.generationConstraint`
+| Cardinality
+| 1
+| Type
+| xref::enumeration/RAGKind.adoc[`RAGKind`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.generationConstraint,&#10548;>>
 --
 ////
 

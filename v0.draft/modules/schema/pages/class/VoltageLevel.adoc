@@ -166,20 +166,6 @@ xref::class/Substation.adoc[`Substation`]
 | +++The substation of the voltage level.+++
 | _n/a_
 
-| <<demandConstraint,`demandConstraint`>>
-//| [[slots_table.demandConstraint]]<<demandConstraint,`demandConstraint`>>
-| 1 +
-xref::enumeration/RAGKind.adoc[`RAGKind`]
-| +++A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is...+++
-| _n/a_
-
-| <<generationConstraint,`generationConstraint`>>
-//| [[slots_table.generationConstraint]]<<generationConstraint,`generationConstraint`>>
-| 1 +
-xref::enumeration/RAGKind.adoc[`RAGKind`]
-| +++A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is...+++
-| _n/a_
-
 | <<Location,`Location`>>
 //| [[slots_table.Location]]<<Location,`Location`>>
 | 0..1 +
@@ -246,32 +232,6 @@ https://w3id.org/linkml/String[`string`]
 
 
 //[discrete]
-[#demandConstraint]
-=== `demandConstraint`
-+++A RAG definition of the demand constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the "Kleurcodering van het postcodegebied voor afname" in the previous implementation.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `this:Zone.demandConstraint`
-| Cardinality
-| 1
-| Type
-| xref::enumeration/RAGKind.adoc[`RAGKind`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.demandConstraint,&#10548;>>
---
-////
-
-
-//[discrete]
 [#description]
 === `description`
 +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.+++
@@ -296,32 +256,6 @@ https://w3id.org/linkml/String[`string`]
 [.text-left]
 --
 <<slots_table.description,&#10548;>>
---
-////
-
-
-//[discrete]
-[#generationConstraint]
-=== `generationConstraint`
-+++A RAG definition of the generation constraints at the EnergyArea. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation. This is the "Kleurcodering van het postcodegebied voor opwek" in the previous implementation.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `this:Zone.generationConstraint`
-| Cardinality
-| 1
-| Type
-| xref::enumeration/RAGKind.adoc[`RAGKind`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.generationConstraint,&#10548;>>
 --
 ////
 

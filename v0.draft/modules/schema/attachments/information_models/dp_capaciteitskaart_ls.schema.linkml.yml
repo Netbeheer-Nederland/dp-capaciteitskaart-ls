@@ -319,24 +319,6 @@ classes:
         range: Substation
         required: true
         multivalued: false
-      demandConstraint:
-        description: A RAG definition of the demand constraints at the EnergyArea.
-          A utility should provide details on how this RAG status is calculated as
-          part of the accompanying documentation. This is the "Kleurcodering van het
-          postcodegebied voor afname" in the previous implementation.
-        slot_uri: this:Zone.demandConstraint
-        range: RAGKind
-        required: true
-        multivalued: false
-      generationConstraint:
-        description: A RAG definition of the generation constraints at the EnergyArea.
-          A utility should provide details on how this RAG status is calculated as
-          part of the accompanying documentation. This is the "Kleurcodering van het
-          postcodegebied voor opwek" in the previous implementation.
-        slot_uri: this:Zone.generationConstraint
-        range: RAGKind
-        required: true
-        multivalued: false
     class_uri: cim:VoltageLevel
   Voltage:
     annotations:
@@ -1170,6 +1152,22 @@ classes:
         slot_uri: cim:Contingency.mustStudy
         range: boolean
         required: false
+        multivalued: false
+      demandConstraint:
+        description: A RAG definition of the demand constraints at the
+          Equipment. A utility should provide details on how this RAG status
+          is calculated as part of the accompanying documentation.
+        slot_uri: this:Contingency.demandConstraint
+        range: RAGKind
+        required: true
+        multivalued: false
+      generationConstraint:
+        description: A RAG definition of the generation constraints at the
+          Equipment. A utility should provide details on how this RAG status
+          is calculated as part of the accompanying documentation.
+        slot_uri: this:Contingency.generationConstraint
+        range: RAGKind
+        required: true
         multivalued: false
     class_uri: cim:Contingency
   ContingencyElement:

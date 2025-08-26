@@ -53,7 +53,7 @@
 
 
 
-| xref::class/VoltageLevel.adoc[`VoltageLevel`] | xref::class/VoltageLevel.adoc#generationConstraint[`generationConstraint`]
+| xref::class/Contingency.adoc[`Contingency`] | xref::class/Contingency.adoc#generationConstraint[`generationConstraint`]
 
 
 |===
