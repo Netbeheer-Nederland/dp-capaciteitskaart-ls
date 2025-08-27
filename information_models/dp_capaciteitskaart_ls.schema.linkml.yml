@@ -8,10 +8,12 @@ imports:
   - linkml:types
 prefixes:
   linkml: https://w3id.org/linkml/
-  eu: http://iec.ch/TC57/CIM100-European#
   cim: https://cim.ucaiug.io/ns#
-  dct: http://purl.org/dc/terms/
-  gh: https://github.com/
+  eu: https://cim.ucaiug.io/ns/eu#
+  dcterms: http://purl.org/dc/terms/
+  dcat: http://www.w3.org/ns/dcat#
+  prov: http://www.w3.org/ns/prov#
+  xsd: http://www.w3.org/2001/XMLSchema#
   ck: http://data.netbeheernederland.nl/dp-capaciteitskaart-ls/def#
 enums:
   RAGKind:
@@ -627,7 +629,7 @@ classes:
       Equipment:
         description: The single piece of equipment to which to apply the contingency.
         slot_uri: cim:ContingencyEquipment.Equipment
-        range: Equipment
+        range: PowerTransformer
         required: true
         multivalued: false
     class_uri: cim:ContingencyEquipment
@@ -662,7 +664,7 @@ classes:
       PowerSystemResource:
         description: The power system resource to which the share applies.
         slot_uri: cim:OperatingShare.PowerSystemResource
-        range: PowerSystemResource
+        range: VoltageLevel
         required: true
         multivalued: false
     class_uri: cim:OperatingShare
