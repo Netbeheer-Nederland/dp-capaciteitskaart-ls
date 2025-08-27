@@ -115,7 +115,7 @@ legend: "" {
 
 | <<NameTypeAuthority,`NameTypeAuthority`>>
 //| [[slots_table.NameTypeAuthority]]<<NameTypeAuthority,`NameTypeAuthority`>>
-| 0..1 +
+| 1 +
 xref::class/NameTypeAuthority.adoc[`NameTypeAuthority`]
 | +++Authority responsible for managing names of this type.+++
 | _n/a_
@@ -129,7 +129,7 @@ https://w3id.org/linkml/String[`string`]
 
 | <<name,`name`>>
 //| [[slots_table.name]]<<name,`name`>>
-| 0..1 +
+| 1 +
 https://w3id.org/linkml/String[`string`]
 | +++Name of the name type.+++
 | _n/a_
@@ -175,7 +175,7 @@ https://w3id.org/linkml/String[`string`]
 | URI
 | `cim:NameType.name`
 | Cardinality
-| 0..1
+| 1
 | Type
 | https://w3id.org/linkml/String[`string`]
 
@@ -201,7 +201,7 @@ https://w3id.org/linkml/String[`string`]
 | URI
 | `cim:NameType.NameTypeAuthority`
 | Cardinality
-| 0..1
+| 1
 | Type
 | xref::class/NameTypeAuthority.adoc[`NameTypeAuthority`]
 

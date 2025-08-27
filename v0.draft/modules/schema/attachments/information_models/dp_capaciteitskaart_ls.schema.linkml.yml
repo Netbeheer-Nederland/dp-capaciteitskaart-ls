@@ -398,12 +398,6 @@ classes:
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Topology
     is_a: IdentifiedObject
     attributes:
-      BaseVoltage:
-        description: The base voltage of the topological node.
-        slot_uri: cim:TopologicalNode.BaseVoltage
-        range: BaseVoltage
-        required: false
-        multivalued: false
       ConnectivityNodes:
         slot_uri: cim:TopologicalNode.ConnectivityNodes
         range: ConnectivityNode
@@ -414,7 +408,7 @@ classes:
       Terminal:
         slot_uri: cim:TopologicalNode.Terminal
         range: Terminal
-        required: false
+        required: true
         multivalued: true
         description: The terminals associated with the topological node.   This can
           be used as an alternative to the connectivity node path to terminal, thus
@@ -460,13 +454,6 @@ classes:
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     is_a: IdentifiedObject
     attributes:
-      TopologicalNode:
-        description: The topological node to which this connectivity node is assigned.  May
-          depend on the current state of switches in the network.
-        slot_uri: cim:ConnectivityNode.TopologicalNode
-        range: TopologicalNode
-        required: false
-        multivalued: false
       ConnectivityNodeContainer:
         description: Container of this connectivity node.
         slot_uri: cim:ConnectivityNode.ConnectivityNodeContainer
@@ -490,7 +477,7 @@ classes:
           \ number need not match the terminal sequence number.\r\n"
         slot_uri: cim:TransformerEnd.endNumber
         range: integer
-        required: false
+        required: true
         multivalued: false
       BaseVoltage:
         description: Base voltage of the transformer end.  This is essential for PU
@@ -537,7 +524,7 @@ classes:
           \ text naming the object.\r\n"
         slot_uri: cim:IdentifiedObject.name
         range: string
-        required: false
+        required: true
         multivalued: false
       Names:
         description: All names of this identified object.
@@ -558,7 +545,7 @@ classes:
         description: "Any free text that name the object.\r\n"
         slot_uri: cim:Name.name
         range: string
-        required: false
+        required: true
         multivalued: false
       NameType:
         description: Type of this name.
@@ -591,13 +578,13 @@ classes:
         description: "Name of the name type.\r\n"
         slot_uri: cim:NameType.name
         range: string
-        required: false
+        required: true
         multivalued: false
       NameTypeAuthority:
         description: Authority responsible for managing names of this type.
         slot_uri: cim:NameType.NameTypeAuthority
         range: NameTypeAuthority
-        required: false
+        required: true
         multivalued: false
     class_uri: cim:NameType
   NameTypeAuthority:
@@ -615,7 +602,7 @@ classes:
         description: "Name of the name type authority.\r\n"
         slot_uri: cim:NameTypeAuthority.name
         range: string
-        required: false
+        required: true
         multivalued: false
     class_uri: cim:NameTypeAuthority
   EquipmentContainer:
@@ -643,32 +630,6 @@ classes:
           \  \r\nThe attribute is not used for EquivalentBranch, EquivalentShunt and\
           \ EquivalentInjection."
         slot_uri: cim:Equipment.aggregate
-        range: boolean
-        required: false
-        multivalued: false
-      inService:
-        description: Specifies the availability of the equipment. True means the equipment
-          is available for topology processing, which determines if the equipment
-          is energized or not. False means that the equipment is treated by network
-          applications as if it is not in the model.
-        slot_uri: cim:Equipment.inService
-        range: boolean
-        required: false
-        multivalued: false
-      networkAnalysisEnabled:
-        description: The equipment is enabled to participate in network analysis.  If
-          unspecified, the value is assumed to be true.
-        slot_uri: cim:Equipment.networkAnalysisEnabled
-        range: boolean
-        required: false
-        multivalued: false
-      normallyInService:
-        description: Specifies the availability of the equipment under normal operating
-          conditions. True means the equipment is available for topology processing,
-          which determines if the equipment is energized or not. False means that
-          the equipment is treated by network applications as if it is not in the
-          model.
-        slot_uri: cim:Equipment.normallyInService
         range: boolean
         required: false
         multivalued: false
@@ -805,17 +766,11 @@ classes:
     description: General purpose street and postal address information.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Common
     attributes:
-      poBox:
-        description: Post office box.
-        slot_uri: cim:StreetAddress.poBox
-        range: string
-        required: false
-        multivalued: false
       postalCode:
         description: Postal code for the address.
         slot_uri: cim:StreetAddress.postalCode
         range: string
-        required: false
+        required: true
         multivalued: false
       streetDetail:
         description: Street detail.
@@ -919,19 +874,19 @@ classes:
         description: X axis position.
         slot_uri: cim:PositionPoint.xPosition
         range: string
-        required: false
+        required: true
         multivalued: false
       yPosition:
         description: Y axis position.
         slot_uri: cim:PositionPoint.yPosition
         range: string
-        required: false
+        required: true
         multivalued: false
       zPosition:
         description: (if applicable) Z axis position.
         slot_uri: cim:PositionPoint.zPosition
         range: string
-        required: false
+        required: true
         multivalued: false
       Location:
         description: Location described by this position point.
@@ -1003,7 +958,7 @@ classes:
       Project:
         slot_uri: cim:Work.Project
         range: Project
-        required: false
+        required: true
         multivalued: false
     class_uri: cim:Work
   Project:
@@ -1104,7 +1059,7 @@ classes:
         description: Location for this work/task.
         slot_uri: cim:BaseWork.WorkLocation
         range: WorkLocation
-        required: false
+        required: true
         multivalued: false
     abstract: true
     class_uri: cim:BaseWork
@@ -1141,7 +1096,7 @@ classes:
         description: Kind of this zone.
         slot_uri: cim:Zone.kind
         range: ZoneKind
-        required: false
+        required: true
         multivalued: false
     class_uri: cim:Zone
   Contingency:
@@ -1154,7 +1109,7 @@ classes:
         description: Set true if must study this contingency.
         slot_uri: cim:Contingency.mustStudy
         range: boolean
-        required: false
+        required: true
         multivalued: false
       demandConstraint:
         description: A RAG definition of the demand constraints at the
@@ -1196,7 +1151,7 @@ classes:
         description: Indicates the direction (export/import) of an InterTie resource.
         slot_uri: cim:RegisteredInterTie.direction
         range: InterTieDirection
-        required: false
+        required: true
         multivalued: false
       Flowgate:
         slot_uri: cim:RegisteredInterTie.Flowgate
@@ -1215,7 +1170,7 @@ classes:
         description: "The direction of the flowgate, export or import\r\n"
         slot_uri: cim:Flowgate.direction
         range: InterTieDirection
-        required: false
+        required: true
         multivalued: false
       exportMWRating:
         description: "Export MW rating\r\n"
@@ -1254,7 +1209,7 @@ classes:
       MktConnectivityNode:
         slot_uri: cim:RegisteredResource.MktConnectivityNode
         range: ConnectivityNode
-        required: false
+        required: true
         multivalued: false
     abstract: true
     class_uri: cim:RegisteredResource

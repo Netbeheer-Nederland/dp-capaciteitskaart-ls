@@ -128,21 +128,21 @@ https://w3id.org/linkml/Integer[`integer`]
 
 | <<xPosition,`xPosition`>>
 //| [[slots_table.xPosition]]<<xPosition,`xPosition`>>
-| 0..1 +
+| 1 +
 https://w3id.org/linkml/String[`string`]
 | +++X axis position.+++
 | _n/a_
 
 | <<yPosition,`yPosition`>>
 //| [[slots_table.yPosition]]<<yPosition,`yPosition`>>
-| 0..1 +
+| 1 +
 https://w3id.org/linkml/String[`string`]
 | +++Y axis position.+++
 | _n/a_
 
 | <<zPosition,`zPosition`>>
 //| [[slots_table.zPosition]]<<zPosition,`zPosition`>>
-| 0..1 +
+| 1 +
 https://w3id.org/linkml/String[`string`]
 | +++(if applicable) Z axis position.+++
 | _n/a_
@@ -214,7 +214,7 @@ https://w3id.org/linkml/String[`string`]
 | URI
 | `cim:PositionPoint.xPosition`
 | Cardinality
-| 0..1
+| 1
 | Type
 | https://w3id.org/linkml/String[`string`]
 
@@ -240,7 +240,7 @@ https://w3id.org/linkml/String[`string`]
 | URI
 | `cim:PositionPoint.yPosition`
 | Cardinality
-| 0..1
+| 1
 | Type
 | https://w3id.org/linkml/String[`string`]
 
@@ -266,7 +266,7 @@ https://w3id.org/linkml/String[`string`]
 | URI
 | `cim:PositionPoint.zPosition`
 | Cardinality
-| 0..1
+| 1
 | Type
 | https://w3id.org/linkml/String[`string`]
 

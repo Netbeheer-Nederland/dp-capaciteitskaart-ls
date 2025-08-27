@@ -124,16 +124,9 @@ legend: "" {
 |===
 | Name | Type | Description | Inherited from
 
-| <<poBox,`poBox`>>
-//| [[slots_table.poBox]]<<poBox,`poBox`>>
-| 0..1 +
-https://w3id.org/linkml/String[`string`]
-| +++Post office box.+++
-| _n/a_
-
 | <<postalCode,`postalCode`>>
 //| [[slots_table.postalCode]]<<postalCode,`postalCode`>>
-| 0..1 +
+| 1 +
 https://w3id.org/linkml/String[`string`]
 | +++Postal code for the address.+++
 | _n/a_
@@ -157,32 +150,6 @@ xref::class/TownDetail.adoc[`TownDetail`]
 
 
 //[discrete]
-[#poBox]
-=== `poBox`
-+++Post office box.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:StreetAddress.poBox`
-| Cardinality
-| 0..1
-| Type
-| https://w3id.org/linkml/String[`string`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.poBox,&#10548;>>
---
-////
-
-
-//[discrete]
 [#postalCode]
 === `postalCode`
 +++Postal code for the address.+++
@@ -193,7 +160,7 @@ xref::class/TownDetail.adoc[`TownDetail`]
 | URI
 | `cim:StreetAddress.postalCode`
 | Cardinality
-| 0..1
+| 1
 | Type
 | https://w3id.org/linkml/String[`string`]
 

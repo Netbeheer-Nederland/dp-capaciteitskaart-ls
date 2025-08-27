@@ -129,7 +129,7 @@ xref::enumeration/RAGKind.adoc[`RAGKind`]
 
 | <<mustStudy,`mustStudy`>>
 //| [[slots_table.mustStudy]]<<mustStudy,`mustStudy`>>
-| 0..1 +
+| 1 +
 https://w3id.org/linkml/Boolean[`boolean`]
 | +++Set true if must study this contingency.+++
 | _n/a_
@@ -157,7 +157,7 @@ https://w3id.org/linkml/String[`string`]
 
 | <<name,`name`>>
 //| [[slots_table.name]]<<name,`name`>>
-| 0..1 +
+| 1 +
 https://w3id.org/linkml/String[`string`]
 | +++The name is any free human readable and possibly non unique text naming the object.+++
 | xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
@@ -288,7 +288,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | URI
 | `cim:Contingency.mustStudy`
 | Cardinality
-| 0..1
+| 1
 | Type
 | https://w3id.org/linkml/Boolean[`boolean`]
 
@@ -314,7 +314,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | URI
 | `cim:IdentifiedObject.name`
 | Cardinality
-| 0..1
+| 1
 | Type
 | https://w3id.org/linkml/String[`string`]
 

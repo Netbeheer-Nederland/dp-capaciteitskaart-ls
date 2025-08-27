@@ -48,15 +48,6 @@ TopologicalNode {
 
 
 
-BaseVoltage {
-  style {
-    fill: "#eccfcb"
-    shadow: true
-  }
-}
-
-
-
 ConnectivityNode {
   style {
     fill: "#eccfcb"
@@ -83,9 +74,6 @@ Name {
 }
 
 
-
-
-TopologicalNode -> BaseVoltage: BaseVoltage
 
 
 TopologicalNode -> ConnectivityNode: ConnectivityNodes
@@ -150,13 +138,6 @@ legend: "" {
 |===
 | Name | Type | Description | Inherited from
 
-| <<BaseVoltage,`BaseVoltage`>>
-//| [[slots_table.BaseVoltage]]<<BaseVoltage,`BaseVoltage`>>
-| 0..1 +
-xref::class/BaseVoltage.adoc[`BaseVoltage`]
-| +++The base voltage of the topological node.+++
-| _n/a_
-
 | <<ConnectivityNodes,`ConnectivityNodes`>>
 //| [[slots_table.ConnectivityNodes]]<<ConnectivityNodes,`ConnectivityNodes`>>
 | 0..* +
@@ -166,7 +147,7 @@ xref::class/ConnectivityNode.adoc[`ConnectivityNode`]
 
 | <<Terminal,`Terminal`>>
 //| [[slots_table.Terminal]]<<Terminal,`Terminal`>>
-| 0..* +
+| 1..* +
 xref::class/Terminal.adoc[`Terminal`]
 | +++The terminals associated with the topological node.   This can be used as an alternative to the connectivity node path to...+++
 | _n/a_
@@ -194,39 +175,13 @@ https://w3id.org/linkml/String[`string`]
 
 | <<name,`name`>>
 //| [[slots_table.name]]<<name,`name`>>
-| 0..1 +
+| 1 +
 https://w3id.org/linkml/String[`string`]
 | +++The name is any free human readable and possibly non unique text naming the object.+++
 | xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
 |===
 
 '''
-
-
-//[discrete]
-[#BaseVoltage]
-=== `BaseVoltage`
-+++The base voltage of the topological node.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:TopologicalNode.BaseVoltage`
-| Cardinality
-| 0..1
-| Type
-| xref::class/BaseVoltage.adoc[`BaseVoltage`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.BaseVoltage,&#10548;>>
---
-////
 
 
 //[discrete]
@@ -325,7 +280,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | URI
 | `cim:IdentifiedObject.name`
 | Cardinality
-| 0..1
+| 1
 | Type
 | https://w3id.org/linkml/String[`string`]
 
@@ -383,7 +338,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | URI
 | `cim:TopologicalNode.Terminal`
 | Cardinality
-| 0..*
+| 1..*
 | Type
 | xref::class/Terminal.adoc[`Terminal`]
 
@@ -404,14 +359,4 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 == Used by
 
 
-[cols="1,1",width=65%]
-|===
-| Source class | Slot name
-
-
-
-| xref::class/ConnectivityNode.adoc[`ConnectivityNode`] | xref::class/ConnectivityNode.adoc#TopologicalNode[`TopologicalNode`]
-
-
-|===
-
+This class is not used by any other classes as the range of a slot.

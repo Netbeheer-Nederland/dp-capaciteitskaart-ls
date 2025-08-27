@@ -47,15 +47,6 @@ ConnectivityNode {
 
 
 
-TopologicalNode {
-  style {
-    fill: "#eccfcb"
-    shadow: true
-  }
-}
-
-
-
 ConnectivityNodeContainer {
   style {
     fill: "#eccfcb"
@@ -73,9 +64,6 @@ Name {
 }
 
 
-
-
-ConnectivityNode -> TopologicalNode: TopologicalNode
 
 
 ConnectivityNode -> ConnectivityNodeContainer: ConnectivityNodeContainer
@@ -144,13 +132,6 @@ xref::class/ConnectivityNodeContainer.adoc[`ConnectivityNodeContainer`]
 | +++Container of this connectivity node.+++
 | _n/a_
 
-| <<TopologicalNode,`TopologicalNode`>>
-//| [[slots_table.TopologicalNode]]<<TopologicalNode,`TopologicalNode`>>
-| 0..1 +
-xref::class/TopologicalNode.adoc[`TopologicalNode`]
-| +++The topological node to which this connectivity node is assigned.  May depend on the current state of switches in the network.+++
-| _n/a_
-
 | <<Names,`Names`>>
 //| [[slots_table.Names]]<<Names,`Names`>>
 | 0..* +
@@ -174,7 +155,7 @@ https://w3id.org/linkml/String[`string`]
 
 | <<name,`name`>>
 //| [[slots_table.name]]<<name,`name`>>
-| 0..1 +
+| 1 +
 https://w3id.org/linkml/String[`string`]
 | +++The name is any free human readable and possibly non unique text naming the object.+++
 | xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
@@ -279,7 +260,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | URI
 | `cim:IdentifiedObject.name`
 | Cardinality
-| 0..1
+| 1
 | Type
 | https://w3id.org/linkml/String[`string`]
 
@@ -322,32 +303,6 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 [.text-left]
 --
 <<slots_table.Names,&#10548;>>
---
-////
-
-
-//[discrete]
-[#TopologicalNode]
-=== `TopologicalNode`
-+++The topological node to which this connectivity node is assigned.  May depend on the current state of switches in the network.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:ConnectivityNode.TopologicalNode`
-| Cardinality
-| 0..1
-| Type
-| xref::class/TopologicalNode.adoc[`TopologicalNode`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.TopologicalNode,&#10548;>>
 --
 ////
 

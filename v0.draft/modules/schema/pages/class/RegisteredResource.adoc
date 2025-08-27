@@ -141,7 +141,7 @@ legend: "" {
 
 | <<MktConnectivityNode,`MktConnectivityNode`>>
 //| [[slots_table.MktConnectivityNode]]<<MktConnectivityNode,`MktConnectivityNode`>>
-| 0..1 +
+| 1 +
 xref::class/ConnectivityNode.adoc[`ConnectivityNode`]
 | _n/a_
 | _n/a_
@@ -190,7 +190,7 @@ https://w3id.org/linkml/String[`string`]
 
 | <<name,`name`>>
 //| [[slots_table.name]]<<name,`name`>>
-| 0..1 +
+| 1 +
 https://w3id.org/linkml/String[`string`]
 | +++The name is any free human readable and possibly non unique text naming the object.+++
 | xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
@@ -320,7 +320,7 @@ https://w3id.org/linkml/String[`string`]
 | URI
 | `cim:RegisteredResource.MktConnectivityNode`
 | Cardinality
-| 0..1
+| 1
 | Type
 | xref::class/ConnectivityNode.adoc[`ConnectivityNode`]
 
@@ -376,7 +376,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | URI
 | `cim:IdentifiedObject.name`
 | Cardinality
-| 0..1
+| 1
 | Type
 | https://w3id.org/linkml/String[`string`]
 

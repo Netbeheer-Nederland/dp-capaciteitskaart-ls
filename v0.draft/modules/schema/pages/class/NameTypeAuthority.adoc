@@ -43,7 +43,7 @@ https://w3id.org/linkml/String[`string`]
 
 | <<name,`name`>>
 //| [[slots_table.name]]<<name,`name`>>
-| 0..1 +
+| 1 +
 https://w3id.org/linkml/String[`string`]
 | +++Name of the name type authority.+++
 | _n/a_
@@ -89,7 +89,7 @@ https://w3id.org/linkml/String[`string`]
 | URI
 | `cim:NameTypeAuthority.name`
 | Cardinality
-| 0..1
+| 1
 | Type
 | https://w3id.org/linkml/String[`string`]
 

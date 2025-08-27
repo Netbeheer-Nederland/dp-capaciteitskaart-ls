@@ -134,7 +134,7 @@ legend: "" {
 
 | <<direction,`direction`>>
 //| [[slots_table.direction]]<<direction,`direction`>>
-| 0..1 +
+| 1 +
 xref::enumeration/InterTieDirection.adoc[`InterTieDirection`]
 | +++The direction of the flowgate, export or import+++
 | _n/a_
@@ -183,7 +183,7 @@ https://w3id.org/linkml/String[`string`]
 
 | <<name,`name`>>
 //| [[slots_table.name]]<<name,`name`>>
-| 0..1 +
+| 1 +
 https://w3id.org/linkml/String[`string`]
 | +++The name is any free human readable and possibly non unique text naming the object.+++
 | xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
@@ -232,7 +232,7 @@ https://w3id.org/linkml/String[`string`]
 | URI
 | `cim:Flowgate.direction`
 | Cardinality
-| 0..1
+| 1
 | Type
 | xref::enumeration/InterTieDirection.adoc[`InterTieDirection`]
 
@@ -369,7 +369,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | URI
 | `cim:IdentifiedObject.name`
 | Cardinality
-| 0..1
+| 1
 | Type
 | https://w3id.org/linkml/String[`string`]
 

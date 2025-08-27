@@ -121,7 +121,7 @@ xref::class/NameType.adoc[`NameType`]
 
 | <<name,`name`>>
 //| [[slots_table.name]]<<name,`name`>>
-| 0..1 +
+| 1 +
 https://w3id.org/linkml/String[`string`]
 | +++Any free text that name the object.+++
 | _n/a_
@@ -141,7 +141,7 @@ https://w3id.org/linkml/String[`string`]
 | URI
 | `cim:Name.name`
 | Cardinality
-| 0..1
+| 1
 | Type
 | https://w3id.org/linkml/String[`string`]
 
