@@ -137,4 +137,4 @@ BoundaryPoint -> ConnectivityNode: "BoundaryPoint.ConnectivityNode"
 == Additional artifacts
 
 * xref:schema:attachment$schemas/shacl/dp_capaciteitskaart_ls.shacl.ttl[SHACL]
-* xref:schema:attachment$examples/dp_capaciteitskaart_ls.example.json[Example JSON-LD instance data]
+* xref:schema:attachment$examples/dp_capaciteitskaart_ls.example.jsonld[Example JSON-LD instance data]
