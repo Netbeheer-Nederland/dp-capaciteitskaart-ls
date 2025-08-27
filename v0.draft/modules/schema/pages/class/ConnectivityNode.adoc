@@ -319,7 +319,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 
 
 
-| xref::class/RegisteredResource.adoc[`RegisteredResource`] | xref::class/RegisteredResource.adoc#MktConnectivityNode[`MktConnectivityNode`]
+| xref::class/BoundaryPoint.adoc[`BoundaryPoint`] | xref::class/BoundaryPoint.adoc#ConnectivityNode[`ConnectivityNode`]
 
 
 

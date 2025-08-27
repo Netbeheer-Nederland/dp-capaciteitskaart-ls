@@ -24,10 +24,9 @@
 == Class hierarchy
 * xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
 ** *`PowerSystemResource`*
+ *** xref::class/BoundaryPoint.adoc[`BoundaryPoint`]
  *** xref::class/ConnectivityNodeContainer.adoc[`ConnectivityNodeContainer`]
  *** xref::class/Equipment.adoc[`Equipment`]
- *** xref::class/Flowgate.adoc[`Flowgate`]
- *** xref::class/RegisteredResource.adoc[`RegisteredResource`]
 
 
 == Slots

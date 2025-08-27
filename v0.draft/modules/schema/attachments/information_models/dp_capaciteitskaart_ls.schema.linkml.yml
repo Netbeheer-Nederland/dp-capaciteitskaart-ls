@@ -9,6 +9,7 @@ imports:
   - linkml:types
 prefixes:
   linkml: https://w3id.org/linkml/
+  eu: http://iec.ch/TC57/CIM100-European#
   cim: https://cim.ucaiug.io/ns#
   dct: http://purl.org/dc/terms/
   gh: https://github.com/
@@ -233,38 +234,6 @@ enums:
         meaning: cim:ZoneKind.specialRestrictionLand
       weatherZone:
         meaning: cim:ZoneKind.weatherZone
-  InterTieDirection:
-    description: Direction of an intertie.
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM
-    enum_uri: cim:InterTieDirection
-    permissible_values:
-      E:
-        meaning: cim:InterTieDirection.E
-      I:
-        meaning: cim:InterTieDirection.I
-  YesNo:
-    description: Used as a flag set to Yes or No.
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM
-    enum_uri: cim:YesNo
-    permissible_values:
-      'NO':
-        meaning: cim:YesNo.NO
-      'YES':
-        meaning: cim:YesNo.YES
-  ResourceRegistrationStatus:
-    description: "Types of resource registration status, for example:\r\n\r\nActive\r\
-      \nMothballed\r\nPlanned\r\nDecommissioned\r\n"
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM
-    enum_uri: cim:ResourceRegistrationStatus
-    permissible_values:
-      Active:
-        meaning: cim:ResourceRegistrationStatus.Active
-      Decommissioned:
-        meaning: cim:ResourceRegistrationStatus.Decommissioned
-      Mothballed:
-        meaning: cim:ResourceRegistrationStatus.Mothballed
-      Planned:
-        meaning: cim:ResourceRegistrationStatus.Planned
 classes:
   GeographicalRegion:
     description: "A geographical region of a power system network model.\r\n"
@@ -1142,77 +1111,38 @@ classes:
         multivalued: false
     abstract: true
     class_uri: cim:ContingencyElement
-  RegisteredInterTie:
-    description: "This class represents the inter tie resource.\r\n"
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC62325.MarketOperations.ReferenceData
-    is_a: RegisteredResource
+  BoundaryPoint:
+    class_uri: eu:BoundaryPoint
     attributes:
-      direction:
-        description: Indicates the direction (export/import) of an InterTie resource.
-        slot_uri: cim:RegisteredInterTie.direction
-        range: InterTieDirection
+      fromEndNameTso:
+        slot_uri: eu:BoundaryPoint.fromEndNameTso
+        range: string
+        multivalued: false
         required: true
+        description: Identifies the name of the transmission system operator, distribution
+          system operator or other entity at which the "From" side of the interconnection
+          is connected to. The length of the string is 64 characters maximum.
+      toEndNameTso:
+        slot_uri: eu:BoundaryPoint.toEndNameTso
+        range: string
         multivalued: false
-      Flowgate:
-        slot_uri: cim:RegisteredInterTie.Flowgate
-        range: Flowgate
         required: true
-        multivalued: false
-    class_uri: cim:RegisteredInterTie
-  Flowgate:
-    description: "A flowgate, is single or group of transmission elements intended\
-      \ to model MW flow impact relating to transmission limitations and transmission\
-      \ service usage. \r\n"
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC62325.MarketOperations.ReferenceData
-    is_a: PowerSystemResource
-    attributes:
-      direction:
-        description: "The direction of the flowgate, export or import\r\n"
-        slot_uri: cim:Flowgate.direction
-        range: InterTieDirection
-        required: true
-        multivalued: false
-      exportMWRating:
-        description: "Export MW rating\r\n"
-        slot_uri: cim:Flowgate.exportMWRating
-        range: ActivePower
-        required: false
-        multivalued: false
-      importMWRating:
-        description: "Import MW rating\r\n"
-        slot_uri: cim:Flowgate.importMWRating
-        range: ActivePower
-        required: false
-        multivalued: false
-    class_uri: cim:Flowgate
-  RegisteredResource:
-    description: A resource that is registered through the market participant registration
-      system. Examples include generating unit, load, and non-physical generator or
-      load.
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC62325.MarketCommon
-    is_a: PowerSystemResource
-    attributes:
-      isAggregatedRes:
-        description: "A flag to indicate if a resource is an aggregated resource.\r\
-          \n"
-        slot_uri: cim:RegisteredResource.isAggregatedRes
-        range: YesNo
-        required: false
-        multivalued: false
-      lastModified:
-        description: "Indication of the last time this item was modified/versioned.\r\
-          \n"
-        slot_uri: cim:RegisteredResource.lastModified
-        range: date
-        required: false
-        multivalued: false
-      MktConnectivityNode:
-        slot_uri: cim:RegisteredResource.MktConnectivityNode
+        description: Identifies the name of the transmission system operator, distribution
+          system operator or other entity at which the "To" side of the interconnection
+          is connected to. The length of the string is 64 characters maximum.
+      ConnectivityNode:
+        slot_uri: eu:BoundaryPoint.ConnectivityNode
         range: ConnectivityNode
-        required: true
         multivalued: false
-    abstract: true
-    class_uri: cim:RegisteredResource
+        required: true
+        description: The connectivity node that is designated as a boundary point.
+    is_a: PowerSystemResource
+    description: Designates a connection point at which one or more model authority
+      sets shall connect to. The location of the connection point as well as other
+      properties are agreed between organisations responsible for the interconnection,
+      hence all attributes of the class represent this agreement.  It is primarily
+      used in a boundary model authority set which can contain one or many BoundaryPoint-s
+      among other Equipment-s and their connections.
   DateTimeInterval:
     description: 'Interval between two date and time points, where the interval includes
       the start time but excludes end time.  '

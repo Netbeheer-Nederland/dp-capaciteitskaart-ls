@@ -19,6 +19,9 @@
 | xref::class/BaseWork.adoc[`BaseWork`]
 | +++Common representation for work and work tasks.+++
 
+| xref::class/BoundaryPoint.adoc[`BoundaryPoint`]
+| +++Designates a connection point at which one or more model authority sets shall connect to. The location of the connection point as well as other properties are agreed between organisations responsible for the interconnection, hence all attributes of the class represent this agreement.  It is primarily used in a boundary model authority set which can contain one or many BoundaryPoint-s among other Equipment-s and their connections.+++
+
 | xref::class/ConductingEquipment.adoc[`ConductingEquipment`]
 | +++The parts of the AC power system that are designed to carry current or that are conductively connected through terminals.+++
 
@@ -48,9 +51,6 @@
 
 | xref::class/EquipmentContainer.adoc[`EquipmentContainer`]
 | +++A modelling construct to provide a root class for containing equipment.+++
-
-| xref::class/Flowgate.adoc[`Flowgate`]
-| +++A flowgate, is single or group of transmission elements intended to model MW flow impact relating to transmission limitations and transmission service usage.+++
 
 | xref::class/GeographicalRegion.adoc[`GeographicalRegion`]
 | +++A geographical region of a power system network model.+++
@@ -100,12 +100,6 @@ Each PowerTransformerEnd must be contained by a PowerTransformer. Because a Powe
 
 | xref::class/Project.adoc[`Project`]
 | +++A collection of related work. For construction projects and maintenance projects, multiple phases may be performed.+++
-
-| xref::class/RegisteredInterTie.adoc[`RegisteredInterTie`]
-| +++This class represents the inter tie resource.+++
-
-| xref::class/RegisteredResource.adoc[`RegisteredResource`]
-| +++A resource that is registered through the market participant registration system. Examples include generating unit, load, and non-physical generator or load.+++
 
 | xref::class/StreetAddress.adoc[`StreetAddress`]
 | +++General purpose street and postal address information.+++
@@ -181,22 +175,11 @@ For a planning model, switch statuses are not used to form topological nodes. In
 | xref::enumeration/ContingencyEquipmentStatusKind.adoc[`ContingencyEquipmentStatusKind`]
 | +++Indicates the state which the contingency equipment is to be in when the contingency is applied.+++
 
-| xref::enumeration/InterTieDirection.adoc[`InterTieDirection`]
-| +++Direction of an intertie.+++
-
 | xref::enumeration/InUseStateKind.adoc[`InUseStateKind`]
 | +++Possible 'in use' states that an asset can be in.+++
 
 | xref::enumeration/RAGKind.adoc[`RAGKind`]
 | +++Traffic light colors coding scheme for categorising status.+++
-
-| xref::enumeration/ResourceRegistrationStatus.adoc[`ResourceRegistrationStatus`]
-| +++Types of resource registration status, for example:
-
-Active
-Mothballed
-Planned
-Decommissioned+++
 
 | xref::enumeration/ServiceRequestKind.adoc[`ServiceRequestKind`]
 | +++Kinds of service requests+++
@@ -220,9 +203,6 @@ The integer values are used for harmonization with IEC 61850.+++
 
 | xref::enumeration/WorkTaskKind.adoc[`WorkTaskKind`]
 | +++Kinds of work tasks.+++
-
-| xref::enumeration/YesNo.adoc[`YesNo`]
-| +++Used as a flag set to Yes or No.+++
 
 | xref::enumeration/ZoneKind.adoc[`ZoneKind`]
 | +++Kind of zone.+++

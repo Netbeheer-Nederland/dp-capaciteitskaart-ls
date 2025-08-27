@@ -20,6 +20,10 @@
 
 
 
+*** xref::class/BoundaryPoint.adoc[BoundaryPoint]
+
+
+
 *** xref::class/ConductingEquipment.adoc[ConductingEquipment]
 
 
@@ -57,10 +61,6 @@
 
 
 *** xref::class/EquipmentContainer.adoc[EquipmentContainer]
-
-
-
-*** xref::class/Flowgate.adoc[Flowgate]
 
 
 
@@ -110,14 +110,6 @@
 
 
 *** xref::class/Project.adoc[Project]
-
-
-
-*** xref::class/RegisteredInterTie.adoc[RegisteredInterTie]
-
-
-
-*** xref::class/RegisteredResource.adoc[RegisteredResource]
 
 
 
@@ -184,14 +176,11 @@
 
 ** Enumerations
 *** xref::enumeration/ContingencyEquipmentStatusKind.adoc[ContingencyEquipmentStatusKind]
-*** xref::enumeration/InterTieDirection.adoc[InterTieDirection]
 *** xref::enumeration/InUseStateKind.adoc[InUseStateKind]
 *** xref::enumeration/RAGKind.adoc[RAGKind]
-*** xref::enumeration/ResourceRegistrationStatus.adoc[ResourceRegistrationStatus]
 *** xref::enumeration/ServiceRequestKind.adoc[ServiceRequestKind]
 *** xref::enumeration/UnitMultiplier.adoc[UnitMultiplier]
 *** xref::enumeration/UnitSymbol.adoc[UnitSymbol]
 *** xref::enumeration/WorkStatusKind.adoc[WorkStatusKind]
 *** xref::enumeration/WorkTaskKind.adoc[WorkTaskKind]
-*** xref::enumeration/YesNo.adoc[YesNo]
 *** xref::enumeration/ZoneKind.adoc[ZoneKind]

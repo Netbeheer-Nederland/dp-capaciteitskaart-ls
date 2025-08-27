@@ -1,8 +1,8 @@
-= `RegisteredInterTie`
+= `BoundaryPoint`
 :toclevels: 4
 
 
-+++This class represents the inter tie resource.+++
++++Designates a connection point at which one or more model authority sets shall connect to. The location of the connection point as well as other properties are agreed between organisations responsible for the interconnection, hence all attributes of the class represent this agreement.  It is primarily used in a boundary model authority set which can contain one or many BoundaryPoint-s among other Equipment-s and their connections.+++
 
 
 [cols="h,3",width=65%]
@@ -11,11 +11,8 @@
 | Class
 
 | URI
-| `cim:RegisteredInterTie`
+| http://iec.ch/TC57/CIM100-European#BoundaryPoint[`eu:BoundaryPoint`]
 
-
-| CIM standard (perspective)
-| IEC62325 (Market)
 
 
 
@@ -24,8 +21,7 @@
 == Class hierarchy
 * xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
 ** xref::class/PowerSystemResource.adoc[`PowerSystemResource`]
-*** xref::class/RegisteredResource.adoc[`RegisteredResource`]
-**** *`RegisteredInterTie`*
+*** *`BoundaryPoint`*
 
 
 == Slots
@@ -40,18 +36,9 @@ vars: {
     pad: 20
   }
 }
-RegisteredInterTie {
+BoundaryPoint {
   style {
-    fill: "#fffbef"
-    shadow: true
-  }
-}
-
-
-
-Flowgate {
-  style {
-    fill: "#fffbef"
+    fill: "#cccccc"
     shadow: true
   }
 }
@@ -86,16 +73,13 @@ Name {
 
 
 
-RegisteredInterTie -> Flowgate: Flowgate
+BoundaryPoint -> ConnectivityNode: ConnectivityNode
 
 
-RegisteredInterTie -> ConnectivityNode: MktConnectivityNode
+BoundaryPoint -> Location: Location
 
 
-RegisteredInterTie -> Location: Location
-
-
-RegisteredInterTie -> Name: Names
+BoundaryPoint -> Name: Names
 
 
 legend: "" {
@@ -151,40 +135,26 @@ legend: "" {
 |===
 | Name | Type | Description | Inherited from
 
-| <<Flowgate,`Flowgate`>>
-//| [[slots_table.Flowgate]]<<Flowgate,`Flowgate`>>
-| 1 +
-xref::class/Flowgate.adoc[`Flowgate`]
-| _n/a_
-| _n/a_
-
-| <<direction,`direction`>>
-//| [[slots_table.direction]]<<direction,`direction`>>
-| 1 +
-xref::enumeration/InterTieDirection.adoc[`InterTieDirection`]
-| +++Indicates the direction (export/import) of an InterTie resource.+++
-| _n/a_
-
-| <<MktConnectivityNode,`MktConnectivityNode`>>
-//| [[slots_table.MktConnectivityNode]]<<MktConnectivityNode,`MktConnectivityNode`>>
+| <<ConnectivityNode,`ConnectivityNode`>>
+//| [[slots_table.ConnectivityNode]]<<ConnectivityNode,`ConnectivityNode`>>
 | 1 +
 xref::class/ConnectivityNode.adoc[`ConnectivityNode`]
+| +++The connectivity node that is designated as a boundary point.+++
 | _n/a_
-| xref::class/RegisteredResource.adoc[`RegisteredResource`]
 
-| <<isAggregatedRes,`isAggregatedRes`>>
-//| [[slots_table.isAggregatedRes]]<<isAggregatedRes,`isAggregatedRes`>>
-| 0..1 +
-xref::enumeration/YesNo.adoc[`YesNo`]
-| +++A flag to indicate if a resource is an aggregated resource.+++
-| xref::class/RegisteredResource.adoc[`RegisteredResource`]
+| <<fromEndNameTso,`fromEndNameTso`>>
+//| [[slots_table.fromEndNameTso]]<<fromEndNameTso,`fromEndNameTso`>>
+| 1 +
+https://w3id.org/linkml/String[`string`]
+| +++Identifies the name of the transmission system operator, distribution system operator or other entity at which the "From"...+++
+| _n/a_
 
-| <<lastModified,`lastModified`>>
-//| [[slots_table.lastModified]]<<lastModified,`lastModified`>>
-| 0..1 +
-https://w3id.org/linkml/Date[`date`]
-| +++Indication of the last time this item was modified/versioned.+++
-| xref::class/RegisteredResource.adoc[`RegisteredResource`]
+| <<toEndNameTso,`toEndNameTso`>>
+//| [[slots_table.toEndNameTso]]<<toEndNameTso,`toEndNameTso`>>
+| 1 +
+https://w3id.org/linkml/String[`string`]
+| +++Identifies the name of the transmission system operator, distribution system operator or other entity at which the "To" side...+++
+| _n/a_
 
 | <<Location,`Location`>>
 //| [[slots_table.Location]]<<Location,`Location`>>
@@ -226,6 +196,32 @@ https://w3id.org/linkml/String[`string`]
 
 
 //[discrete]
+[#ConnectivityNode]
+=== `ConnectivityNode`
++++The connectivity node that is designated as a boundary point.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://iec.ch/TC57/CIM100-European#BoundaryPoint.ConnectivityNode[`eu:BoundaryPoint.ConnectivityNode`]
+| Cardinality
+| 1
+| Type
+| xref::class/ConnectivityNode.adoc[`ConnectivityNode`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.ConnectivityNode,&#10548;>>
+--
+////
+
+
+//[discrete]
 [#description]
 === `description`
 +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.+++
@@ -255,19 +251,19 @@ https://w3id.org/linkml/String[`string`]
 
 
 //[discrete]
-[#direction]
-=== `direction`
-+++Indicates the direction (export/import) of an InterTie resource.+++
+[#fromEndNameTso]
+=== `fromEndNameTso`
++++Identifies the name of the transmission system operator, distribution system operator or other entity at which the "From" side of the interconnection is connected to. The length of the string is 64 characters maximum.+++
 
 
 [cols="h,4",width=65%]
 |===
 | URI
-| `cim:RegisteredInterTie.direction`
+| http://iec.ch/TC57/CIM100-European#BoundaryPoint.fromEndNameTso[`eu:BoundaryPoint.fromEndNameTso`]
 | Cardinality
 | 1
 | Type
-| xref::enumeration/InterTieDirection.adoc[`InterTieDirection`]
+| https://w3id.org/linkml/String[`string`]
 
 
 |===
@@ -275,91 +271,7 @@ https://w3id.org/linkml/String[`string`]
 ////
 [.text-left]
 --
-<<slots_table.direction,&#10548;>>
---
-////
-
-
-//[discrete]
-[#Flowgate]
-=== `Flowgate`
-
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:RegisteredInterTie.Flowgate`
-| Cardinality
-| 1
-| Type
-| xref::class/Flowgate.adoc[`Flowgate`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.Flowgate,&#10548;>>
---
-////
-
-
-//[discrete]
-[#isAggregatedRes]
-=== `isAggregatedRes`
-+++A flag to indicate if a resource is an aggregated resource.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:RegisteredResource.isAggregatedRes`
-| Cardinality
-| 0..1
-| Type
-| xref::enumeration/YesNo.adoc[`YesNo`]
-
-| Inherited from
-| xref::class/RegisteredResource.adoc[`RegisteredResource`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.isAggregatedRes,&#10548;>>
---
-////
-
-
-//[discrete]
-[#lastModified]
-=== `lastModified`
-+++Indication of the last time this item was modified/versioned.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:RegisteredResource.lastModified`
-| Cardinality
-| 0..1
-| Type
-| https://w3id.org/linkml/Date[`date`]
-
-| Inherited from
-| xref::class/RegisteredResource.adoc[`RegisteredResource`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.lastModified,&#10548;>>
+<<slots_table.fromEndNameTso,&#10548;>>
 --
 ////
 
@@ -389,35 +301,6 @@ https://w3id.org/linkml/String[`string`]
 [.text-left]
 --
 <<slots_table.Location,&#10548;>>
---
-////
-
-
-//[discrete]
-[#MktConnectivityNode]
-=== `MktConnectivityNode`
-
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:RegisteredResource.MktConnectivityNode`
-| Cardinality
-| 1
-| Type
-| xref::class/ConnectivityNode.adoc[`ConnectivityNode`]
-
-| Inherited from
-| xref::class/RegisteredResource.adoc[`RegisteredResource`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.MktConnectivityNode,&#10548;>>
 --
 ////
 
@@ -506,6 +389,32 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 [.text-left]
 --
 <<slots_table.Names,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#toEndNameTso]
+=== `toEndNameTso`
++++Identifies the name of the transmission system operator, distribution system operator or other entity at which the "To" side of the interconnection is connected to. The length of the string is 64 characters maximum.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://iec.ch/TC57/CIM100-European#BoundaryPoint.toEndNameTso[`eu:BoundaryPoint.toEndNameTso`]
+| Cardinality
+| 1
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.toEndNameTso,&#10548;>>
 --
 ////
 

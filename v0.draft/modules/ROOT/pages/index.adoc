@@ -105,8 +105,7 @@ PowerTransformerEnd.class: grid
 WorkLocation.class: enterprise
 Zone.class: enterprise
 Contingency.class: grid
-RegisteredInterTie.class: market
-Flowgate.class: market
+BoundaryPoint.class: grid
 
 SubGeographicalRegion -> GeographicalRegion: "SubGeographicalRegion.Region"
 Substation -> SubGeographicalRegion: "Substation.Region"
@@ -130,8 +129,7 @@ VoltageLevel -> Zone: "PowerSystemResource.Location"
 VoltageLevel -> WorkLocation: "PowerSystemResource.Location"
 OperatingShare -> VoltageLevel: "OperatingShare.PowerSystemResource"
 OperatingShare -> OperatingParticipant: "OperatingShare.OperatingParticipant"
-RegisteredInterTie -> ConnectivityNode: "RegisteredResource.MktConnectivityNode"
-RegisteredInterTie -> Flowgate: "RegisteredInterTie.Flowgate"
+BoundaryPoint -> ConnectivityNode: "BoundaryPoint.ConnectivityNode"
 ----
 
 == Additional artifacts

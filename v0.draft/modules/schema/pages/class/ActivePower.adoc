@@ -101,14 +101,4 @@ xref::enumeration/UnitSymbol.adoc[`UnitSymbol`]
 == Used by
 
 
-[cols="1,1",width=65%]
-|===
-| Source class | Slot name
-
-
-
-| xref::class/Flowgate.adoc[`Flowgate`] | xref::class/Flowgate.adoc#importMWRating[`importMWRating`]
-
-
-|===
-
+This CIM data type is not used by any classes as the range of a slot.
