@@ -370,6 +370,7 @@ classes:
         range: BaseVoltage
         required: true
         multivalued: false
+    abstract: true
     class_uri: cim:ConductingEquipment
   Terminal:
     description: An AC electrical connection point to a piece of conducting equipment.
@@ -383,14 +384,6 @@ classes:
         slot_uri: cim:Terminal.ConnectivityNode
         range: ConnectivityNode
         required: false
-        multivalued: false
-      ConductingEquipment:
-        description: The conducting equipment of the terminal.  Conducting equipment
-          have  terminals that may be connected to other conducting equipment terminals
-          via connectivity nodes or topological nodes.
-        slot_uri: cim:Terminal.ConductingEquipment
-        range: ConductingEquipment
-        required: true
         multivalued: false
     class_uri: cim:Terminal
   TopologicalNode:
@@ -549,6 +542,7 @@ classes:
         range: Name
         required: false
         multivalued: true
+    abstract: true
     class_uri: cim:IdentifiedObject
   Name:
     description: "The Name class provides the means to define any number of human\
