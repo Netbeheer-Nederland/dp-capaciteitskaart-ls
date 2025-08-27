@@ -451,6 +451,7 @@ classes:
       \ or topological nodes.\r\n"
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     is_a: PowerSystemResource
+    abstract: true
     class_uri: cim:ConnectivityNodeContainer
   ConnectivityNode:
     description: Connectivity nodes are points where terminals of AC conducting equipment
@@ -504,6 +505,7 @@ classes:
         range: Terminal
         required: true
         multivalued: false
+    abstract: true
     class_uri: cim:TransformerEnd
   IdentifiedObject:
     description: This is a root class to provide common identification for all classes
@@ -619,6 +621,7 @@ classes:
     description: 'A modelling construct to provide a root class for containing equipment. '
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     is_a: ConnectivityNodeContainer
+    abstract: true
     class_uri: cim:EquipmentContainer
   Equipment:
     description: The parts of a power system that are physical devices, electronic
@@ -674,6 +677,7 @@ classes:
         range: EquipmentContainer
         required: false
         multivalued: false
+    abstract: true
     class_uri: cim:Equipment
   ContingencyEquipment:
     description: Equipment whose in service status is to change, such as a power transformer
@@ -711,6 +715,7 @@ classes:
         range: Location
         required: false
         multivalued: false
+    abstract: true
     class_uri: cim:PowerSystemResource
   OperatingShare:
     description: "Specifies the operations contract relationship between a power system\
@@ -1075,6 +1080,7 @@ classes:
         range: integer
         required: false
         multivalued: false
+    abstract: true
     class_uri: cim:ACDCTerminal
   BaseWork:
     description: Common representation for work and work tasks.
@@ -1099,6 +1105,7 @@ classes:
         range: WorkLocation
         required: false
         multivalued: false
+    abstract: true
     class_uri: cim:BaseWork
   WorkLocation:
     description: Information about a particular location for various forms of work.
@@ -1111,6 +1118,7 @@ classes:
       to other objects, such as assets, people and power system resources.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Common
     is_a: IdentifiedObject
+    abstract: true
     class_uri: cim:Document
   WorkDocument:
     description: Shadow class for Document, to isolate subclassing from this package.
@@ -1118,6 +1126,7 @@ classes:
       from Document.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.InfIEC61968.InfWork
     is_a: Document
+    abstract: true
     class_uri: cim:WorkDocument
   Zone:
     description: Area divided off from other areas. It may be part of the electrical
@@ -1175,6 +1184,7 @@ classes:
         range: Contingency
         required: true
         multivalued: false
+    abstract: true
     class_uri: cim:ContingencyElement
   RegisteredInterTie:
     description: "This class represents the inter tie resource.\r\n"
@@ -1245,6 +1255,7 @@ classes:
         range: ConnectivityNode
         required: false
         multivalued: false
+    abstract: true
     class_uri: cim:RegisteredResource
   DateTimeInterval:
     description: 'Interval between two date and time points, where the interval includes
