@@ -1,0 +1,120 @@
+= `ContingencyInfo`
+:toclevels: 4
+
+
++++Additional information for the Contingency.  Allows free-format text and a link to additional information, such as a congestion report.+++
+
+
+[cols="h,3",width=65%]
+|===
+| Type
+| Class
+
+| URI
+| `ck:ContingencyInfo`
+
+
+
+
+|===
+
+== Class hierarchy
+* *`ContingencyInfo`*
+
+
+== Slots
+
+
+
+
+[cols="1,1,2,1",width=100%]
+|===
+| Name | Type | Description | Inherited from
+
+| <<contingencyURL,`contingencyURL`>>
+//| [[slots_table.contingencyURL]]<<contingencyURL,`contingencyURL`>>
+| 0..1 +
+https://w3id.org/linkml/String[`string`]
+| +++URL for additional (congestion) information for this EnergyArea.+++
+| _n/a_
+
+| <<description,`description`>>
+//| [[slots_table.description]]<<description,`description`>>
+| 0..1 +
+https://w3id.org/linkml/String[`string`]
+| +++Additional (free-format) information associated with the contingency.+++
+| _n/a_
+|===
+
+'''
+
+
+//[discrete]
+[#contingencyURL]
+=== `contingencyURL`
++++URL for additional (congestion) information for this EnergyArea.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `ck:CongestionInfo.contingencyURL`
+| Cardinality
+| 0..1
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.contingencyURL,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#description]
+=== `description`
++++Additional (free-format) information associated with the contingency.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:IdentifiedObject.description`
+| Cardinality
+| 0..1
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.description,&#10548;>>
+--
+////
+
+
+
+
+
+== Used by
+
+
+[cols="1,1",width=65%]
+|===
+| Source class | Slot name
+
+
+
+| xref::class/Contingency.adoc[`Contingency`] | xref::class/Contingency.adoc#ContingencyInfo[`ContingencyInfo`]
+
+
+|===
+

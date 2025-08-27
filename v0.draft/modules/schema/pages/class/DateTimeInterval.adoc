@@ -45,7 +45,7 @@ https://w3id.org/linkml/Date[`date`]
 //| [[slots_table.quarter]]<<quarter,`quarter`>>
 | 0..1 +
 https://w3id.org/linkml/Integer[`integer`]
-| +++Quarter indicator for when this Work is completed. Use in combination with this:DateTimeInterval.year.+++
+| +++Quarter indicator for when this Work is completed. Use in combination with ck:DateTimeInterval.year.+++
 | _n/a_
 
 | <<start,`start`>>
@@ -59,7 +59,7 @@ https://w3id.org/linkml/Date[`date`]
 //| [[slots_table.year]]<<year,`year`>>
 | 0..1 +
 https://w3id.org/linkml/Integer[`integer`]
-| +++Year indicator for when this Work is completed. Use in combination with this:DateTimeInterval.quarter.+++
+| +++Year indicator for when this Work is completed. Use in combination with ck:DateTimeInterval.quarter.+++
 | _n/a_
 |===
 
@@ -95,13 +95,13 @@ https://w3id.org/linkml/Integer[`integer`]
 //[discrete]
 [#quarter]
 === `quarter`
-+++Quarter indicator for when this Work is completed. Use in combination with this:DateTimeInterval.year.+++
++++Quarter indicator for when this Work is completed. Use in combination with ck:DateTimeInterval.year.+++
 
 
 [cols="h,4",width=65%]
 |===
 | URI
-| `this:DateTimeInterval.quarter`
+| `ck:DateTimeInterval.quarter`
 | Cardinality
 | 0..1
 | Type
@@ -147,13 +147,13 @@ https://w3id.org/linkml/Integer[`integer`]
 //[discrete]
 [#year]
 === `year`
-+++Year indicator for when this Work is completed. Use in combination with this:DateTimeInterval.quarter.+++
++++Year indicator for when this Work is completed. Use in combination with ck:DateTimeInterval.quarter.+++
 
 
 [cols="h,4",width=65%]
 |===
 | URI
-| `this:DateTimeInterval.year`
+| `ck:DateTimeInterval.year`
 | Cardinality
 | 0..1
 | Type
@@ -176,4 +176,14 @@ https://w3id.org/linkml/Integer[`integer`]
 == Used by
 
 
-This class is not used by any other classes as the range of a slot.
+[cols="1,1",width=65%]
+|===
+| Source class | Slot name
+
+
+
+| xref::class/TimeSchedule.adoc[`TimeSchedule`] | xref::class/TimeSchedule.adoc#schedule_interval[`schedule_interval`]
+
+
+|===
+

@@ -47,6 +47,15 @@ Contingency {
 
 
 
+ContingencyInfo {
+  style {
+    fill: "#cccccc"
+    shadow: true
+  }
+}
+
+
+
 Name {
   style {
     fill: "#eccfcb"
@@ -55,6 +64,9 @@ Name {
 }
 
 
+
+
+Contingency -> ContingencyInfo: ContingencyInfo
 
 
 Contingency -> Name: Names
@@ -113,6 +125,13 @@ legend: "" {
 |===
 | Name | Type | Description | Inherited from
 
+| <<ContingencyInfo,`ContingencyInfo`>>
+//| [[slots_table.ContingencyInfo]]<<ContingencyInfo,`ContingencyInfo`>>
+| 0..* +
+xref::class/ContingencyInfo.adoc[`ContingencyInfo`]
+| +++Additional information for this Contingency. Use this to add multiple documents and/or descriptions.+++
+| _n/a_
+
 | <<demandConstraint,`demandConstraint`>>
 //| [[slots_table.demandConstraint]]<<demandConstraint,`demandConstraint`>>
 | 1 +
@@ -157,13 +176,39 @@ https://w3id.org/linkml/String[`string`]
 
 | <<name,`name`>>
 //| [[slots_table.name]]<<name,`name`>>
-| 1 +
+| 0..1 +
 https://w3id.org/linkml/String[`string`]
 | +++The name is any free human readable and possibly non unique text naming the object.+++
 | xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
 |===
 
 '''
+
+
+//[discrete]
+[#ContingencyInfo]
+=== `ContingencyInfo`
++++Additional information for this Contingency. Use this to add multiple documents and/or descriptions.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `ck:Contingency.ContingencyInfo`
+| Cardinality
+| 0..*
+| Type
+| xref::class/ContingencyInfo.adoc[`ContingencyInfo`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.ContingencyInfo,&#10548;>>
+--
+////
 
 
 //[discrete]
@@ -175,7 +220,7 @@ https://w3id.org/linkml/String[`string`]
 [cols="h,4",width=65%]
 |===
 | URI
-| `this:Contingency.demandConstraint`
+| `ck:Contingency.demandConstraint`
 | Cardinality
 | 1
 | Type
@@ -230,7 +275,7 @@ https://w3id.org/linkml/String[`string`]
 [cols="h,4",width=65%]
 |===
 | URI
-| `this:Contingency.generationConstraint`
+| `ck:Contingency.generationConstraint`
 | Cardinality
 | 1
 | Type
@@ -314,7 +359,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | URI
 | `cim:IdentifiedObject.name`
 | Cardinality
-| 1
+| 0..1
 | Type
 | https://w3id.org/linkml/String[`string`]
 

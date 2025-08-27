@@ -1,21 +1,21 @@
-= `PowerSystemResource`
+= `TimeSchedule`
 :toclevels: 4
 
 
-+++A power system resource (PSR) can be an item of equipment such as a switch, an equipment container containing many individual items of equipment such as a substation, or an organisational entity such as sub-control area. Power system resources can have measurements associated.+++
++++Description of anything that changes through time. Time schedule is used to perform a single-valued function of time. Use inherited 'type' attribute to give additional information on this schedule, such as periodic (hourly, daily, weekly, monthly, etc.), day of the month, by date, calendar (specific times and dates).+++
 
 
 [cols="h,3",width=65%]
 |===
 | Type
-| Abstract class
+| Class
 
 | URI
-| `cim:PowerSystemResource`
+| `cim:TimeSchedule`
 
 
 | CIM standard (perspective)
-| IEC61970 (Grid)
+| IEC61968 (Enterprise)
 
 
 
@@ -23,10 +23,9 @@
 
 == Class hierarchy
 * xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
-** *`PowerSystemResource`*
- *** xref::class/BoundaryPoint.adoc[`BoundaryPoint`]
- *** xref::class/ConnectivityNodeContainer.adoc[`ConnectivityNodeContainer`]
- *** xref::class/Equipment.adoc[`Equipment`]
+** xref::class/Document.adoc[`Document`]
+*** *`TimeSchedule`*
+ **** xref::class/WorkTimeSchedule.adoc[`WorkTimeSchedule`]
 
 
 == Slots
@@ -41,18 +40,18 @@ vars: {
     pad: 20
   }
 }
-PowerSystemResource {
+TimeSchedule {
   style {
-    fill: "#eccfcb"
+    fill: "#d1e7c2"
     shadow: true
   }
 }
 
 
 
-Location {
+DateTimeInterval {
   style {
-    fill: "#d1e7c2"
+    fill: "#eccfcb"
     shadow: true
   }
 }
@@ -69,10 +68,10 @@ Name {
 
 
 
-PowerSystemResource -> Location: Location
+TimeSchedule -> DateTimeInterval: schedule_interval
 
 
-PowerSystemResource -> Name: Names
+TimeSchedule -> Name: Names
 
 
 legend: "" {
@@ -128,11 +127,11 @@ legend: "" {
 |===
 | Name | Type | Description | Inherited from
 
-| <<Location,`Location`>>
-//| [[slots_table.Location]]<<Location,`Location`>>
-| 0..1 +
-xref::class/Location.adoc[`Location`]
-| +++Location of this power system resource.+++
+| <<schedule_interval,`schedule_interval`>>
+//| [[slots_table.schedule_interval]]<<schedule_interval,`schedule_interval`>>
+| 1 +
+xref::class/DateTimeInterval.adoc[`DateTimeInterval`]
+| +++Schedule date and time interval.+++
 | _n/a_
 
 | <<Names,`Names`>>
@@ -192,32 +191,6 @@ https://w3id.org/linkml/String[`string`]
 [.text-left]
 --
 <<slots_table.description,&#10548;>>
---
-////
-
-
-//[discrete]
-[#Location]
-=== `Location`
-+++Location of this power system resource.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:PowerSystemResource.Location`
-| Cardinality
-| 0..1
-| Type
-| xref::class/Location.adoc[`Location`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.Location,&#10548;>>
 --
 ////
 
@@ -310,24 +283,36 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 ////
 
 
+//[discrete]
+[#schedule_interval]
+=== `schedule_interval`
++++Schedule date and time interval.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:TimeSchedule.scheduleInterval`
+| Cardinality
+| 1
+| Type
+| xref::class/DateTimeInterval.adoc[`DateTimeInterval`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.schedule_interval,&#10548;>>
+--
+////
+
+
 
 
 
 == Used by
 
 
-[cols="1,1",width=65%]
-|===
-| Source class | Slot name
-
-
-
-| xref::class/Asset.adoc[`Asset`] | xref::class/Asset.adoc#PowerSystemResources[`PowerSystemResources`]
-
-
-
-| xref::class/OperatingShare.adoc[`OperatingShare`] | xref::class/OperatingShare.adoc#PowerSystemResource[`PowerSystemResource`]
-
-
-|===
-
+This class is not used by any other classes as the range of a slot.

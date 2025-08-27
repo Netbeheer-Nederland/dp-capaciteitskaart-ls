@@ -76,6 +76,15 @@ WorkLocation {
 
 
 
+WorkTimeSchedule {
+  style {
+    fill: "#d1e7c2"
+    shadow: true
+  }
+}
+
+
+
 Name {
   style {
     fill: "#eccfcb"
@@ -93,6 +102,9 @@ WorkTask -> Work: Work
 
 
 WorkTask -> WorkLocation: WorkLocation
+
+
+WorkTask -> WorkTimeSchedule: TimeSchedules
 
 
 WorkTask -> Name: Names
@@ -165,33 +177,19 @@ xref::class/Work.adoc[`Work`]
 | +++Work this task belongs to.+++
 | _n/a_
 
-| <<completedDateTime,`completedDateTime`>>
-//| [[slots_table.completedDateTime]]<<completedDateTime,`completedDateTime`>>
-| 0..1 +
-https://w3id.org/linkml/Date[`date`]
-| +++Date and time work task was completed.+++
-| _n/a_
-
-| <<estimatedCompletionTime,`estimatedCompletionTime`>>
-//| [[slots_table.estimatedCompletionTime]]<<estimatedCompletionTime,`estimatedCompletionTime`>>
-| 0..1 +
-https://w3id.org/linkml/Date[`date`]
-| +++Time and Date when the work task will be completed.+++
-| _n/a_
-
-| <<startedDateTime,`startedDateTime`>>
-//| [[slots_table.startedDateTime]]<<startedDateTime,`startedDateTime`>>
-| 0..1 +
-https://w3id.org/linkml/Date[`date`]
-| +++Date and time work task was started.+++
-| _n/a_
-
 | <<taskKind,`taskKind`>>
 //| [[slots_table.taskKind]]<<taskKind,`taskKind`>>
 | 0..1 +
 xref::enumeration/WorkTaskKind.adoc[`WorkTaskKind`]
 | +++Kind of work.+++
 | _n/a_
+
+| <<TimeSchedules,`TimeSchedules`>>
+//| [[slots_table.TimeSchedules]]<<TimeSchedules,`TimeSchedules`>>
+| 1..* +
+xref::class/WorkTimeSchedule.adoc[`WorkTimeSchedule`]
+| +++All time schedules for this work or work task.+++
+| xref::class/BaseWork.adoc[`BaseWork`]
 
 | <<WorkLocation,`WorkLocation`>>
 //| [[slots_table.WorkLocation]]<<WorkLocation,`WorkLocation`>>
@@ -237,7 +235,7 @@ https://w3id.org/linkml/String[`string`]
 
 | <<name,`name`>>
 //| [[slots_table.name]]<<name,`name`>>
-| 1 +
+| 0..1 +
 https://w3id.org/linkml/String[`string`]
 | +++The name is any free human readable and possibly non unique text naming the object.+++
 | xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
@@ -273,32 +271,6 @@ https://w3id.org/linkml/String[`string`]
 
 
 //[discrete]
-[#completedDateTime]
-=== `completedDateTime`
-+++Date and time work task was completed.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:WorkTask.completedDateTime`
-| Cardinality
-| 0..1
-| Type
-| https://w3id.org/linkml/Date[`date`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.completedDateTime,&#10548;>>
---
-////
-
-
-//[discrete]
 [#description]
 === `description`
 +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.+++
@@ -323,32 +295,6 @@ https://w3id.org/linkml/String[`string`]
 [.text-left]
 --
 <<slots_table.description,&#10548;>>
---
-////
-
-
-//[discrete]
-[#estimatedCompletionTime]
-=== `estimatedCompletionTime`
-+++Time and Date when the work task will be completed.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:WorkTask.estimatedCompletionTime`
-| Cardinality
-| 0..1
-| Type
-| https://w3id.org/linkml/Date[`date`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.estimatedCompletionTime,&#10548;>>
 --
 ////
 
@@ -423,7 +369,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | URI
 | `cim:IdentifiedObject.name`
 | Cardinality
-| 1
+| 0..1
 | Type
 | https://w3id.org/linkml/String[`string`]
 
@@ -466,32 +412,6 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 [.text-left]
 --
 <<slots_table.Names,&#10548;>>
---
-////
-
-
-//[discrete]
-[#startedDateTime]
-=== `startedDateTime`
-+++Date and time work task was started.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:WorkTask.startedDateTime`
-| Cardinality
-| 0..1
-| Type
-| https://w3id.org/linkml/Date[`date`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.startedDateTime,&#10548;>>
 --
 ////
 
@@ -547,6 +467,35 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 [.text-left]
 --
 <<slots_table.taskKind,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#TimeSchedules]
+=== `TimeSchedules`
++++All time schedules for this work or work task.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:BaseWork.TimeSchedules`
+| Cardinality
+| 1..*
+| Type
+| xref::class/WorkTimeSchedule.adoc[`WorkTimeSchedule`]
+
+| Inherited from
+| xref::class/BaseWork.adoc[`BaseWork`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.TimeSchedules,&#10548;>>
 --
 ////
 

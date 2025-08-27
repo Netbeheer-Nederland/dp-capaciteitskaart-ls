@@ -11,7 +11,7 @@
 | Enumeration
 
 | URI
-| `this:RAGKind`
+| `ck:RAGKind`
 
 
 | CIM standard (perspective)
@@ -28,19 +28,19 @@
 | Value | URI | Description
 
 | `amber`
-| `this:RAGKind.Amber`
+| `ck:RAGKind.Amber`
 | n/a
 
 | `red`
-| `this:RAGKind.Red`
+| `ck:RAGKind.Red`
 | n/a
 
 | `transparant`
-| `this:RAGKind.Transparant`
+| `ck:RAGKind.Transparant`
 | n/a
 
 | `yellow`
-| `this:RAGKind.Yellow`
+| `ck:RAGKind.Yellow`
 | n/a
 |===
 

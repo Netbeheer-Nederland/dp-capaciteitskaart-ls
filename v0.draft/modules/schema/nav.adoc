@@ -48,6 +48,10 @@
 
 
 
+*** xref::class/ContingencyInfo.adoc[ContingencyInfo]
+
+
+
 *** xref::class/DateTimeInterval.adoc[DateTimeInterval]
 
 
@@ -133,6 +137,10 @@
 
 
 
+*** xref::class/TimeSchedule.adoc[TimeSchedule]
+
+
+
 *** xref::class/TopologicalNode.adoc[TopologicalNode]
 
 
@@ -162,6 +170,10 @@
 
 
 *** xref::class/WorkTask.adoc[WorkTask]
+
+
+
+*** xref::class/WorkTimeSchedule.adoc[WorkTimeSchedule]
 
 
 

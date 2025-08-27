@@ -134,6 +134,13 @@ xref::class/Project.adoc[`Project`]
 | _n/a_
 | _n/a_
 
+| <<ProjectURL,`ProjectURL`>>
+//| [[slots_table.ProjectURL]]<<ProjectURL,`ProjectURL`>>
+| 0..1 +
+https://w3id.org/linkml/String[`string`]
+| +++URL to the project web page or portal where the project information can be found.+++
+| _n/a_
+
 | <<Names,`Names`>>
 //| [[slots_table.Names]]<<Names,`Names`>>
 | 0..* +
@@ -157,7 +164,7 @@ https://w3id.org/linkml/String[`string`]
 
 | <<name,`name`>>
 //| [[slots_table.name]]<<name,`name`>>
-| 1 +
+| 0..1 +
 https://w3id.org/linkml/String[`string`]
 | +++The name is any free human readable and possibly non unique text naming the object.+++
 | xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
@@ -236,7 +243,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | URI
 | `cim:IdentifiedObject.name`
 | Cardinality
-| 1
+| 0..1
 | Type
 | https://w3id.org/linkml/String[`string`]
 
@@ -305,6 +312,32 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 [.text-left]
 --
 <<slots_table.ParentProject,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#ProjectURL]
+=== `ProjectURL`
++++URL to the project web page or portal where the project information can be found.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `ck:Project.projectURL`
+| Cardinality
+| 0..1
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.ProjectURL,&#10548;>>
 --
 ////
 

@@ -67,6 +67,15 @@ WorkLocation {
 
 
 
+WorkTimeSchedule {
+  style {
+    fill: "#d1e7c2"
+    shadow: true
+  }
+}
+
+
+
 Name {
   style {
     fill: "#eccfcb"
@@ -81,6 +90,9 @@ Work -> Project: Project
 
 
 Work -> WorkLocation: WorkLocation
+
+
+Work -> WorkTimeSchedule: TimeSchedules
 
 
 Work -> Name: Names
@@ -146,19 +158,19 @@ xref::class/Project.adoc[`Project`]
 | _n/a_
 | _n/a_
 
-| <<requestDateTime,`requestDateTime`>>
-//| [[slots_table.requestDateTime]]<<requestDateTime,`requestDateTime`>>
-| 0..1 +
-https://w3id.org/linkml/Date[`date`]
-| +++Date and time work was requested.+++
-| _n/a_
-
 | <<workOrderNumber,`workOrderNumber`>>
 //| [[slots_table.workOrderNumber]]<<workOrderNumber,`workOrderNumber`>>
 | 0..1 +
 https://w3id.org/linkml/String[`string`]
 | +++Work order number (or other unique identifying information) for this work.+++
 | _n/a_
+
+| <<TimeSchedules,`TimeSchedules`>>
+//| [[slots_table.TimeSchedules]]<<TimeSchedules,`TimeSchedules`>>
+| 1..* +
+xref::class/WorkTimeSchedule.adoc[`WorkTimeSchedule`]
+| +++All time schedules for this work or work task.+++
+| xref::class/BaseWork.adoc[`BaseWork`]
 
 | <<WorkLocation,`WorkLocation`>>
 //| [[slots_table.WorkLocation]]<<WorkLocation,`WorkLocation`>>
@@ -204,7 +216,7 @@ https://w3id.org/linkml/String[`string`]
 
 | <<name,`name`>>
 //| [[slots_table.name]]<<name,`name`>>
-| 1 +
+| 0..1 +
 https://w3id.org/linkml/String[`string`]
 | +++The name is any free human readable and possibly non unique text naming the object.+++
 | xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
@@ -312,7 +324,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | URI
 | `cim:IdentifiedObject.name`
 | Cardinality
-| 1
+| 0..1
 | Type
 | https://w3id.org/linkml/String[`string`]
 
@@ -386,32 +398,6 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 
 
 //[discrete]
-[#requestDateTime]
-=== `requestDateTime`
-+++Date and time work was requested.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:Work.requestDateTime`
-| Cardinality
-| 0..1
-| Type
-| https://w3id.org/linkml/Date[`date`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.requestDateTime,&#10548;>>
---
-////
-
-
-//[discrete]
 [#statusKind]
 === `statusKind`
 +++Kind of work status.+++
@@ -436,6 +422,35 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 [.text-left]
 --
 <<slots_table.statusKind,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#TimeSchedules]
+=== `TimeSchedules`
++++All time schedules for this work or work task.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:BaseWork.TimeSchedules`
+| Cardinality
+| 1..*
+| Type
+| xref::class/WorkTimeSchedule.adoc[`WorkTimeSchedule`]
+
+| Inherited from
+| xref::class/BaseWork.adoc[`BaseWork`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.TimeSchedules,&#10548;>>
 --
 ////
 

@@ -59,6 +59,15 @@ WorkLocation {
 
 
 
+WorkTimeSchedule {
+  style {
+    fill: "#d1e7c2"
+    shadow: true
+  }
+}
+
+
+
 Name {
   style {
     fill: "#eccfcb"
@@ -70,6 +79,9 @@ Name {
 
 
 BaseWork -> WorkLocation: WorkLocation
+
+
+BaseWork -> WorkTimeSchedule: TimeSchedules
 
 
 BaseWork -> Name: Names
@@ -128,6 +140,13 @@ legend: "" {
 |===
 | Name | Type | Description | Inherited from
 
+| <<TimeSchedules,`TimeSchedules`>>
+//| [[slots_table.TimeSchedules]]<<TimeSchedules,`TimeSchedules`>>
+| 1..* +
+xref::class/WorkTimeSchedule.adoc[`WorkTimeSchedule`]
+| +++All time schedules for this work or work task.+++
+| _n/a_
+
 | <<WorkLocation,`WorkLocation`>>
 //| [[slots_table.WorkLocation]]<<WorkLocation,`WorkLocation`>>
 | 1 +
@@ -172,7 +191,7 @@ https://w3id.org/linkml/String[`string`]
 
 | <<name,`name`>>
 //| [[slots_table.name]]<<name,`name`>>
-| 1 +
+| 0..1 +
 https://w3id.org/linkml/String[`string`]
 | +++The name is any free human readable and possibly non unique text naming the object.+++
 | xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
@@ -277,7 +296,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | URI
 | `cim:IdentifiedObject.name`
 | Cardinality
-| 1
+| 0..1
 | Type
 | https://w3id.org/linkml/String[`string`]
 
@@ -346,6 +365,32 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 [.text-left]
 --
 <<slots_table.statusKind,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#TimeSchedules]
+=== `TimeSchedules`
++++All time schedules for this work or work task.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:BaseWork.TimeSchedules`
+| Cardinality
+| 1..*
+| Type
+| xref::class/WorkTimeSchedule.adoc[`WorkTimeSchedule`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.TimeSchedules,&#10548;>>
 --
 ////
 
