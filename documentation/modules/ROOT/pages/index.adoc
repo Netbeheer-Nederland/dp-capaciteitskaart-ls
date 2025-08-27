@@ -106,6 +106,7 @@ WorkLocation.class: enterprise
 Zone.class: enterprise
 Contingency.class: grid
 BoundaryPoint.class: grid
+ContingencyInfo.class: grid
 
 SubGeographicalRegion -> GeographicalRegion: "SubGeographicalRegion.Region"
 Substation -> SubGeographicalRegion: "Substation.Region"
@@ -118,6 +119,7 @@ TopologicalNode -> Terminal: "TopologicalNode.Terminal"
 TopologicalNode -> ConnectivityNode: "TopologicalNode.ConnectivityNodes"
 ContingencyEquipment -> PowerTransformer: "ContingencyEquipment.Equipment"
 ContingencyEquipment -> Contingency: "ContingencyEquipment.Contingency"
+Contingency -> ContingencyInfo: "Contingency.ContingencyInfo"
 Asset -> PowerTransformer: "Asset.PowerSystemResources"
 WorkTask -> Asset: "WorkTask.Assets"
 WorkTask -> Work: "WorkTask.Work"

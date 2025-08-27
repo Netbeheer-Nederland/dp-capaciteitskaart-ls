@@ -12,28 +12,28 @@ prefixes:
   cim: https://cim.ucaiug.io/ns#
   dct: http://purl.org/dc/terms/
   gh: https://github.com/
-  this: http://data.netbeheernederland.nl/dp-capaciteitskaart/def#
+  ck: http://data.netbeheernederland.nl/dp-capaciteitskaart-ls/def#
 enums:
   RAGKind:
     description: Traffic light colors coding scheme for categorising status.
-    enum_uri: this:RAGKind
+    enum_uri: ck:RAGKind
     permissible_values:
       transparant:
         description: Transport capacity is available, without queue ("Transportcapaciteit
           beschikbaar zonder wachtrij").
-        meaning: this:RAGKind.Transparant
+        meaning: ck:RAGKind.Transparant
       red:
         description: Shortage of transport capacity, with queue (Tekort aan Transportcapaciteit
           met wachtrij).
-        meaning: this:RAGKind.Red
+        meaning: ck:RAGKind.Red
       amber:
         description: Energy Area is being investigated, with queue (Voedingsgebied
           is in onderzoek met wachtrij).
-        meaning: this:RAGKind.Amber
+        meaning: ck:RAGKind.Amber
       yellow:
         description: Limited availability of transport capacity, without queue (Transportcapaciteit
           beperkt beschikbaar zonder wachtrij).
-        meaning: this:RAGKind.Yellow
+        meaning: ck:RAGKind.Yellow
   UnitMultiplier:
     description: "The unit multipliers defined for the CIM.  When applied to unit\
       \ symbols, the unit symbol is treated as a derived unit. Regardless of the contents\
@@ -492,7 +492,7 @@ classes:
           \ text naming the object.\r\n"
         slot_uri: cim:IdentifiedObject.name
         range: string
-        required: true
+        required: false
         multivalued: false
       Names:
         description: All names of this identified object.
@@ -868,24 +868,6 @@ classes:
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Work
     is_a: BaseWork
     attributes:
-      completedDateTime:
-        description: Date and time work task was completed.
-        slot_uri: cim:WorkTask.completedDateTime
-        range: date
-        required: false
-        multivalued: false
-      estimatedCompletionTime:
-        description: Time and Date when the work task will be completed.
-        slot_uri: cim:WorkTask.estimatedCompletionTime
-        range: date
-        required: false
-        multivalued: false
-      startedDateTime:
-        description: Date and time work task was started.
-        slot_uri: cim:WorkTask.startedDateTime
-        range: date
-        required: false
-        multivalued: false
       taskKind:
         description: Kind of work.
         slot_uri: cim:WorkTask.taskKind
@@ -910,12 +892,6 @@ classes:
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Work
     is_a: BaseWork
     attributes:
-      requestDateTime:
-        description: "Date and time work was requested.\r\n"
-        slot_uri: cim:Work.requestDateTime
-        range: date
-        required: false
-        multivalued: false
       workOrderNumber:
         description: Work order number (or other unique identifying information) for
           this work.
@@ -929,6 +905,28 @@ classes:
         required: true
         multivalued: false
     class_uri: cim:Work
+  WorkTimeSchedule:
+    description: Time schedule specific to work.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Work
+    is_a: TimeSchedule
+    class_uri: cim:WorkTimeSchedule
+  TimeSchedule:
+    description: Description of anything that changes through time. Time schedule
+      is used to perform a single-valued function of time. Use inherited 'type' attribute
+      to give additional information on this schedule, such as periodic (hourly, daily,
+      weekly, monthly, etc.), day of the month, by date, calendar (specific times
+      and dates).
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Common
+    is_a: Document
+    attributes:
+      schedule_interval:
+        description: Schedule date and time interval.
+        slot_uri: cim:TimeSchedule.scheduleInterval
+        range: DateTimeInterval
+        required: true
+        multivalued: false
+        abstract: true
+    class_uri: cim:TimeSchedule
   Project:
     description: A collection of related work. For construction projects and maintenance
       projects, multiple phases may be performed.
@@ -938,6 +936,13 @@ classes:
       ParentProject:
         slot_uri: cim:Project.ParentProject
         range: Project
+        required: false
+        multivalued: false
+      ProjectURL:
+        description: URL to the project web page or portal where the project
+          information can be found.
+        range: string
+        slot_uri: ck:Project.projectURL
         required: false
         multivalued: false
     class_uri: cim:Project
@@ -1029,6 +1034,12 @@ classes:
         range: WorkLocation
         required: true
         multivalued: false
+      TimeSchedules:
+        description: All time schedules for this work or work task.
+        slot_uri: cim:BaseWork.TimeSchedules
+        multivalued: true
+        range: WorkTimeSchedule
+        required: true
     abstract: true
     class_uri: cim:BaseWork
   WorkLocation:
@@ -1083,7 +1094,7 @@ classes:
         description: A RAG definition of the demand constraints at the
           Equipment. A utility should provide details on how this RAG status
           is calculated as part of the accompanying documentation.
-        slot_uri: this:Contingency.demandConstraint
+        slot_uri: ck:Contingency.demandConstraint
         range: RAGKind
         required: true
         multivalued: false
@@ -1091,11 +1102,38 @@ classes:
         description: A RAG definition of the generation constraints at the
           Equipment. A utility should provide details on how this RAG status
           is calculated as part of the accompanying documentation.
-        slot_uri: this:Contingency.generationConstraint
+        slot_uri: ck:Contingency.generationConstraint
         range: RAGKind
         required: true
         multivalued: false
+      ContingencyInfo:
+        description: Additional information for this Contingency. Use this to
+          add multiple documents and/or descriptions.
+        range: ContingencyInfo
+        slot_uri: ck:Contingency.ContingencyInfo
+        required: false
+        multivalued: true
     class_uri: cim:Contingency
+  ContingencyInfo:
+    description: Additional information for the Contingency.  Allows
+      free-format text and a link to additional information, such as a
+      congestion report.
+    attributes:
+      description:
+        description: Additional (free-format) information associated with the
+          contingency.
+        slot_uri: cim:IdentifiedObject.description
+        range: string
+        required: false
+        multivalued: false
+      contingencyURL:
+        description: URL for additional (congestion) information for this
+          EnergyArea.
+        slot_uri: ck:CongestionInfo.contingencyURL
+        range: string
+        required: false
+        multivalued: false
+    class_uri: ck:ContingencyInfo
   ContingencyElement:
     description: 'An element of a system event to be studied by contingency analysis,
       representing a change in status of a single piece of equipment. '
@@ -1163,8 +1201,8 @@ classes:
         multivalued: false
       quarter:
         description: Quarter indicator for when this Work is completed. Use in
-          combination with this:DateTimeInterval.year.
-        slot_uri: this:DateTimeInterval.quarter
+          combination with ck:DateTimeInterval.year.
+        slot_uri: ck:DateTimeInterval.quarter
         range: integer
         minimum_value: 1
         maximum_value: 4
@@ -1172,8 +1210,8 @@ classes:
         multivalued: false
       year:
         description: Year indicator for when this Work is completed. Use in
-          combination with this:DateTimeInterval.quarter.
-        slot_uri: this:DateTimeInterval.year
+          combination with ck:DateTimeInterval.quarter.
+        slot_uri: ck:DateTimeInterval.year
         range: integer
         required: false
         multivalued: false
