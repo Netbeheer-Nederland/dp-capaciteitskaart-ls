@@ -325,9 +325,5 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | xref::class/Asset.adoc[`Asset`] | xref::class/Asset.adoc#PowerSystemResources[`PowerSystemResources`]
 
 
-
-| xref::class/OperatingShare.adoc[`OperatingShare`] | xref::class/OperatingShare.adoc#PowerSystemResource[`PowerSystemResource`]
-
-
 |===
 

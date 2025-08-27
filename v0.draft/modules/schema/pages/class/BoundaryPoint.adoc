@@ -11,7 +11,7 @@
 | Class
 
 | URI
-| http://iec.ch/TC57/CIM100-European#BoundaryPoint[`eu:BoundaryPoint`]
+| https://cim.ucaiug.io/ns/eu#BoundaryPoint[`eu:BoundaryPoint`]
 
 
 
@@ -204,7 +204,7 @@ https://w3id.org/linkml/String[`string`]
 [cols="h,4",width=65%]
 |===
 | URI
-| http://iec.ch/TC57/CIM100-European#BoundaryPoint.ConnectivityNode[`eu:BoundaryPoint.ConnectivityNode`]
+| https://cim.ucaiug.io/ns/eu#BoundaryPoint.ConnectivityNode[`eu:BoundaryPoint.ConnectivityNode`]
 | Cardinality
 | 1
 | Type
@@ -259,7 +259,7 @@ https://w3id.org/linkml/String[`string`]
 [cols="h,4",width=65%]
 |===
 | URI
-| http://iec.ch/TC57/CIM100-European#BoundaryPoint.fromEndNameTso[`eu:BoundaryPoint.fromEndNameTso`]
+| https://cim.ucaiug.io/ns/eu#BoundaryPoint.fromEndNameTso[`eu:BoundaryPoint.fromEndNameTso`]
 | Cardinality
 | 1
 | Type
@@ -402,7 +402,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 [cols="h,4",width=65%]
 |===
 | URI
-| http://iec.ch/TC57/CIM100-European#BoundaryPoint.toEndNameTso[`eu:BoundaryPoint.toEndNameTso`]
+| https://cim.ucaiug.io/ns/eu#BoundaryPoint.toEndNameTso[`eu:BoundaryPoint.toEndNameTso`]
 | Cardinality
 | 1
 | Type

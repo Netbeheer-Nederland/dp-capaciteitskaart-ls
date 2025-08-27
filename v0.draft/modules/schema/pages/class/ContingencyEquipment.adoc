@@ -48,7 +48,7 @@ ContingencyEquipment {
 
 
 
-Equipment {
+PowerTransformer {
   style {
     fill: "#eccfcb"
     shadow: true
@@ -76,7 +76,7 @@ Name {
 
 
 
-ContingencyEquipment -> Equipment: Equipment
+ContingencyEquipment -> PowerTransformer: Equipment
 
 
 ContingencyEquipment -> Contingency: Contingency
@@ -141,7 +141,7 @@ legend: "" {
 | <<Equipment,`Equipment`>>
 //| [[slots_table.Equipment]]<<Equipment,`Equipment`>>
 | 1 +
-xref::class/Equipment.adoc[`Equipment`]
+xref::class/PowerTransformer.adoc[`PowerTransformer`]
 | +++The single piece of equipment to which to apply the contingency.+++
 | _n/a_
 
@@ -288,7 +288,7 @@ https://w3id.org/linkml/String[`string`]
 | Cardinality
 | 1
 | Type
-| xref::class/Equipment.adoc[`Equipment`]
+| xref::class/PowerTransformer.adoc[`PowerTransformer`]
 
 
 |===

@@ -55,7 +55,7 @@ OperatingParticipant {
 
 
 
-PowerSystemResource {
+VoltageLevel {
   style {
     fill: "#eccfcb"
     shadow: true
@@ -68,7 +68,7 @@ PowerSystemResource {
 OperatingShare -> OperatingParticipant: OperatingParticipant
 
 
-OperatingShare -> PowerSystemResource: PowerSystemResource
+OperatingShare -> VoltageLevel: PowerSystemResource
 
 
 legend: "" {
@@ -134,7 +134,7 @@ xref::class/OperatingParticipant.adoc[`OperatingParticipant`]
 | <<PowerSystemResource,`PowerSystemResource`>>
 //| [[slots_table.PowerSystemResource]]<<PowerSystemResource,`PowerSystemResource`>>
 | 1 +
-xref::class/PowerSystemResource.adoc[`PowerSystemResource`]
+xref::class/VoltageLevel.adoc[`VoltageLevel`]
 | +++The power system resource to which the share applies.+++
 | _n/a_
 |===
@@ -181,7 +181,7 @@ xref::class/PowerSystemResource.adoc[`PowerSystemResource`]
 | Cardinality
 | 1
 | Type
-| xref::class/PowerSystemResource.adoc[`PowerSystemResource`]
+| xref::class/VoltageLevel.adoc[`VoltageLevel`]
 
 
 |===
