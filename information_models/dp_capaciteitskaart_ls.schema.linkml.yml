@@ -130,27 +130,6 @@ enums:
         meaning: cim:UnitSymbol.Wb
       Wh:
         meaning: cim:UnitSymbol.Wh
-  ContingencyEquipmentStatusKind:
-    description: Indicates the state which the contingency equipment is to be in when
-      the contingency is applied.
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM
-    enum_uri: cim:ContingencyEquipmentStatusKind
-    permissible_values:
-      inService:
-        meaning: cim:ContingencyEquipmentStatusKind.inService
-      outOfService:
-        meaning: cim:ContingencyEquipmentStatusKind.outOfService
-  InUseStateKind:
-    description: Possible 'in use' states that an asset can be in.
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM
-    enum_uri: cim:InUseStateKind
-    permissible_values:
-      inUse:
-        meaning: cim:InUseStateKind.inUse
-      notReadyForUse:
-        meaning: cim:InUseStateKind.notReadyForUse
-      readyForUse:
-        meaning: cim:InUseStateKind.readyForUse
   WorkTaskKind:
     description: Kinds of work tasks.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM
@@ -617,15 +596,6 @@ classes:
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Contingency
     is_a: ContingencyElement
     attributes:
-      contingentStatus:
-        description: The status for the associated equipment when in the
-          contingency state. This status is independent of the case to which
-          the contingency is originally applied, but defines the equipment
-          status when the contingency is applied.
-        slot_uri: cim:ContingencyEquipment.contingentStatus
-        range: ContingencyEquipmentStatusKind
-        required: false
-        multivalued: false
       Equipment:
         description: The single piece of equipment to which to apply the contingency.
         slot_uri: cim:ContingencyEquipment.Equipment
@@ -686,22 +656,6 @@ classes:
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Assets
     is_a: IdentifiedObject
     attributes:
-      inUseState:
-        description: Indication of whether asset is currently deployed (in use), ready
-          to be put into use or not available for use.
-        slot_uri: cim:Asset.inUseState
-        range: InUseStateKind
-        required: false
-        multivalued: false
-      type:
-        description: "Utility-specific classification of Asset and its subtypes, according\
-          \ to their corporate standards, practices, and existing IT systems (e.g.,\
-          \ for management of assets, maintenance, work, outage, customers, etc.).\r\
-          \n"
-        slot_uri: cim:Asset.type
-        range: string
-        required: false
-        multivalued: false
       PowerSystemResources:
         slot_uri: cim:Asset.PowerSystemResources
         range: PowerSystemResource
@@ -769,87 +723,7 @@ classes:
         range: string
         required: true
         multivalued: false
-      streetDetail:
-        description: Street detail.
-        slot_uri: cim:StreetAddress.streetDetail
-        range: StreetDetail
-        required: false
-        multivalued: false
-      townDetail:
-        description: Town detail.
-        slot_uri: cim:StreetAddress.townDetail
-        range: TownDetail
-        required: false
-        multivalued: false
     class_uri: cim:StreetAddress
-  StreetDetail:
-    description: "Street details, in the context of address.\r\n"
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Common
-    attributes:
-      addressGeneral:
-        description: First line of a free form address or some additional address
-          information (for example a mail stop).
-        slot_uri: cim:StreetDetail.addressGeneral
-        range: string
-        required: false
-        multivalued: false
-      code:
-        description: (if applicable) Utilities often make use of external reference
-          systems, such as those of the town-planner's department or surveyor general's
-          mapping system, that allocate global reference codes to streets.
-        slot_uri: cim:StreetDetail.code
-        range: string
-        required: false
-        multivalued: false
-      name:
-        description: Name of the street.
-        slot_uri: cim:StreetDetail.name
-        range: string
-        required: false
-        multivalued: false
-      number:
-        description: Designator of the specific location on the street.
-        slot_uri: cim:StreetDetail.number
-        range: string
-        required: false
-        multivalued: false
-    class_uri: cim:StreetDetail
-  TownDetail:
-    description: "Town details, in the context of address.\r\n"
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Common
-    attributes:
-      code:
-        description: Town code.
-        slot_uri: cim:TownDetail.code
-        range: string
-        required: false
-        multivalued: false
-      country:
-        description: Name of the country.
-        slot_uri: cim:TownDetail.country
-        range: string
-        required: false
-        multivalued: false
-      name:
-        description: Town name.
-        slot_uri: cim:TownDetail.name
-        range: string
-        required: false
-        multivalued: false
-      section:
-        description: Town section. For example, it is common for there to be 36 sections
-          per township.
-        slot_uri: cim:TownDetail.section
-        range: string
-        required: false
-        multivalued: false
-      stateOrProvince:
-        description: Name of the state or province.
-        slot_uri: cim:TownDetail.stateOrProvince
-        range: string
-        required: false
-        multivalued: false
-    class_uri: cim:TownDetail
   PositionPoint:
     description: Set of spatial coordinates that determine a point, defined in the
       coordinate system specified in 'Location.CoordinateSystem'. Use a single position
@@ -883,7 +757,7 @@ classes:
         description: (if applicable) Z axis position.
         slot_uri: cim:PositionPoint.zPosition
         range: string
-        required: true
+        required: false
         multivalued: false
       Location:
         description: Location described by this position point.

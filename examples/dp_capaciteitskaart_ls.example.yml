@@ -8,27 +8,27 @@
   xsd: http://www.w3.org/2001/XMLSchema#
   ck: http://data.netbeheernederland.nl/dp-capaciteitskaart-ls/def#
 '@graph':
-  - '@id': urn:uuid:156a0057-9d46-42dc-a3d6-09fed346fd7b
+  - '@id': urn:uuid:eb59d75a-62d0-45b2-9940-d382bcffe2aa
     '@type': cim:GeographicalRegion
-    cim:IdentifiedObject.mRID: 156a0057-9d46-42dc-a3d6-09fed346fd7b
-  - '@id': urn:uuid:91527b1c-c401-4113-8a50-10e2d52b602b
+    cim:IdentifiedObject.mRID: eb59d75a-62d0-45b2-9940-d382bcffe2aa
+  - '@id': urn:uuid:14fda649-840c-4c9f-a860-ecfd5fd48a7a
     '@type': cim:SubGeographicalRegion
     cim:SubGeographicalRegion.Region:
-      '@id': urn:uuid:156a0057-9d46-42dc-a3d6-09fed346fd7b
-    cim:IdentifiedObject.mRID: 91527b1c-c401-4113-8a50-10e2d52b602b
-  - '@id': urn:uuid:19bc9d69-c1c5-4b4f-97ee-d531b6736a4f
+      '@id': urn:uuid:eb59d75a-62d0-45b2-9940-d382bcffe2aa
+    cim:IdentifiedObject.mRID: 14fda649-840c-4c9f-a860-ecfd5fd48a7a
+  - '@id': urn:uuid:c5eac295-702d-42b5-a428-1c38e3d96ada
     '@type': cim:Substation
     cim:Substation.Region:
-      '@id': urn:uuid:91527b1c-c401-4113-8a50-10e2d52b602b
-    cim:IdentifiedObject.mRID: 19bc9d69-c1c5-4b4f-97ee-d531b6736a4f
-  - '@id': urn:uuid:d02a71c4-2cd4-465e-b39e-0f77159a22f8
+      '@id': urn:uuid:14fda649-840c-4c9f-a860-ecfd5fd48a7a
+    cim:IdentifiedObject.mRID: c5eac295-702d-42b5-a428-1c38e3d96ada
+  - '@id': urn:uuid:a60510c9-976e-4eb3-9746-ce4f8125bba8
     '@type': cim:VoltageLevel
     cim:VoltageLevel.BaseVoltage:
-      '@id': urn:uuid:2b35f290-0c22-4176-938c-87e5c2ac430a
+      '@id': urn:uuid:8430da67-c674-4907-8011-718ca928c6b2
     cim:VoltageLevel.Substation:
-      '@id': urn:uuid:19bc9d69-c1c5-4b4f-97ee-d531b6736a4f
-    cim:IdentifiedObject.mRID: d02a71c4-2cd4-465e-b39e-0f77159a22f8
-  - '@id': urn:uuid:faea01ac-5ea9-4274-abed-0ed547d51f93
+      '@id': urn:uuid:c5eac295-702d-42b5-a428-1c38e3d96ada
+    cim:IdentifiedObject.mRID: a60510c9-976e-4eb3-9746-ce4f8125bba8
+  - '@id': urn:uuid:0090a39a-0002-404d-a0da-c38bfe8cbccc
     '@type': cim:Voltage
     cim:Voltage.multiplier:
       '@id': cim:UnitMultiplier.G
@@ -37,20 +37,20 @@
     cim:Voltage.value:
       '@value': 2.0
       '@type': xsd:float
-  - '@id': urn:uuid:2b35f290-0c22-4176-938c-87e5c2ac430a
+  - '@id': urn:uuid:8430da67-c674-4907-8011-718ca928c6b2
     '@type': cim:BaseVoltage
     cim:BaseVoltage.nominalVoltage:
-      '@id': urn:uuid:faea01ac-5ea9-4274-abed-0ed547d51f93
-    cim:IdentifiedObject.mRID: 2b35f290-0c22-4176-938c-87e5c2ac430a
-  - '@id': urn:uuid:ac2ef882-199b-41e0-9a90-bf726e0c84ef
+      '@id': urn:uuid:0090a39a-0002-404d-a0da-c38bfe8cbccc
+    cim:IdentifiedObject.mRID: 8430da67-c674-4907-8011-718ca928c6b2
+  - '@id': urn:uuid:58bacc10-cb90-4020-911b-cfc3d11aa5fd
     '@type': cim:Terminal
-    cim:IdentifiedObject.mRID: ac2ef882-199b-41e0-9a90-bf726e0c84ef
-  - '@id': urn:uuid:2029bc90-7df7-4a9f-a666-72f1a7cb6d6d
+    cim:IdentifiedObject.mRID: 58bacc10-cb90-4020-911b-cfc3d11aa5fd
+  - '@id': urn:uuid:7f4b487b-cbe8-482c-8b98-4c2bb952dd80
     '@type': cim:TopologicalNode
     cim:TopologicalNode.Terminal:
-      - '@id': urn:uuid:ac2ef882-199b-41e0-9a90-bf726e0c84ef
-    cim:IdentifiedObject.mRID: 2029bc90-7df7-4a9f-a666-72f1a7cb6d6d
-  - '@id': urn:uuid:d0c31ef9-e73f-49bc-ab92-6fd6556a59cc
+      - '@id': urn:uuid:58bacc10-cb90-4020-911b-cfc3d11aa5fd
+    cim:IdentifiedObject.mRID: 7f4b487b-cbe8-482c-8b98-4c2bb952dd80
+  - '@id': urn:uuid:4646f083-3423-48af-a8e9-7d77741b8d4a
     '@type': cim:ActivePower
     cim:ActivePower.multiplier:
       '@id': cim:UnitMultiplier.G
@@ -59,133 +59,128 @@
     cim:ActivePower.value:
       '@value': 2.0
       '@type': xsd:float
-  - '@id': urn:uuid:c3a831e5-34eb-404e-8429-207b205b8c95
+  - '@id': urn:uuid:8b477e30-a08b-4036-8afc-14a31b8b7186
     '@type': cim:ConnectivityNode
-    cim:IdentifiedObject.mRID: c3a831e5-34eb-404e-8429-207b205b8c95
-  - '@id': urn:uuid:57de36b8-787a-43e2-b0d5-c05df9589ebf
+    cim:IdentifiedObject.mRID: 8b477e30-a08b-4036-8afc-14a31b8b7186
+  - '@id': urn:uuid:2f42f947-3bb9-410b-97c0-2093973b204d
     '@type': cim:Name
     cim:Name.name: ''
     cim:Name.NameType:
-      '@id': urn:uuid:ab0f857d-ce72-423f-9bf9-a914a30d8b1d
-  - '@id': urn:uuid:ab0f857d-ce72-423f-9bf9-a914a30d8b1d
+      '@id': urn:uuid:07e389c5-d598-4be3-8eca-16173d3b4c17
+  - '@id': urn:uuid:07e389c5-d598-4be3-8eca-16173d3b4c17
     '@type': cim:NameType
     cim:NameType.name: ''
     cim:NameType.NameTypeAuthority:
-      '@id': urn:uuid:ba956776-bc06-423a-8400-0b027f2a5f42
-  - '@id': urn:uuid:ba956776-bc06-423a-8400-0b027f2a5f42
+      '@id': urn:uuid:1f406e36-169d-45b9-ba19-9be04c6e8198
+  - '@id': urn:uuid:1f406e36-169d-45b9-ba19-9be04c6e8198
     '@type': cim:NameTypeAuthority
     cim:NameTypeAuthority.name: ''
-  - '@id': urn:uuid:c1e92c12-d7e3-4bc6-a840-1c32ebf6db9a
+  - '@id': urn:uuid:d2c5435c-fadb-4d28-8af5-8785160f4769
     '@type': cim:ContingencyEquipment
     cim:ContingencyEquipment.Equipment:
-      '@id': urn:uuid:eee37130-9669-44d1-8cc5-45190b020daa
+      '@id': urn:uuid:96015158-a374-4bcb-aaf8-493102a3bd15
     cim:ContingencyElement.Contingency:
-      '@id': urn:uuid:89cbfe94-9669-4fc8-9eb0-1dd280ff7fee
-    cim:IdentifiedObject.mRID: c1e92c12-d7e3-4bc6-a840-1c32ebf6db9a
-  - '@id': urn:uuid:003da550-9901-4c10-a02c-04edcca47d58
+      '@id': urn:uuid:11cab2fb-fafc-4722-a7b1-73658cb40290
+    cim:IdentifiedObject.mRID: d2c5435c-fadb-4d28-8af5-8785160f4769
+  - '@id': urn:uuid:2509c625-0ae4-436f-95bf-bce35af791ff
     '@type': cim:OperatingShare
     cim:OperatingShare.OperatingParticipant:
-      '@id': urn:uuid:a0061002-0909-4993-88a9-061bbbbc285c
+      '@id': urn:uuid:04c27054-d912-46d0-a7c3-c2159343b5e6
     cim:OperatingShare.PowerSystemResource:
-      '@id': urn:uuid:d02a71c4-2cd4-465e-b39e-0f77159a22f8
-  - '@id': urn:uuid:a0061002-0909-4993-88a9-061bbbbc285c
+      '@id': urn:uuid:a60510c9-976e-4eb3-9746-ce4f8125bba8
+  - '@id': urn:uuid:04c27054-d912-46d0-a7c3-c2159343b5e6
     '@type': cim:OperatingParticipant
-    cim:IdentifiedObject.mRID: a0061002-0909-4993-88a9-061bbbbc285c
-  - '@id': urn:uuid:79777d69-af75-4dc2-9c75-e1c506162f25
+    cim:IdentifiedObject.mRID: 04c27054-d912-46d0-a7c3-c2159343b5e6
+  - '@id': urn:uuid:f2068540-d04b-4897-aa01-30261cc54325
     '@type': cim:Asset
-    cim:IdentifiedObject.mRID: 79777d69-af75-4dc2-9c75-e1c506162f25
-  - '@id': urn:uuid:30e07bd3-42cb-4925-a8a1-3897c6da4692
+    cim:IdentifiedObject.mRID: f2068540-d04b-4897-aa01-30261cc54325
+  - '@id': urn:uuid:0793c43a-6676-4773-9fc6-06ed40d8b6ca
     '@type': cim:CoordinateSystem
     cim:CoordinateSystem.crsUrn: ''
-    cim:IdentifiedObject.mRID: 30e07bd3-42cb-4925-a8a1-3897c6da4692
-  - '@id': urn:uuid:5f31b9d8-1e38-4107-82f0-3c8fc4f43479
+    cim:IdentifiedObject.mRID: 0793c43a-6676-4773-9fc6-06ed40d8b6ca
+  - '@id': urn:uuid:f8c55c78-c140-443f-8a6c-51994fc759cc
     '@type': cim:Location
-    cim:IdentifiedObject.mRID: 5f31b9d8-1e38-4107-82f0-3c8fc4f43479
-  - '@id': urn:uuid:cbacc80b-5ee1-4588-8eb9-d9b0be2012fb
+    cim:IdentifiedObject.mRID: f8c55c78-c140-443f-8a6c-51994fc759cc
+  - '@id': urn:uuid:abaa551f-3629-4d0d-af81-ef1ed423d486
     '@type': cim:StreetAddress
     cim:StreetAddress.postalCode: ''
-  - '@id': urn:uuid:95d2103b-f1f9-4e27-b7d8-5fd8614bc173
-    '@type': cim:StreetDetail
-  - '@id': urn:uuid:4be6f6d5-6170-4956-9129-ab7f6cde5e0f
-    '@type': cim:TownDetail
-  - '@id': urn:uuid:547c63ec-3359-4d9d-a3a0-12bffd9f147e
+  - '@id': urn:uuid:c9342173-b8de-4e37-8914-5a7a272ba838
     '@type': cim:PositionPoint
     cim:PositionPoint.xPosition: ''
     cim:PositionPoint.yPosition: ''
-    cim:PositionPoint.zPosition: ''
     cim:PositionPoint.Location:
-      '@id': urn:uuid:5f31b9d8-1e38-4107-82f0-3c8fc4f43479
-  - '@id': urn:uuid:2da501f2-bb72-4b24-b5c5-505fdb0d60fb
+      '@id': urn:uuid:f8c55c78-c140-443f-8a6c-51994fc759cc
+  - '@id': urn:uuid:16b60340-e153-4f91-b629-e7c2237718c9
     '@type': cim:WorkTask
     cim:WorkTask.Work:
-      '@id': urn:uuid:c0085b78-de19-4e06-b1d5-4dcbaeb1a281
+      '@id': urn:uuid:34f3a7f8-eb31-4d72-b20e-5453bc5c9c18
     cim:BaseWork.WorkLocation:
-      '@id': urn:uuid:3bad45b6-af47-44d4-9467-e902ffe69f1c
+      '@id': urn:uuid:ca0f131e-8570-4752-a4ff-0401fdc362a7
     cim:BaseWork.TimeSchedules:
-      - '@id': urn:uuid:30ca6bea-9d98-4bd8-849f-f0130f676002
-    cim:IdentifiedObject.mRID: 2da501f2-bb72-4b24-b5c5-505fdb0d60fb
-  - '@id': urn:uuid:c0085b78-de19-4e06-b1d5-4dcbaeb1a281
+      - '@id': urn:uuid:d125d8df-0c03-4c5c-b545-15bd2c6775f2
+    cim:IdentifiedObject.mRID: 16b60340-e153-4f91-b629-e7c2237718c9
+  - '@id': urn:uuid:34f3a7f8-eb31-4d72-b20e-5453bc5c9c18
     '@type': cim:Work
     cim:Work.Project:
-      '@id': urn:uuid:50307643-849d-40d5-9e3c-8b6d95dc9834
+      '@id': urn:uuid:4732ca46-39d5-446c-92bf-4474a18a10b8
     cim:BaseWork.WorkLocation:
-      '@id': urn:uuid:3bad45b6-af47-44d4-9467-e902ffe69f1c
+      '@id': urn:uuid:ca0f131e-8570-4752-a4ff-0401fdc362a7
     cim:BaseWork.TimeSchedules:
-      - '@id': urn:uuid:30ca6bea-9d98-4bd8-849f-f0130f676002
-    cim:IdentifiedObject.mRID: c0085b78-de19-4e06-b1d5-4dcbaeb1a281
-  - '@id': urn:uuid:30ca6bea-9d98-4bd8-849f-f0130f676002
+      - '@id': urn:uuid:d125d8df-0c03-4c5c-b545-15bd2c6775f2
+    cim:IdentifiedObject.mRID: 34f3a7f8-eb31-4d72-b20e-5453bc5c9c18
+  - '@id': urn:uuid:d125d8df-0c03-4c5c-b545-15bd2c6775f2
     '@type': cim:WorkTimeSchedule
     cim:TimeSchedule.scheduleInterval:
-      '@id': urn:uuid:050a1ca9-4753-4239-8d89-f9e949d74b35
-    cim:IdentifiedObject.mRID: 30ca6bea-9d98-4bd8-849f-f0130f676002
-  - '@id': urn:uuid:93589988-fff1-467b-98e2-ba30b64a541b
+      '@id': urn:uuid:2693cbcd-4f19-4913-998b-d34936a5c18d
+    cim:IdentifiedObject.mRID: d125d8df-0c03-4c5c-b545-15bd2c6775f2
+  - '@id': urn:uuid:9ddf9657-2c72-486c-9757-663fd664fe60
     '@type': cim:TimeSchedule
     cim:TimeSchedule.scheduleInterval:
-      '@id': urn:uuid:050a1ca9-4753-4239-8d89-f9e949d74b35
-    cim:IdentifiedObject.mRID: 93589988-fff1-467b-98e2-ba30b64a541b
-  - '@id': urn:uuid:50307643-849d-40d5-9e3c-8b6d95dc9834
+      '@id': urn:uuid:2693cbcd-4f19-4913-998b-d34936a5c18d
+    cim:IdentifiedObject.mRID: 9ddf9657-2c72-486c-9757-663fd664fe60
+  - '@id': urn:uuid:4732ca46-39d5-446c-92bf-4474a18a10b8
     '@type': cim:Project
-    cim:IdentifiedObject.mRID: 50307643-849d-40d5-9e3c-8b6d95dc9834
-  - '@id': urn:uuid:eee37130-9669-44d1-8cc5-45190b020daa
+    cim:IdentifiedObject.mRID: 4732ca46-39d5-446c-92bf-4474a18a10b8
+  - '@id': urn:uuid:96015158-a374-4bcb-aaf8-493102a3bd15
     '@type': cim:PowerTransformer
     cim:ConductingEquipment.BaseVoltage:
-      '@id': urn:uuid:2b35f290-0c22-4176-938c-87e5c2ac430a
-    cim:IdentifiedObject.mRID: eee37130-9669-44d1-8cc5-45190b020daa
-  - '@id': urn:uuid:18d9c8cc-b167-49be-af16-df161d185e1f
+      '@id': urn:uuid:8430da67-c674-4907-8011-718ca928c6b2
+    cim:IdentifiedObject.mRID: 96015158-a374-4bcb-aaf8-493102a3bd15
+  - '@id': urn:uuid:50c6e194-1b7c-416c-a79b-8fa7ec732787
     '@type': cim:PowerTransformerEnd
     cim:PowerTransformerEnd.PowerTransformer:
-      '@id': urn:uuid:eee37130-9669-44d1-8cc5-45190b020daa
+      '@id': urn:uuid:96015158-a374-4bcb-aaf8-493102a3bd15
     cim:TransformerEnd.endNumber: 2
     cim:TransformerEnd.BaseVoltage:
-      '@id': urn:uuid:2b35f290-0c22-4176-938c-87e5c2ac430a
+      '@id': urn:uuid:8430da67-c674-4907-8011-718ca928c6b2
     cim:TransformerEnd.Terminal:
-      '@id': urn:uuid:ac2ef882-199b-41e0-9a90-bf726e0c84ef
-    cim:IdentifiedObject.mRID: 18d9c8cc-b167-49be-af16-df161d185e1f
-  - '@id': urn:uuid:3bad45b6-af47-44d4-9467-e902ffe69f1c
+      '@id': urn:uuid:58bacc10-cb90-4020-911b-cfc3d11aa5fd
+    cim:IdentifiedObject.mRID: 50c6e194-1b7c-416c-a79b-8fa7ec732787
+  - '@id': urn:uuid:ca0f131e-8570-4752-a4ff-0401fdc362a7
     '@type': cim:WorkLocation
-    cim:IdentifiedObject.mRID: 3bad45b6-af47-44d4-9467-e902ffe69f1c
-  - '@id': urn:uuid:cdad61d2-16dc-44c2-b12a-5f251d13873a
+    cim:IdentifiedObject.mRID: ca0f131e-8570-4752-a4ff-0401fdc362a7
+  - '@id': urn:uuid:b2536d67-03b9-4408-8a72-be7a846e5d35
     '@type': cim:Zone
     cim:Zone.kind:
       '@id': cim:ZoneKind.electricalNetwork
-    cim:IdentifiedObject.mRID: cdad61d2-16dc-44c2-b12a-5f251d13873a
-  - '@id': urn:uuid:89cbfe94-9669-4fc8-9eb0-1dd280ff7fee
+    cim:IdentifiedObject.mRID: b2536d67-03b9-4408-8a72-be7a846e5d35
+  - '@id': urn:uuid:11cab2fb-fafc-4722-a7b1-73658cb40290
     '@type': cim:Contingency
     cim:Contingency.mustStudy: true
     ck:Contingency.demandConstraint:
       '@id': ck:RAGKind.Transparant
     ck:Contingency.generationConstraint:
       '@id': ck:RAGKind.Transparant
-    cim:IdentifiedObject.mRID: 89cbfe94-9669-4fc8-9eb0-1dd280ff7fee
-  - '@id': urn:uuid:7cd19877-bb52-42d6-a406-c7acb9db486a
+    cim:IdentifiedObject.mRID: 11cab2fb-fafc-4722-a7b1-73658cb40290
+  - '@id': urn:uuid:10f983cf-f051-4487-b611-84c62f4b1a51
     '@type': ck:ContingencyInfo
-  - '@id': urn:uuid:42b8d6ed-1b31-4e4a-97b9-02d2656f4757
+  - '@id': urn:uuid:03c6c8f8-ab63-4c70-9ac0-99e846495e81
     '@type': eu:BoundaryPoint
     eu:BoundaryPoint.fromEndNameTso: ''
     eu:BoundaryPoint.toEndNameTso: ''
     eu:BoundaryPoint.ConnectivityNode:
-      '@id': urn:uuid:c3a831e5-34eb-404e-8429-207b205b8c95
-    cim:IdentifiedObject.mRID: 42b8d6ed-1b31-4e4a-97b9-02d2656f4757
-  - '@id': urn:uuid:050a1ca9-4753-4239-8d89-f9e949d74b35
+      '@id': urn:uuid:8b477e30-a08b-4036-8afc-14a31b8b7186
+    cim:IdentifiedObject.mRID: 03c6c8f8-ab63-4c70-9ac0-99e846495e81
+  - '@id': urn:uuid:2693cbcd-4f19-4913-998b-d34936a5c18d
     '@type': cim:DateTimeInterval
 
