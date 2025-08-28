@@ -49,15 +49,6 @@ ConnectivityNodeContainer {
 
 
 
-Location {
-  style {
-    fill: "#d1e7c2"
-    shadow: true
-  }
-}
-
-
-
 Name {
   style {
     fill: "#eccfcb"
@@ -66,9 +57,6 @@ Name {
 }
 
 
-
-
-ConnectivityNodeContainer -> Location: Location
 
 
 ConnectivityNodeContainer -> Name: Names
@@ -127,13 +115,6 @@ legend: "" {
 |===
 | Name | Type | Description | Inherited from
 
-| <<Location,`Location`>>
-//| [[slots_table.Location]]<<Location,`Location`>>
-| 0..1 +
-xref::class/Location.adoc[`Location`]
-| +++Location of this power system resource.+++
-| xref::class/PowerSystemResource.adoc[`PowerSystemResource`]
-
 | <<Names,`Names`>>
 //| [[slots_table.Names]]<<Names,`Names`>>
 | 0..* +
@@ -191,35 +172,6 @@ https://w3id.org/linkml/String[`string`]
 [.text-left]
 --
 <<slots_table.description,&#10548;>>
---
-////
-
-
-//[discrete]
-[#Location]
-=== `Location`
-+++Location of this power system resource.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:PowerSystemResource.Location`
-| Cardinality
-| 0..1
-| Type
-| xref::class/Location.adoc[`Location`]
-
-| Inherited from
-| xref::class/PowerSystemResource.adoc[`PowerSystemResource`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.Location,&#10548;>>
 --
 ////
 

@@ -310,10 +310,6 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 
 
 
-| xref::class/ConductingEquipment.adoc[`ConductingEquipment`] | xref::class/ConductingEquipment.adoc#BaseVoltage[`BaseVoltage`]
-
-
-
 | xref::class/TransformerEnd.adoc[`TransformerEnd`] | xref::class/TransformerEnd.adoc#BaseVoltage[`BaseVoltage`]
 
 

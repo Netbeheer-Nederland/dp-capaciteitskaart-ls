@@ -57,6 +57,15 @@ StreetAddress {
 
 
 
+VoltageLevel {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
 Name {
   style {
     fill: "#eccfcb"
@@ -68,6 +77,9 @@ Name {
 
 
 WorkLocation -> StreetAddress: mainAddress
+
+
+WorkLocation -> VoltageLevel: PowerSystemResources
 
 
 WorkLocation -> Name: Names
@@ -125,6 +137,13 @@ legend: "" {
 [cols="1,1,2,1",width=100%]
 |===
 | Name | Type | Description | Inherited from
+
+| <<PowerSystemResources,`PowerSystemResources`>>
+//| [[slots_table.PowerSystemResources]]<<PowerSystemResources,`PowerSystemResources`>>
+| 0..* +
+xref::class/VoltageLevel.adoc[`VoltageLevel`]
+| +++All power system resources at this location.+++
+| xref::class/Location.adoc[`Location`]
 
 | <<mainAddress,`mainAddress`>>
 //| [[slots_table.mainAddress]]<<mainAddress,`mainAddress`>>
@@ -307,6 +326,35 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 [.text-left]
 --
 <<slots_table.Names,&#10548;>>
+--
+////
+
+
+//[discrete]
+[#PowerSystemResources]
+=== `PowerSystemResources`
++++All power system resources at this location.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:Location.PowerSystemResources`
+| Cardinality
+| 0..*
+| Type
+| xref::class/VoltageLevel.adoc[`VoltageLevel`]
+
+| Inherited from
+| xref::class/Location.adoc[`Location`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.PowerSystemResources,&#10548;>>
 --
 ////
 

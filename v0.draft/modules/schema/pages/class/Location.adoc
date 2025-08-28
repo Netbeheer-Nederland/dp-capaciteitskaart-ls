@@ -58,6 +58,15 @@ StreetAddress {
 
 
 
+VoltageLevel {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
 Name {
   style {
     fill: "#eccfcb"
@@ -69,6 +78,9 @@ Name {
 
 
 Location -> StreetAddress: mainAddress
+
+
+Location -> VoltageLevel: PowerSystemResources
 
 
 Location -> Name: Names
@@ -126,6 +138,13 @@ legend: "" {
 [cols="1,1,2,1",width=100%]
 |===
 | Name | Type | Description | Inherited from
+
+| <<PowerSystemResources,`PowerSystemResources`>>
+//| [[slots_table.PowerSystemResources]]<<PowerSystemResources,`PowerSystemResources`>>
+| 0..* +
+xref::class/VoltageLevel.adoc[`VoltageLevel`]
+| +++All power system resources at this location.+++
+| _n/a_
 
 | <<mainAddress,`mainAddress`>>
 //| [[slots_table.mainAddress]]<<mainAddress,`mainAddress`>>
@@ -309,28 +328,36 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 ////
 
 
+//[discrete]
+[#PowerSystemResources]
+=== `PowerSystemResources`
++++All power system resources at this location.+++
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:Location.PowerSystemResources`
+| Cardinality
+| 0..*
+| Type
+| xref::class/VoltageLevel.adoc[`VoltageLevel`]
+
+
+|===
+
+////
+[.text-left]
+--
+<<slots_table.PowerSystemResources,&#10548;>>
+--
+////
+
+
 
 
 
 == Used by
 
 
-[cols="1,1",width=65%]
-|===
-| Source class | Slot name
-
-
-
-| xref::class/Asset.adoc[`Asset`] | xref::class/Asset.adoc#Location[`Location`]
-
-
-
-| xref::class/PositionPoint.adoc[`PositionPoint`] | xref::class/PositionPoint.adoc#Location[`Location`]
-
-
-
-| xref::class/PowerSystemResource.adoc[`PowerSystemResource`] | xref::class/PowerSystemResource.adoc#Location[`Location`]
-
-
-|===
-
+This class is not used by any other classes as the range of a slot.

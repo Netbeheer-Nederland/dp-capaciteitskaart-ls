@@ -80,9 +80,6 @@ The localName is a human readable name of the object. It is a free text name loc
 | xref::class/OperatingShare.adoc[`OperatingShare`]
 | +++Specifies the operations contract relationship between a power system resource and a contract participant.+++
 
-| xref::class/PositionPoint.adoc[`PositionPoint`]
-| +++Set of spatial coordinates that determine a point, defined in the coordinate system specified in 'Location.CoordinateSystem'. Use a single position point instance to describe a point-oriented location. Use a sequence of position points to describe a line-oriented object (physical location of non-point oriented objects like cables or lines), or area of an object (like a substation or a geographical zone - in this case, have first and last position point with the same values).+++
-
 | xref::class/PowerSystemResource.adoc[`PowerSystemResource`]
 | +++A power system resource (PSR) can be an item of equipment such as a switch, an equipment container containing many individual items of equipment such as a substation, or an organisational entity such as sub-control area. Power system resources can have measurements associated.+++
 
@@ -107,9 +104,6 @@ Each PowerTransformerEnd must be contained by a PowerTransformer. Because a Powe
 | xref::class/StreetAddress.adoc[`StreetAddress`]
 | +++General purpose street and postal address information.+++
 
-| xref::class/StreetDetail.adoc[`StreetDetail`]
-| +++Street details, in the context of address.+++
-
 | xref::class/SubGeographicalRegion.adoc[`SubGeographicalRegion`]
 | +++A subset of a geographical region of a power system network model.+++
 
@@ -125,9 +119,6 @@ Each PowerTransformerEnd must be contained by a PowerTransformer. Because a Powe
 | xref::class/TopologicalNode.adoc[`TopologicalNode`]
 | +++For a detailed substation model a topological node is a set of connectivity nodes that, in the current network state, are connected together through any type of closed switches, including  jumpers. Topological nodes change as the current network state changes (i.e., switches, breakers, etc. change state).
 For a planning model, switch statuses are not used to form topological nodes. Instead they are manually created or deleted in a model builder tool. Topological nodes maintained this way are also called "busses".+++
-
-| xref::class/TownDetail.adoc[`TownDetail`]
-| +++Town details, in the context of address.+++
 
 | xref::class/TransformerEnd.adoc[`TransformerEnd`]
 | +++A conducting connection point of a power transformer. It corresponds to a physical transformer winding terminal.  In earlier CIM versions, the TransformerWinding class served a similar purpose, but this class is more flexible because it associates to terminal but is not a specialization of ConductingEquipment.+++
@@ -164,9 +155,6 @@ For a planning model, switch statuses are not used to form topological nodes. In
 | Name | Description
 
 
-| xref::class/ActivePower.adoc[`ActivePower`]
-| +++Product of RMS value of the voltage and the RMS value of the in-phase component of the current.+++
-
 | xref::class/Voltage.adoc[`Voltage`]
 | +++Electrical voltage, can be both AC and DC.+++
 
@@ -180,12 +168,6 @@ For a planning model, switch statuses are not used to form topological nodes. In
 [cols="1,2"]
 |===
 | Name | Description
-
-| xref::enumeration/ContingencyEquipmentStatusKind.adoc[`ContingencyEquipmentStatusKind`]
-| +++Indicates the state which the contingency equipment is to be in when the contingency is applied.+++
-
-| xref::enumeration/InUseStateKind.adoc[`InUseStateKind`]
-| +++Possible 'in use' states that an asset can be in.+++
 
 | xref::enumeration/RAGKind.adoc[`RAGKind`]
 | +++Traffic light colors coding scheme for categorising status.+++

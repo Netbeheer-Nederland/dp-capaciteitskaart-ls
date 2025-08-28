@@ -147,7 +147,7 @@ xref::class/BaseVoltage.adoc[`BaseVoltage`]
 
 | <<Terminal,`Terminal`>>
 //| [[slots_table.Terminal]]<<Terminal,`Terminal`>>
-| 1 +
+| 0..1 +
 xref::class/Terminal.adoc[`Terminal`]
 | +++Terminal of the power transformer to which this transformer end belongs.+++
 | _n/a_
@@ -371,7 +371,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | URI
 | `cim:TransformerEnd.Terminal`
 | Cardinality
-| 1
+| 0..1
 | Type
 | xref::class/Terminal.adoc[`Terminal`]
 

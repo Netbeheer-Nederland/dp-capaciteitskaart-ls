@@ -47,18 +47,9 @@ Asset {
 
 
 
-PowerSystemResource {
+PowerTransformer {
   style {
     fill: "#eccfcb"
-    shadow: true
-  }
-}
-
-
-
-Location {
-  style {
-    fill: "#d1e7c2"
     shadow: true
   }
 }
@@ -75,10 +66,7 @@ Name {
 
 
 
-Asset -> PowerSystemResource: PowerSystemResources
-
-
-Asset -> Location: Location
+Asset -> PowerTransformer: PowerSystemResources
 
 
 Asset -> Name: Names
@@ -137,32 +125,11 @@ legend: "" {
 |===
 | Name | Type | Description | Inherited from
 
-| <<Location,`Location`>>
-//| [[slots_table.Location]]<<Location,`Location`>>
-| 0..1 +
-xref::class/Location.adoc[`Location`]
-| +++Location of this asset.+++
-| _n/a_
-
 | <<PowerSystemResources,`PowerSystemResources`>>
 //| [[slots_table.PowerSystemResources]]<<PowerSystemResources,`PowerSystemResources`>>
-| 0..* +
-xref::class/PowerSystemResource.adoc[`PowerSystemResource`]
+| 1..* +
+xref::class/PowerTransformer.adoc[`PowerTransformer`]
 | +++All power system resources used to electrically model this asset. For example, transformer asset is electrically modelled...+++
-| _n/a_
-
-| <<inUseState,`inUseState`>>
-//| [[slots_table.inUseState]]<<inUseState,`inUseState`>>
-| 0..1 +
-xref::enumeration/InUseStateKind.adoc[`InUseStateKind`]
-| +++Indication of whether asset is currently deployed (in use), ready to be put into use or not available for use.+++
-| _n/a_
-
-| <<type,`type`>>
-//| [[slots_table.type]]<<type,`type`>>
-| 0..1 +
-https://w3id.org/linkml/String[`string`]
-| +++Utility-specific classification of Asset and its subtypes, according to their corporate standards, practices, and existing...+++
 | _n/a_
 
 | <<Names,`Names`>>
@@ -222,58 +189,6 @@ https://w3id.org/linkml/String[`string`]
 [.text-left]
 --
 <<slots_table.description,&#10548;>>
---
-////
-
-
-//[discrete]
-[#inUseState]
-=== `inUseState`
-+++Indication of whether asset is currently deployed (in use), ready to be put into use or not available for use.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:Asset.inUseState`
-| Cardinality
-| 0..1
-| Type
-| xref::enumeration/InUseStateKind.adoc[`InUseStateKind`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.inUseState,&#10548;>>
---
-////
-
-
-//[discrete]
-[#Location]
-=== `Location`
-+++Location of this asset.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:Asset.Location`
-| Cardinality
-| 0..1
-| Type
-| xref::class/Location.adoc[`Location`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.Location,&#10548;>>
 --
 ////
 
@@ -377,9 +292,9 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | URI
 | `cim:Asset.PowerSystemResources`
 | Cardinality
-| 0..*
+| 1..*
 | Type
-| xref::class/PowerSystemResource.adoc[`PowerSystemResource`]
+| xref::class/PowerTransformer.adoc[`PowerTransformer`]
 
 
 |===
@@ -388,32 +303,6 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 [.text-left]
 --
 <<slots_table.PowerSystemResources,&#10548;>>
---
-////
-
-
-//[discrete]
-[#type]
-=== `type`
-+++Utility-specific classification of Asset and its subtypes, according to their corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.).+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:Asset.type`
-| Cardinality
-| 0..1
-| Type
-| https://w3id.org/linkml/String[`string`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.type,&#10548;>>
 --
 ////
 

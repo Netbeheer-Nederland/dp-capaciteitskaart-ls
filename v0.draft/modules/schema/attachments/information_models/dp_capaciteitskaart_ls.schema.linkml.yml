@@ -131,27 +131,6 @@ enums:
         meaning: cim:UnitSymbol.Wb
       Wh:
         meaning: cim:UnitSymbol.Wh
-  ContingencyEquipmentStatusKind:
-    description: Indicates the state which the contingency equipment is to be in when
-      the contingency is applied.
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM
-    enum_uri: cim:ContingencyEquipmentStatusKind
-    permissible_values:
-      inService:
-        meaning: cim:ContingencyEquipmentStatusKind.inService
-      outOfService:
-        meaning: cim:ContingencyEquipmentStatusKind.outOfService
-  InUseStateKind:
-    description: Possible 'in use' states that an asset can be in.
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM
-    enum_uri: cim:InUseStateKind
-    permissible_values:
-      inUse:
-        meaning: cim:InUseStateKind.inUse
-      notReadyForUse:
-        meaning: cim:InUseStateKind.notReadyForUse
-      readyForUse:
-        meaning: cim:InUseStateKind.readyForUse
   WorkTaskKind:
     description: Kinds of work tasks.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM
@@ -333,15 +312,6 @@ classes:
       or that are conductively connected through terminals.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     is_a: Equipment
-    attributes:
-      BaseVoltage:
-        description: Base voltage of this conducting equipment.  Use only when there
-          is no voltage level container used and only one base voltage applies.  For
-          example, not used for transformers.
-        slot_uri: cim:ConductingEquipment.BaseVoltage
-        range: BaseVoltage
-        required: true
-        multivalued: false
     abstract: true
     class_uri: cim:ConductingEquipment
   Terminal:
@@ -387,31 +357,6 @@ classes:
           that if connectivity nodes are in the model, this association would probably
           not be used as an input specification.
     class_uri: cim:TopologicalNode
-  ActivePower:
-    annotations:
-      represents_cim_data_type:
-        tag: represents_cim_data_type
-        value: true
-    description: Product of RMS value of the voltage and the RMS value of the in-phase
-      component of the current.
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Domain
-    attributes:
-      multiplier:
-        slot_uri: cim:ActivePower.multiplier
-        range: UnitMultiplier
-        required: true
-        multivalued: false
-      unit:
-        slot_uri: cim:ActivePower.unit
-        range: UnitSymbol
-        required: true
-        multivalued: false
-      value:
-        slot_uri: cim:ActivePower.value
-        range: float
-        required: true
-        multivalued: false
-    class_uri: cim:ActivePower
   ConnectivityNodeContainer:
     description: "A base class for all objects that may contain connectivity nodes\
       \ or topological nodes.\r\n"
@@ -462,7 +407,7 @@ classes:
           belongs.
         slot_uri: cim:TransformerEnd.Terminal
         range: Terminal
-        required: true
+        required: false
         multivalued: false
     abstract: true
     class_uri: cim:TransformerEnd
@@ -618,15 +563,6 @@ classes:
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Contingency
     is_a: ContingencyElement
     attributes:
-      contingentStatus:
-        description: The status for the associated equipment when in the
-          contingency state. This status is independent of the case to which
-          the contingency is originally applied, but defines the equipment
-          status when the contingency is applied.
-        slot_uri: cim:ContingencyEquipment.contingentStatus
-        range: ContingencyEquipmentStatusKind
-        required: false
-        multivalued: false
       Equipment:
         description: The single piece of equipment to which to apply the contingency.
         slot_uri: cim:ContingencyEquipment.Equipment
@@ -641,13 +577,6 @@ classes:
       Power system resources can have measurements associated.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     is_a: IdentifiedObject
-    attributes:
-      Location:
-        description: Location of this power system resource.
-        slot_uri: cim:PowerSystemResource.Location
-        range: Location
-        required: false
-        multivalued: false
     abstract: true
     class_uri: cim:PowerSystemResource
   OperatingShare:
@@ -687,36 +616,14 @@ classes:
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Assets
     is_a: IdentifiedObject
     attributes:
-      inUseState:
-        description: Indication of whether asset is currently deployed (in use), ready
-          to be put into use or not available for use.
-        slot_uri: cim:Asset.inUseState
-        range: InUseStateKind
-        required: false
-        multivalued: false
-      type:
-        description: "Utility-specific classification of Asset and its subtypes, according\
-          \ to their corporate standards, practices, and existing IT systems (e.g.,\
-          \ for management of assets, maintenance, work, outage, customers, etc.).\r\
-          \n"
-        slot_uri: cim:Asset.type
-        range: string
-        required: false
-        multivalued: false
       PowerSystemResources:
         slot_uri: cim:Asset.PowerSystemResources
-        range: PowerSystemResource
-        required: false
+        range: PowerTransformer
+        required: true
         multivalued: true
         description: All power system resources used to electrically model this asset.
           For example, transformer asset is electrically modelled with a transformer
           and its windings and tap changer.
-      Location:
-        description: Location of this asset.
-        slot_uri: cim:Asset.Location
-        range: Location
-        required: false
-        multivalued: false
     class_uri: cim:Asset
   Location:
     description: "The place, scene, or point of something where someone or something\
@@ -732,6 +639,12 @@ classes:
         range: StreetAddress
         required: false
         multivalued: false
+      PowerSystemResources:
+        slot_uri: cim:Location.PowerSystemResources
+        range: VoltageLevel
+        required: false
+        multivalued: true
+        description: All power system resources at this location.
     class_uri: cim:Location
   StreetAddress:
     description: General purpose street and postal address information.
@@ -743,129 +656,7 @@ classes:
         range: string
         required: true
         multivalued: false
-      streetDetail:
-        description: Street detail.
-        slot_uri: cim:StreetAddress.streetDetail
-        range: StreetDetail
-        required: false
-        multivalued: false
-      townDetail:
-        description: Town detail.
-        slot_uri: cim:StreetAddress.townDetail
-        range: TownDetail
-        required: false
-        multivalued: false
     class_uri: cim:StreetAddress
-  StreetDetail:
-    description: "Street details, in the context of address.\r\n"
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Common
-    attributes:
-      addressGeneral:
-        description: First line of a free form address or some additional address
-          information (for example a mail stop).
-        slot_uri: cim:StreetDetail.addressGeneral
-        range: string
-        required: false
-        multivalued: false
-      code:
-        description: (if applicable) Utilities often make use of external reference
-          systems, such as those of the town-planner's department or surveyor general's
-          mapping system, that allocate global reference codes to streets.
-        slot_uri: cim:StreetDetail.code
-        range: string
-        required: false
-        multivalued: false
-      name:
-        description: Name of the street.
-        slot_uri: cim:StreetDetail.name
-        range: string
-        required: false
-        multivalued: false
-      number:
-        description: Designator of the specific location on the street.
-        slot_uri: cim:StreetDetail.number
-        range: string
-        required: false
-        multivalued: false
-    class_uri: cim:StreetDetail
-  TownDetail:
-    description: "Town details, in the context of address.\r\n"
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Common
-    attributes:
-      code:
-        description: Town code.
-        slot_uri: cim:TownDetail.code
-        range: string
-        required: false
-        multivalued: false
-      country:
-        description: Name of the country.
-        slot_uri: cim:TownDetail.country
-        range: string
-        required: false
-        multivalued: false
-      name:
-        description: Town name.
-        slot_uri: cim:TownDetail.name
-        range: string
-        required: false
-        multivalued: false
-      section:
-        description: Town section. For example, it is common for there to be 36 sections
-          per township.
-        slot_uri: cim:TownDetail.section
-        range: string
-        required: false
-        multivalued: false
-      stateOrProvince:
-        description: Name of the state or province.
-        slot_uri: cim:TownDetail.stateOrProvince
-        range: string
-        required: false
-        multivalued: false
-    class_uri: cim:TownDetail
-  PositionPoint:
-    description: Set of spatial coordinates that determine a point, defined in the
-      coordinate system specified in 'Location.CoordinateSystem'. Use a single position
-      point instance to describe a point-oriented location. Use a sequence of position
-      points to describe a line-oriented object (physical location of non-point oriented
-      objects like cables or lines), or area of an object (like a substation or a
-      geographical zone - in this case, have first and last position point with the
-      same values).
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Common
-    attributes:
-      sequenceNumber:
-        description: Zero-relative sequence number of this point within a series of
-          points.
-        slot_uri: cim:PositionPoint.sequenceNumber
-        range: integer
-        required: false
-        multivalued: false
-      xPosition:
-        description: X axis position.
-        slot_uri: cim:PositionPoint.xPosition
-        range: string
-        required: true
-        multivalued: false
-      yPosition:
-        description: Y axis position.
-        slot_uri: cim:PositionPoint.yPosition
-        range: string
-        required: true
-        multivalued: false
-      zPosition:
-        description: (if applicable) Z axis position.
-        slot_uri: cim:PositionPoint.zPosition
-        range: string
-        required: true
-        multivalued: false
-      Location:
-        description: Location described by this position point.
-        slot_uri: cim:PositionPoint.Location
-        range: Location
-        required: true
-        multivalued: false
-    class_uri: cim:PositionPoint
   WorkTask:
     description: A task within a set of work.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Work
@@ -905,7 +696,7 @@ classes:
       Project:
         slot_uri: cim:Work.Project
         range: Project
-        required: true
+        required: false
         multivalued: false
     class_uri: cim:Work
   WorkTimeSchedule:
@@ -928,7 +719,7 @@ classes:
         range: DateTimeInterval
         required: true
         multivalued: false
-        abstract: true
+    abstract: true
     class_uri: cim:TimeSchedule
   Project:
     description: A collection of related work. For construction projects and maintenance
@@ -1035,7 +826,7 @@ classes:
         description: Location for this work/task.
         slot_uri: cim:BaseWork.WorkLocation
         range: WorkLocation
-        required: true
+        required: false
         multivalued: false
       TimeSchedules:
         description: All time schedules for this work or work task.

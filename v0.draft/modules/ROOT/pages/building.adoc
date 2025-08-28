@@ -171,9 +171,8 @@ for modelling ownership and accountability within the network.
 * ConnectivityNode: connection point in the network, linked to terminals.
 * Terminal: represents a conducting connection; here associated with a
 PowerTransformerEnd.
-* RegisteredInterTie: identifies an interconnection point in the grid.
-* Flowgate: defines a monitored boundary in terms of power flow, linked to a
-registered intertie.
+* BoundaryPoint: represents the boundary point between TSO/TSO, TSO/DSO and/or
+SO/customer.
 * OperatingShare: specifies the share of operational responsibility.
 * OperatingParticipant: represents an entity with operational responsibility.
 * VoltageLevel: partitions a substation by operating voltage and can be linked
@@ -183,8 +182,8 @@ to operating shares and participants.
 
 * A ConnectivityNode is associated with a Terminal from a PowerTransformerEnd,
 forming the electrical point of interconnection.
-* A RegisteredInterTie with an associated Flowgate is linked to the
-ConnectivityNode, marking the boundary point in the grid.
+* A BoundaryPoint is linked to the ConnectivityNode, marking the boundary point
+in the grid.
 * This boundary indicates where responsibility shifts from one system operator
 to another, or to an end customer.
 * Ownership of a VoltageLevel is captured using OperatingShare and

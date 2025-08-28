@@ -53,27 +53,9 @@ PowerTransformer {
 
 
 
-BaseVoltage {
-  style {
-    fill: "#eccfcb"
-    shadow: true
-  }
-}
-
-
-
 EquipmentContainer {
   style {
     fill: "#eccfcb"
-    shadow: true
-  }
-}
-
-
-
-Location {
-  style {
-    fill: "#d1e7c2"
     shadow: true
   }
 }
@@ -90,13 +72,7 @@ Name {
 
 
 
-PowerTransformer -> BaseVoltage: BaseVoltage
-
-
 PowerTransformer -> EquipmentContainer: EquipmentContainer
-
-
-PowerTransformer -> Location: Location
 
 
 PowerTransformer -> Name: Names
@@ -155,13 +131,6 @@ legend: "" {
 |===
 | Name | Type | Description | Inherited from
 
-| <<BaseVoltage,`BaseVoltage`>>
-//| [[slots_table.BaseVoltage]]<<BaseVoltage,`BaseVoltage`>>
-| 1 +
-xref::class/BaseVoltage.adoc[`BaseVoltage`]
-| +++Base voltage of this conducting equipment.  Use only when there is no voltage level container used and only one base voltage...+++
-| xref::class/ConductingEquipment.adoc[`ConductingEquipment`]
-
 | <<EquipmentContainer,`EquipmentContainer`>>
 //| [[slots_table.EquipmentContainer]]<<EquipmentContainer,`EquipmentContainer`>>
 | 0..1 +
@@ -175,13 +144,6 @@ xref::class/EquipmentContainer.adoc[`EquipmentContainer`]
 https://w3id.org/linkml/Boolean[`boolean`]
 | +++The aggregate flag provides an alternative way of representing an aggregated (equivalent) element. It is applicable in cases...+++
 | xref::class/Equipment.adoc[`Equipment`]
-
-| <<Location,`Location`>>
-//| [[slots_table.Location]]<<Location,`Location`>>
-| 0..1 +
-xref::class/Location.adoc[`Location`]
-| +++Location of this power system resource.+++
-| xref::class/PowerSystemResource.adoc[`PowerSystemResource`]
 
 | <<Names,`Names`>>
 //| [[slots_table.Names]]<<Names,`Names`>>
@@ -246,35 +208,6 @@ The attribute is not used for EquivalentBranch, EquivalentShunt and EquivalentIn
 
 
 //[discrete]
-[#BaseVoltage]
-=== `BaseVoltage`
-+++Base voltage of this conducting equipment.  Use only when there is no voltage level container used and only one base voltage applies.  For example, not used for transformers.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:ConductingEquipment.BaseVoltage`
-| Cardinality
-| 1
-| Type
-| xref::class/BaseVoltage.adoc[`BaseVoltage`]
-
-| Inherited from
-| xref::class/ConductingEquipment.adoc[`ConductingEquipment`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.BaseVoltage,&#10548;>>
---
-////
-
-
-//[discrete]
 [#description]
 === `description`
 +++The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.+++
@@ -328,35 +261,6 @@ The attribute is not used for EquivalentBranch, EquivalentShunt and EquivalentIn
 [.text-left]
 --
 <<slots_table.EquipmentContainer,&#10548;>>
---
-////
-
-
-//[discrete]
-[#Location]
-=== `Location`
-+++Location of this power system resource.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:PowerSystemResource.Location`
-| Cardinality
-| 0..1
-| Type
-| xref::class/Location.adoc[`Location`]
-
-| Inherited from
-| xref::class/PowerSystemResource.adoc[`PowerSystemResource`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.Location,&#10548;>>
 --
 ////
 
@@ -458,6 +362,10 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 [cols="1,1",width=65%]
 |===
 | Source class | Slot name
+
+
+
+| xref::class/Asset.adoc[`Asset`] | xref::class/Asset.adoc#PowerSystemResources[`PowerSystemResources`]
 
 
 

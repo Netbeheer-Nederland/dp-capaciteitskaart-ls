@@ -145,13 +145,6 @@ xref::class/PowerTransformer.adoc[`PowerTransformer`]
 | +++The single piece of equipment to which to apply the contingency.+++
 | _n/a_
 
-| <<contingentStatus,`contingentStatus`>>
-//| [[slots_table.contingentStatus]]<<contingentStatus,`contingentStatus`>>
-| 0..1 +
-xref::enumeration/ContingencyEquipmentStatusKind.adoc[`ContingencyEquipmentStatusKind`]
-| +++The status for the associated equipment when in the contingency state. This status is independent of the case to which the...+++
-| _n/a_
-
 | <<Contingency,`Contingency`>>
 //| [[slots_table.Contingency]]<<Contingency,`Contingency`>>
 | 1 +
@@ -216,32 +209,6 @@ https://w3id.org/linkml/String[`string`]
 [.text-left]
 --
 <<slots_table.Contingency,&#10548;>>
---
-////
-
-
-//[discrete]
-[#contingentStatus]
-=== `contingentStatus`
-+++The status for the associated equipment when in the contingency state. This status is independent of the case to which the contingency is originally applied, but defines the equipment status when the contingency is applied.+++
-
-
-[cols="h,4",width=65%]
-|===
-| URI
-| `cim:ContingencyEquipment.contingentStatus`
-| Cardinality
-| 0..1
-| Type
-| xref::enumeration/ContingencyEquipmentStatusKind.adoc[`ContingencyEquipmentStatusKind`]
-
-
-|===
-
-////
-[.text-left]
---
-<<slots_table.contingentStatus,&#10548;>>
 --
 ////
 

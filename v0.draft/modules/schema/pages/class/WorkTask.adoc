@@ -193,7 +193,7 @@ xref::class/WorkTimeSchedule.adoc[`WorkTimeSchedule`]
 
 | <<WorkLocation,`WorkLocation`>>
 //| [[slots_table.WorkLocation]]<<WorkLocation,`WorkLocation`>>
-| 1 +
+| 0..1 +
 xref::class/WorkLocation.adoc[`WorkLocation`]
 | +++Location for this work/task.+++
 | xref::class/BaseWork.adoc[`BaseWork`]
@@ -537,7 +537,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 | URI
 | `cim:BaseWork.WorkLocation`
 | Cardinality
-| 1
+| 0..1
 | Type
 | xref::class/WorkLocation.adoc[`WorkLocation`]
 

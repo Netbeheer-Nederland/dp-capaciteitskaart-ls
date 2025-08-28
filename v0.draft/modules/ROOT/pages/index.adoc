@@ -127,8 +127,8 @@ WorkTask -> WorkLocation: "BaseWork.WorkLocation"
 Work -> Project: "Work.Project"
 VoltageLevel -> Substation: "VoltageLevel.Substation"
 VoltageLevel -> BaseVoltage: "VoltageLevel.BaseVoltage"
-VoltageLevel -> Zone: "PowerSystemResource.Location"
-VoltageLevel -> WorkLocation: "PowerSystemResource.Location"
+Zone -> VoltageLevel: "Location.PowerSystemResources"
+WorkLocation -> VoltageLevel: "Location.PowerSystemResources"
 OperatingShare -> VoltageLevel: "OperatingShare.PowerSystemResource"
 OperatingShare -> OperatingParticipant: "OperatingShare.OperatingParticipant"
 BoundaryPoint -> ConnectivityNode: "BoundaryPoint.ConnectivityNode"
@@ -136,5 +136,5 @@ BoundaryPoint -> ConnectivityNode: "BoundaryPoint.ConnectivityNode"
 
 == Additional artifacts
 
-* xref:schema:attachment$schemas/shacl/dp_capaciteitskaart_ls.shacl.ttl[SHACL]
+* xref:schema:attachment$schemas/shacl/dp_capaciteitskaart_ls.shacl.ttl[SHACL Schema]
 * xref:schema:attachment$examples/dp_capaciteitskaart_ls.example.jsonld[Example JSON-LD instance data]
