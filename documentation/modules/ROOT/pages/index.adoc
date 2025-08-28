@@ -132,6 +132,7 @@ VoltageLevel -> WorkLocation: "PowerSystemResource.Location"
 OperatingShare -> VoltageLevel: "OperatingShare.PowerSystemResource"
 OperatingShare -> OperatingParticipant: "OperatingShare.OperatingParticipant"
 BoundaryPoint -> ConnectivityNode: "BoundaryPoint.ConnectivityNode"
+Location -> CoordinateSystem: "Location.CoordinateSystem"
 ----
 
 == Additional artifacts

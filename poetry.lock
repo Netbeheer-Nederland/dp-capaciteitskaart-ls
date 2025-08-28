@@ -330,7 +330,7 @@ treelib = "^1.7.0"
 type = "git"
 url = "https://github.com/Netbeheer-Nederland/gen-linkml-profile.git"
 reference = "HEAD"
-resolved_reference = "a8ecd652559d9c7f30b5f399aaf22a815eed2b97"
+resolved_reference = "71ca5578d1280f83ef55791c719c4c7e99d44c5f"
 
 [[package]]
 name = "graphviz"
