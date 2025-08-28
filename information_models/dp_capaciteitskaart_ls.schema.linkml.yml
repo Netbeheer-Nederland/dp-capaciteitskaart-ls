@@ -311,15 +311,6 @@ classes:
       or that are conductively connected through terminals.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     is_a: Equipment
-    attributes:
-      BaseVoltage:
-        description: Base voltage of this conducting equipment.  Use only when there
-          is no voltage level container used and only one base voltage applies.  For
-          example, not used for transformers.
-        slot_uri: cim:ConductingEquipment.BaseVoltage
-        range: BaseVoltage
-        required: true
-        multivalued: false
     abstract: true
     class_uri: cim:ConductingEquipment
   Terminal:
@@ -365,31 +356,6 @@ classes:
           that if connectivity nodes are in the model, this association would probably
           not be used as an input specification.
     class_uri: cim:TopologicalNode
-  ActivePower:
-    annotations:
-      represents_cim_data_type:
-        tag: represents_cim_data_type
-        value: true
-    description: Product of RMS value of the voltage and the RMS value of the in-phase
-      component of the current.
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Domain
-    attributes:
-      multiplier:
-        slot_uri: cim:ActivePower.multiplier
-        range: UnitMultiplier
-        required: true
-        multivalued: false
-      unit:
-        slot_uri: cim:ActivePower.unit
-        range: UnitSymbol
-        required: true
-        multivalued: false
-      value:
-        slot_uri: cim:ActivePower.value
-        range: float
-        required: true
-        multivalued: false
-    class_uri: cim:ActivePower
   ConnectivityNodeContainer:
     description: "A base class for all objects that may contain connectivity nodes\
       \ or topological nodes.\r\n"
@@ -440,7 +406,7 @@ classes:
           belongs.
         slot_uri: cim:TransformerEnd.Terminal
         range: Terminal
-        required: true
+        required: false
         multivalued: false
     abstract: true
     class_uri: cim:TransformerEnd
@@ -610,13 +576,6 @@ classes:
       Power system resources can have measurements associated.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     is_a: IdentifiedObject
-    attributes:
-      Location:
-        description: Location of this power system resource.
-        slot_uri: cim:PowerSystemResource.Location
-        range: Location
-        required: false
-        multivalued: false
     abstract: true
     class_uri: cim:PowerSystemResource
   OperatingShare:
@@ -658,40 +617,13 @@ classes:
     attributes:
       PowerSystemResources:
         slot_uri: cim:Asset.PowerSystemResources
-        range: PowerSystemResource
-        required: false
+        range: PowerTransformer
+        required: true
         multivalued: true
         description: All power system resources used to electrically model this asset.
           For example, transformer asset is electrically modelled with a transformer
           and its windings and tap changer.
-      Location:
-        description: Location of this asset.
-        slot_uri: cim:Asset.Location
-        range: Location
-        required: false
-        multivalued: false
     class_uri: cim:Asset
-  CoordinateSystem:
-    class_uri: cim:CoordinateSystem
-    is_a: IdentifiedObject
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Common
-    description: "Coordinate reference system.\r\n"
-    attributes:
-      crsUrn:
-        slot_uri: cim:CoordinateSystem.crsUrn
-        range: string
-        required: true
-        multivalued: false
-        description: "A Uniform Resource Name (URN) for the coordinate reference system\
-          \ (crs) used to define 'Location.PositionPoints'.\r\nAn example would be\
-          \ the European Petroleum Survey Group (EPSG) code for a coordinate reference\
-          \ system, defined in URN under the Open Geospatial Consortium (OGC) namespace\
-          \ as: urn:ogc:def:crs:EPSG::XXXX, where XXXX is an EPSG code (a full list\
-          \ of codes can be found at the EPSG Registry web site http://www.epsg-registry.org/).\
-          \ To define the coordinate system as being WGS84 (latitude, longitude) using\
-          \ an EPSG OGC, this attribute would be urn:ogc:def:crs:EPSG::4.3.2.6\r\n\
-          A profile should limit this code to a set of allowed URNs agreed to by all\
-          \ sending and receiving parties."
   Location:
     description: "The place, scene, or point of something where someone or something\
       \ has been, is, and/or will be at a given moment in time. It can be defined\
@@ -706,12 +638,12 @@ classes:
         range: StreetAddress
         required: false
         multivalued: false
-      CoordinateSystem:
-        slot_uri: cim:Location.CoordinateSystem
-        range: CoordinateSystem
+      PowerSystemResources:
+        slot_uri: cim:Location.PowerSystemResources
+        range: VoltageLevel
         required: false
-        multivalued: false
-        description: Coordinate system used to describe position points of this location.
+        multivalued: true
+        description: All power system resources at this location.
     class_uri: cim:Location
   StreetAddress:
     description: General purpose street and postal address information.
@@ -724,48 +656,6 @@ classes:
         required: true
         multivalued: false
     class_uri: cim:StreetAddress
-  PositionPoint:
-    description: Set of spatial coordinates that determine a point, defined in the
-      coordinate system specified in 'Location.CoordinateSystem'. Use a single position
-      point instance to describe a point-oriented location. Use a sequence of position
-      points to describe a line-oriented object (physical location of non-point oriented
-      objects like cables or lines), or area of an object (like a substation or a
-      geographical zone - in this case, have first and last position point with the
-      same values).
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Common
-    attributes:
-      sequenceNumber:
-        description: Zero-relative sequence number of this point within a series of
-          points.
-        slot_uri: cim:PositionPoint.sequenceNumber
-        range: integer
-        required: false
-        multivalued: false
-      xPosition:
-        description: X axis position.
-        slot_uri: cim:PositionPoint.xPosition
-        range: string
-        required: true
-        multivalued: false
-      yPosition:
-        description: Y axis position.
-        slot_uri: cim:PositionPoint.yPosition
-        range: string
-        required: true
-        multivalued: false
-      zPosition:
-        description: (if applicable) Z axis position.
-        slot_uri: cim:PositionPoint.zPosition
-        range: string
-        required: false
-        multivalued: false
-      Location:
-        description: Location described by this position point.
-        slot_uri: cim:PositionPoint.Location
-        range: Location
-        required: true
-        multivalued: false
-    class_uri: cim:PositionPoint
   WorkTask:
     description: A task within a set of work.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Work
@@ -805,7 +695,7 @@ classes:
       Project:
         slot_uri: cim:Work.Project
         range: Project
-        required: true
+        required: false
         multivalued: false
     class_uri: cim:Work
   WorkTimeSchedule:
@@ -828,7 +718,7 @@ classes:
         range: DateTimeInterval
         required: true
         multivalued: false
-        abstract: true
+    abstract: true
     class_uri: cim:TimeSchedule
   Project:
     description: A collection of related work. For construction projects and maintenance
@@ -935,7 +825,7 @@ classes:
         description: Location for this work/task.
         slot_uri: cim:BaseWork.WorkLocation
         range: WorkLocation
-        required: true
+        required: false
         multivalued: false
       TimeSchedules:
         description: All time schedules for this work or work task.
