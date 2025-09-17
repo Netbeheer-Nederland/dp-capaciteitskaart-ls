@@ -372,7 +372,7 @@ classes:
       ConnectivityNodeContainer:
         description: Container of this connectivity node.
         slot_uri: cim:ConnectivityNode.ConnectivityNodeContainer
-        range: ConnectivityNodeContainer
+        range: VoltageLevel
         required: false
         multivalued: false
     class_uri: cim:ConnectivityNode
