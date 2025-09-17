@@ -8,19 +8,8 @@
 cim:ACDCTerminal a sh:NodeShape ;
     sh:closed false ;
     sh:description "An electrical connection point (AC or DC) to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes." ;
-    sh:ignoredProperties ( cim:ConnectivityNode rdf:type ) ;
+    sh:ignoredProperties ( rdf:type cim:ConnectivityNode ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 4 ;
-            sh:path cim:IdentifiedObject.Names ],
-        [ sh:datatype xsd:string ;
             sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
             sh:maxCount 1 ;
@@ -35,59 +24,51 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path cim:IdentifiedObject.name ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path cim:IdentifiedObject.description ],
         [ sh:datatype xsd:integer ;
             sh:description """The orientation of the terminal connections for a multiple terminal conducting equipment.  The sequence numbering starts with 1 and additional terminals should follow in increasing order.   The first terminal is the "starting point" for a two terminal branch.\r
 """ ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path cim:ACDCTerminal.sequenceNumber ] ;
+            sh:path cim:ACDCTerminal.sequenceNumber ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 4 ;
+            sh:path cim:IdentifiedObject.Names ] ;
     sh:targetClass cim:ACDCTerminal .
 
 cim:BaseWork a sh:NodeShape ;
     sh:closed false ;
     sh:description "Common representation for work and work tasks." ;
-    sh:ignoredProperties ( rdf:type cim:WorkTask.Assets cim:WorkTask.taskKind cim:Work.workOrderNumber cim:Work cim:Project ) ;
+    sh:ignoredProperties ( cim:Work cim:Work.workOrderNumber rdf:type cim:WorkTask.Assets cim:WorkTask.taskKind cim:Project ) ;
     sh:property [ sh:description "Kind of work." ;
             sh:in ( cim:ServiceRequestKind.connect cim:ServiceRequestKind.construction cim:ServiceRequestKind.disconnect cim:ServiceRequestKind.inspection cim:ServiceRequestKind.newservice cim:ServiceRequestKind.other cim:ServiceRequestKind.reconnect cim:ServiceRequestKind.repair cim:ServiceRequestKind.replace cim:ServiceRequestKind.test cim:ServiceRequestKind.turn-off cim:ServiceRequestKind.turn-on ) ;
             sh:maxCount 1 ;
             sh:order 0 ;
             sh:path cim:BaseWork.kind ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+        [ sh:description "Kind of work status." ;
+            sh:in ( cim:WorkStatusKind.approved cim:WorkStatusKind.cancelled cim:WorkStatusKind.closed cim:WorkStatusKind.completed cim:WorkStatusKind.dispatched cim:WorkStatusKind.enroute cim:WorkStatusKind.inProgress cim:WorkStatusKind.onSite cim:WorkStatusKind.scheduled cim:WorkStatusKind.waitingOnApproval cim:WorkStatusKind.waitingOnMaterial cim:WorkStatusKind.waitingToBeScheduled ) ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:class cim:WorkLocation ;
-            sh:description "Location for this work/task." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path cim:BaseWork.WorkLocation ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 7 ;
-            sh:path cim:IdentifiedObject.Names ],
-        [ sh:datatype xsd:string ;
-            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
-""" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path cim:IdentifiedObject.name ],
+            sh:order 1 ;
+            sh:path cim:BaseWork.statusKind ],
         [ sh:class cim:WorkTimeSchedule ;
             sh:description "All time schedules for this work or work task." ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path cim:BaseWork.TimeSchedules ],
-        [ sh:description "Kind of work status." ;
-            sh:in ( cim:WorkStatusKind.approved cim:WorkStatusKind.cancelled cim:WorkStatusKind.closed cim:WorkStatusKind.completed cim:WorkStatusKind.dispatched cim:WorkStatusKind.enroute cim:WorkStatusKind.inProgress cim:WorkStatusKind.onSite cim:WorkStatusKind.scheduled cim:WorkStatusKind.waitingOnApproval cim:WorkStatusKind.waitingOnMaterial cim:WorkStatusKind.waitingToBeScheduled ) ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path cim:BaseWork.statusKind ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 7 ;
+            sh:path cim:IdentifiedObject.Names ],
         [ sh:datatype xsd:string ;
             sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
@@ -95,20 +76,33 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
-            sh:path cim:IdentifiedObject.mRID ] ;
+            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path cim:IdentifiedObject.description ],
+        [ sh:datatype xsd:string ;
+            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
+""" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path cim:IdentifiedObject.name ],
+        [ sh:class cim:WorkLocation ;
+            sh:description "Location for this work/task." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path cim:BaseWork.WorkLocation ] ;
     sh:targetClass cim:BaseWork .
 
 cim:ConductingEquipment a sh:NodeShape ;
     sh:closed false ;
     sh:description "The parts of the AC power system that are designed to carry current or that are conductively connected through terminals." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class cim:EquipmentContainer ;
-            sh:description "Container of this equipment." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path cim:Equipment.EquipmentContainer ],
-        [ sh:datatype xsd:boolean ;
+    sh:property [ sh:datatype xsd:boolean ;
             sh:description """The aggregate flag provides an alternative way of representing an aggregated (equivalent) element. It is applicable in cases when the dedicated classes for equivalent equipment do not have all of the attributes necessary to represent the required level of detail.  In case the flag is set to “true” the single instance of equipment represents multiple pieces of equipment that have been modelled together as an aggregate equivalent obtained by a network reduction procedure. Examples would be power transformers or synchronous machines operating in parallel modelled as a single aggregate power transformer or aggregate synchronous machine.  \r
 The attribute is not used for EquivalentBranch, EquivalentShunt and EquivalentInjection.""" ;
             sh:maxCount 1 ;
@@ -128,6 +122,12 @@ The attribute is not used for EquivalentBranch, EquivalentShunt and EquivalentIn
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path cim:IdentifiedObject.name ],
+        [ sh:class cim:EquipmentContainer ;
+            sh:description "Container of this equipment." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path cim:Equipment.EquipmentContainer ],
         [ sh:class cim:Name ;
             sh:description "All names of this identified object." ;
             sh:nodeKind sh:BlankNodeOrIRI ;
@@ -155,14 +155,6 @@ cim:ContingencyElement a sh:NodeShape ;
             sh:order 0 ;
             sh:path cim:ContingencyElement.Contingency ],
         [ sh:datatype xsd:string ;
-            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
-For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path cim:IdentifiedObject.mRID ],
-        [ sh:datatype xsd:string ;
             sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -173,6 +165,14 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 4 ;
             sh:path cim:IdentifiedObject.Names ],
+        [ sh:datatype xsd:string ;
+            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
+For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path cim:IdentifiedObject.mRID ],
         [ sh:datatype xsd:string ;
             sh:description """The name is any free human readable and possibly non unique text naming the object.\r
 """ ;
@@ -186,19 +186,21 @@ cim:ContingencyEquipment a sh:NodeShape ;
     sh:closed false ;
     sh:description "Equipment whose in service status is to change, such as a power transformer or AC line segment." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class cim:PowerTransformer ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
+For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:class cim:PowerTransformer ;
             sh:description "The single piece of equipment to which to apply the contingency." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path cim:ContingencyEquipment.Equipment ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path cim:IdentifiedObject.description ],
         [ sh:class cim:Contingency ;
             sh:description "A contingency element belongs to one contingency." ;
             sh:maxCount 1 ;
@@ -206,6 +208,11 @@ cim:ContingencyEquipment a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path cim:ContingencyElement.Contingency ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 5 ;
+            sh:path cim:IdentifiedObject.Names ],
         [ sh:datatype xsd:string ;
             sh:description """The name is any free human readable and possibly non unique text naming the object.\r
 """ ;
@@ -213,31 +220,29 @@ cim:ContingencyEquipment a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path cim:IdentifiedObject.name ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 5 ;
-            sh:path cim:IdentifiedObject.Names ],
         [ sh:datatype xsd:string ;
-            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
-For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path cim:IdentifiedObject.mRID ] ;
+            sh:order 2 ;
+            sh:path cim:IdentifiedObject.description ] ;
     sh:targetClass cim:ContingencyEquipment .
 
 cim:Document a sh:NodeShape ;
     sh:closed false ;
     sh:description "Parent class for different groupings of information collected and managed as a part of a business process. It will frequently contain references to other objects, such as assets, people and power system resources." ;
-    sh:ignoredProperties ( rdf:type cim:WorkTask.Assets <http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart-ls/:kind> cim:Project.ParentProject cim:WorkTask.taskKind cim:Work.workOrderNumber cim:TimeSchedule.scheduleInterval cim:WorkLocation ck:Project.projectURL cim:BaseWork.TimeSchedules cim:Work cim:Project cim:BaseWork.statusKind ) ;
+    sh:ignoredProperties ( cim:Work cim:Work.workOrderNumber rdf:type cim:TimeSchedule.scheduleInterval cim:WorkLocation cim:Project.ParentProject cim:WorkTask.Assets <http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart-ls/:kind> ck:Project.projectURL cim:BaseWork.TimeSchedules cim:Project cim:WorkTask.taskKind cim:BaseWork.statusKind ) ;
     sh:property [ sh:datatype xsd:string ;
             sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path cim:IdentifiedObject.description ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path cim:IdentifiedObject.Names ],
         [ sh:datatype xsd:string ;
             sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
@@ -246,11 +251,6 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path cim:IdentifiedObject.mRID ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path cim:IdentifiedObject.Names ],
         [ sh:datatype xsd:string ;
             sh:description """The name is any free human readable and possibly non unique text naming the object.\r
 """ ;
@@ -263,7 +263,104 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 cim:IdentifiedObject a sh:NodeShape ;
     sh:closed false ;
     sh:description "This is a root class to provide common identification for all classes needing identification and naming attributes." ;
-    sh:ignoredProperties ( cim:TransformerEnd.endNumber <http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart-ls/:Region> cim:EquipmentContainer <http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart-ls/:kind> cim:ConnectivityNodeContainer ck:Project.projectURL cim:ConnectivityNode cim:BaseVoltage rdf:type cim:Terminal ck:Contingency.demandConstraint cim:WorkTask.taskKind eu:BoundaryPoint.fromEndNameTso cim:Contingency cim:BaseWork.TimeSchedules cim:Project ck:ContingencyInfo cim:WorkTask.Assets cim:Project.ParentProject ck:Contingency.generationConstraint cim:Location.mainAddress cim:Contingency.mustStudy cim:Work.workOrderNumber cim:TimeSchedule.scheduleInterval cim:WorkLocation cim:BaseVoltage.nominalVoltage cim:Work cim:Equipment <http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart-ls/:PowerSystemResources> cim:PowerTransformer cim:Equipment.aggregate cim:ACDCTerminal.sequenceNumber cim:Substation eu:BoundaryPoint.toEndNameTso cim:TopologicalNode.ConnectivityNodes cim:BaseWork.statusKind ) ;
+    sh:ignoredProperties ( cim:BaseVoltage rdf:type ck:Contingency.generationConstraint <http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart-ls/:Region> cim:EquipmentContainer cim:BaseWork.TimeSchedules ck:ContingencyInfo cim:Project.ParentProject eu:BoundaryPoint.fromEndNameTso cim:TopologicalNode.ConnectivityNodes cim:Location.mainAddress cim:WorkLocation cim:ACDCTerminal.sequenceNumber cim:ConnectivityNode cim:Contingency cim:Equipment ck:Project.projectURL cim:Project cim:Work cim:TimeSchedule.scheduleInterval <http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart-ls/:PowerSystemResources> ck:Contingency.demandConstraint cim:TransformerEnd.endNumber cim:WorkTask.Assets cim:ConnectivityNodeContainer cim:Substation cim:BaseWork.statusKind cim:Work.workOrderNumber cim:BaseVoltage.nominalVoltage cim:Terminal cim:PowerTransformer <http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart-ls/:kind> cim:Contingency.mustStudy eu:BoundaryPoint.toEndNameTso cim:WorkTask.taskKind cim:Equipment.aggregate ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
+""" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path cim:IdentifiedObject.name ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cim:IdentifiedObject.description ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path cim:IdentifiedObject.Names ],
+        [ sh:datatype xsd:string ;
+            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
+For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path cim:IdentifiedObject.mRID ] ;
+    sh:targetClass cim:IdentifiedObject .
+
+cim:Location a sh:NodeShape ;
+    sh:closed false ;
+    sh:description """The place, scene, or point of something where someone or something has been, is, and/or will be at a given moment in time. It can be defined with one or more position points (coordinates) in a given coordinate system.\r
+""" ;
+    sh:ignoredProperties ( rdf:type <http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart-ls/:kind> ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path cim:IdentifiedObject.description ],
+        [ sh:datatype xsd:string ;
+            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
+""" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path cim:IdentifiedObject.name ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 5 ;
+            sh:path cim:IdentifiedObject.Names ],
+        [ sh:class cim:VoltageLevel ;
+            sh:description "All power system resources at this location." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path cim:Location.PowerSystemResources ],
+        [ sh:class cim:StreetAddress ;
+            sh:description "Main address of the location." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 0 ;
+            sh:path cim:Location.mainAddress ],
+        [ sh:datatype xsd:string ;
+            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
+For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path cim:IdentifiedObject.mRID ] ;
+    sh:targetClass cim:Location .
+
+cim:OperatingShare a sh:NodeShape ;
+    sh:closed false ;
+    sh:description """Specifies the operations contract relationship between a power system resource and a contract participant.\r
+""" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class cim:OperatingParticipant ;
+            sh:description "The operating participant having this share with the associated power system resource." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path cim:OperatingShare.OperatingParticipant ],
+        [ sh:class cim:VoltageLevel ;
+            sh:description "The power system resource to which the share applies." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path cim:OperatingShare.PowerSystemResource ] ;
+    sh:targetClass cim:OperatingShare .
+
+cim:PowerSystemResource a sh:NodeShape ;
+    sh:closed false ;
+    sh:description "A power system resource (PSR) can be an item of equipment such as a switch, an equipment container containing many individual items of equipment such as a substation, or an organisational entity such as sub-control area. Power system resources can have measurements associated." ;
+    sh:ignoredProperties ( eu:BoundaryPoint.fromEndNameTso cim:BaseVoltage rdf:type <http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart-ls/:Region> cim:ConnectivityNode cim:Substation cim:EquipmentContainer eu:BoundaryPoint.toEndNameTso cim:Equipment.aggregate ) ;
     sh:property [ sh:datatype xsd:string ;
             sh:description """The name is any free human readable and possibly non unique text naming the object.\r
 """ ;
@@ -290,103 +387,6 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
             sh:path cim:IdentifiedObject.Names ] ;
-    sh:targetClass cim:IdentifiedObject .
-
-cim:Location a sh:NodeShape ;
-    sh:closed false ;
-    sh:description """The place, scene, or point of something where someone or something has been, is, and/or will be at a given moment in time. It can be defined with one or more position points (coordinates) in a given coordinate system.\r
-""" ;
-    sh:ignoredProperties ( <http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart-ls/:kind> rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:class cim:VoltageLevel ;
-            sh:description "All power system resources at this location." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path cim:Location.PowerSystemResources ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 5 ;
-            sh:path cim:IdentifiedObject.Names ],
-        [ sh:datatype xsd:string ;
-            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
-For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path cim:IdentifiedObject.mRID ],
-        [ sh:datatype xsd:string ;
-            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
-""" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path cim:IdentifiedObject.name ],
-        [ sh:class cim:StreetAddress ;
-            sh:description "Main address of the location." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 0 ;
-            sh:path cim:Location.mainAddress ] ;
-    sh:targetClass cim:Location .
-
-cim:OperatingShare a sh:NodeShape ;
-    sh:closed false ;
-    sh:description """Specifies the operations contract relationship between a power system resource and a contract participant.\r
-""" ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class cim:VoltageLevel ;
-            sh:description "The power system resource to which the share applies." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path cim:OperatingShare.PowerSystemResource ],
-        [ sh:class cim:OperatingParticipant ;
-            sh:description "The operating participant having this share with the associated power system resource." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path cim:OperatingShare.OperatingParticipant ] ;
-    sh:targetClass cim:OperatingShare .
-
-cim:PowerSystemResource a sh:NodeShape ;
-    sh:closed false ;
-    sh:description "A power system resource (PSR) can be an item of equipment such as a switch, an equipment container containing many individual items of equipment such as a substation, or an organisational entity such as sub-control area. Power system resources can have measurements associated." ;
-    sh:ignoredProperties ( <http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart-ls/:Region> cim:EquipmentContainer cim:BaseVoltage rdf:type cim:Equipment.aggregate eu:BoundaryPoint.fromEndNameTso cim:Substation cim:ConnectivityNode eu:BoundaryPoint.toEndNameTso ) ;
-    sh:property [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path cim:IdentifiedObject.Names ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:datatype xsd:string ;
-            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
-""" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path cim:IdentifiedObject.name ],
-        [ sh:datatype xsd:string ;
-            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
-For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path cim:IdentifiedObject.mRID ] ;
     sh:targetClass cim:PowerSystemResource .
 
 cim:PowerTransformerEnd a sh:NodeShape ;
@@ -399,39 +399,7 @@ The impedance values r, r0, x, and x0 of a PowerTransformerEnd represents a star
 4) for a PowerTransformer with more than three Terminals the PowerTransformerEnd impedance values cannot be used. Instead use the TransformerMeshImpedance or split the transformer into multiple PowerTransformers.\r
 Each PowerTransformerEnd must be contained by a PowerTransformer. Because a PowerTransformerEnd (or any other object) can not be contained by more than one parent, a PowerTransformerEnd can not have an association to an EquipmentContainer (Substation, VoltageLevel, etc).""" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
-""" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path cim:IdentifiedObject.name ],
-        [ sh:class cim:PowerTransformer ;
-            sh:description "The power transformer of this power transformer end." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path cim:PowerTransformerEnd.PowerTransformer ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 7 ;
-            sh:path cim:IdentifiedObject.Names ],
-        [ sh:class cim:Terminal ;
-            sh:description "Terminal of the power transformer to which this transformer end belongs." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path cim:TransformerEnd.Terminal ],
-        [ sh:class cim:BaseVoltage ;
-            sh:description "Base voltage of the transformer end.  This is essential for PU calculation." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path cim:TransformerEnd.BaseVoltage ],
-        [ sh:datatype xsd:integer ;
+    sh:property [ sh:datatype xsd:integer ;
             sh:description """Number for this transformer end, corresponding to the end's order in the power transformer vector group or phase angle clock number.  Highest voltage winding should be 1.  Each end within a power transformer should have a unique subsequent end number.   Note the transformer end number need not match the terminal sequence number.\r
 """ ;
             sh:maxCount 1 ;
@@ -447,19 +415,56 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path cim:IdentifiedObject.mRID ],
+        [ sh:class cim:PowerTransformer ;
+            sh:description "The power transformer of this power transformer end." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path cim:PowerTransformerEnd.PowerTransformer ],
+        [ sh:class cim:BaseVoltage ;
+            sh:description "Base voltage of the transformer end.  This is essential for PU calculation." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path cim:TransformerEnd.BaseVoltage ],
+        [ sh:datatype xsd:string ;
+            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
+""" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path cim:IdentifiedObject.name ],
+        [ sh:class cim:Terminal ;
+            sh:description "Terminal of the power transformer to which this transformer end belongs." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path cim:TransformerEnd.Terminal ],
         [ sh:datatype xsd:string ;
             sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
-            sh:path cim:IdentifiedObject.description ] ;
+            sh:path cim:IdentifiedObject.description ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 7 ;
+            sh:path cim:IdentifiedObject.Names ] ;
     sh:targetClass cim:PowerTransformerEnd .
 
 cim:TimeSchedule a sh:NodeShape ;
     sh:closed false ;
     sh:description "Description of anything that changes through time. Time schedule is used to perform a single-valued function of time. Use inherited 'type' attribute to give additional information on this schedule, such as periodic (hourly, daily, weekly, monthly, etc.), day of the month, by date, calendar (specific times and dates)." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 4 ;
+            sh:path cim:IdentifiedObject.Names ],
+        [ sh:datatype xsd:string ;
             sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
             sh:maxCount 1 ;
@@ -467,17 +472,13 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path cim:IdentifiedObject.mRID ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 4 ;
-            sh:path cim:IdentifiedObject.Names ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+        [ sh:class cim:DateTimeInterval ;
+            sh:description "Schedule date and time interval." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path cim:IdentifiedObject.description ],
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 0 ;
+            sh:path cim:TimeSchedule.scheduleInterval ],
         [ sh:datatype xsd:string ;
             sh:description """The name is any free human readable and possibly non unique text naming the object.\r
 """ ;
@@ -485,13 +486,12 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path cim:IdentifiedObject.name ],
-        [ sh:class cim:DateTimeInterval ;
-            sh:description "Schedule date and time interval." ;
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 0 ;
-            sh:path cim:TimeSchedule.scheduleInterval ] ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path cim:IdentifiedObject.description ] ;
     sh:targetClass cim:TimeSchedule .
 
 cim:TopologicalNode a sh:NodeShape ;
@@ -499,26 +499,18 @@ cim:TopologicalNode a sh:NodeShape ;
     sh:description """For a detailed substation model a topological node is a set of connectivity nodes that, in the current network state, are connected together through any type of closed switches, including  jumpers. Topological nodes change as the current network state changes (i.e., switches, breakers, etc. change state).\r
 For a planning model, switch statuses are not used to form topological nodes. Instead they are manually created or deleted in a model builder tool. Topological nodes maintained this way are also called "busses".""" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:class cim:ConnectivityNode ;
+            sh:description "The connectivity nodes combine together to form this topological node.  May depend on the current state of switches in the network." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path cim:TopologicalNode.ConnectivityNodes ],
+        [ sh:datatype xsd:string ;
             sh:description """The name is any free human readable and possibly non unique text naming the object.\r
 """ ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path cim:IdentifiedObject.name ],
-        [ sh:class cim:ConnectivityNode ;
-            sh:description "The connectivity nodes combine together to form this topological node.  May depend on the current state of switches in the network." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path cim:TopologicalNode.ConnectivityNodes ],
-        [ sh:datatype xsd:string ;
-            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
-For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path cim:IdentifiedObject.mRID ],
         [ sh:datatype xsd:string ;
             sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
             sh:maxCount 1 ;
@@ -535,14 +527,33 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
-            sh:path cim:TopologicalNode.Terminal ] ;
+            sh:path cim:TopologicalNode.Terminal ],
+        [ sh:datatype xsd:string ;
+            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
+For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path cim:IdentifiedObject.mRID ] ;
     sh:targetClass cim:TopologicalNode .
 
 cim:TransformerEnd a sh:NodeShape ;
     sh:closed false ;
     sh:description "A conducting connection point of a power transformer. It corresponds to a physical transformer winding terminal.  In earlier CIM versions, the TransformerWinding class served a similar purpose, but this class is more flexible because it associates to terminal but is not a specialization of ConductingEquipment." ;
     sh:ignoredProperties ( cim:PowerTransformer rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:class cim:Terminal ;
+            sh:description "Terminal of the power transformer to which this transformer end belongs." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path cim:TransformerEnd.Terminal ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 6 ;
+            sh:path cim:IdentifiedObject.Names ],
+        [ sh:datatype xsd:string ;
             sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
             sh:maxCount 1 ;
@@ -550,12 +561,13 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path cim:IdentifiedObject.mRID ],
-        [ sh:class cim:Terminal ;
-            sh:description "Terminal of the power transformer to which this transformer end belongs." ;
+        [ sh:class cim:BaseVoltage ;
+            sh:description "Base voltage of the transformer end.  This is essential for PU calculation." ;
             sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path cim:TransformerEnd.Terminal ],
+            sh:order 1 ;
+            sh:path cim:TransformerEnd.BaseVoltage ],
         [ sh:datatype xsd:string ;
             sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
             sh:maxCount 1 ;
@@ -569,18 +581,6 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path cim:IdentifiedObject.name ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 6 ;
-            sh:path cim:IdentifiedObject.Names ],
-        [ sh:class cim:BaseVoltage ;
-            sh:description "Base voltage of the transformer end.  This is essential for PU calculation." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path cim:TransformerEnd.BaseVoltage ],
         [ sh:datatype xsd:integer ;
             sh:description """Number for this transformer end, corresponding to the end's order in the power transformer vector group or phase angle clock number.  Highest voltage winding should be 1.  Each end within a power transformer should have a unique subsequent end number.   Note the transformer end number need not match the terminal sequence number.\r
 """ ;
@@ -594,14 +594,8 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 cim:WorkDocument a sh:NodeShape ;
     sh:closed false ;
     sh:description "Shadow class for Document, to isolate subclassing from this package. If any subclass gets normative and needs inheritance, it will inherit directly from Document." ;
-    sh:ignoredProperties ( cim:Project.ParentProject rdf:type ck:Project.projectURL ) ;
+    sh:ignoredProperties ( rdf:type ck:Project.projectURL cim:Project.ParentProject ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:datatype xsd:string ;
             sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
             sh:maxCount 1 ;
@@ -620,7 +614,13 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:description "All names of this identified object." ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
-            sh:path cim:IdentifiedObject.Names ] ;
+            sh:path cim:IdentifiedObject.Names ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cim:IdentifiedObject.description ] ;
     sh:targetClass cim:WorkDocument .
 
 cim:WorkTask a sh:NodeShape ;
@@ -635,11 +635,22 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:nodeKind sh:Literal ;
             sh:order 8 ;
             sh:path cim:IdentifiedObject.mRID ],
+        [ sh:class cim:WorkLocation ;
+            sh:description "Location for this work/task." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path cim:BaseWork.WorkLocation ],
         [ sh:class cim:Asset ;
             sh:description "All assets on which this non-replacement work task is performed." ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path cim:WorkTask.Assets ],
+        [ sh:description "Kind of work." ;
+            sh:in ( cim:ServiceRequestKind.connect cim:ServiceRequestKind.construction cim:ServiceRequestKind.disconnect cim:ServiceRequestKind.inspection cim:ServiceRequestKind.newservice cim:ServiceRequestKind.other cim:ServiceRequestKind.reconnect cim:ServiceRequestKind.repair cim:ServiceRequestKind.replace cim:ServiceRequestKind.test cim:ServiceRequestKind.turn-off cim:ServiceRequestKind.turn-on ) ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path cim:BaseWork.kind ],
         [ sh:datatype xsd:string ;
             sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
             sh:maxCount 1 ;
@@ -652,34 +663,6 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:nodeKind sh:IRI ;
             sh:order 6 ;
             sh:path cim:BaseWork.TimeSchedules ],
-        [ sh:description "Kind of work." ;
-            sh:in ( cim:ServiceRequestKind.connect cim:ServiceRequestKind.construction cim:ServiceRequestKind.disconnect cim:ServiceRequestKind.inspection cim:ServiceRequestKind.newservice cim:ServiceRequestKind.other cim:ServiceRequestKind.reconnect cim:ServiceRequestKind.repair cim:ServiceRequestKind.replace cim:ServiceRequestKind.test cim:ServiceRequestKind.turn-off cim:ServiceRequestKind.turn-on ) ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path cim:BaseWork.kind ],
-        [ sh:datatype xsd:string ;
-            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
-""" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path cim:IdentifiedObject.name ],
-        [ sh:class cim:WorkLocation ;
-            sh:description "Location for this work/task." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path cim:BaseWork.WorkLocation ],
-        [ sh:description "Kind of work." ;
-            sh:in ( cim:WorkTaskKind.exchange cim:WorkTaskKind.install cim:WorkTaskKind.investigate cim:WorkTaskKind.remove ) ;
-            sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path cim:WorkTask.taskKind ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 10 ;
-            sh:path cim:IdentifiedObject.Names ],
         [ sh:class cim:Work ;
             sh:description "Work this task belongs to." ;
             sh:maxCount 1 ;
@@ -687,22 +670,54 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
             sh:path cim:WorkTask.Work ],
+        [ sh:description "Kind of work." ;
+            sh:in ( cim:WorkTaskKind.exchange cim:WorkTaskKind.install cim:WorkTaskKind.investigate cim:WorkTaskKind.remove ) ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path cim:WorkTask.taskKind ],
         [ sh:description "Kind of work status." ;
             sh:in ( cim:WorkStatusKind.approved cim:WorkStatusKind.cancelled cim:WorkStatusKind.closed cim:WorkStatusKind.completed cim:WorkStatusKind.dispatched cim:WorkStatusKind.enroute cim:WorkStatusKind.inProgress cim:WorkStatusKind.onSite cim:WorkStatusKind.scheduled cim:WorkStatusKind.waitingOnApproval cim:WorkStatusKind.waitingOnMaterial cim:WorkStatusKind.waitingToBeScheduled ) ;
             sh:maxCount 1 ;
             sh:order 4 ;
-            sh:path cim:BaseWork.statusKind ] ;
+            sh:path cim:BaseWork.statusKind ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 10 ;
+            sh:path cim:IdentifiedObject.Names ],
+        [ sh:datatype xsd:string ;
+            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
+""" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path cim:IdentifiedObject.name ] ;
     sh:targetClass cim:WorkTask .
 
 cim:Zone a sh:NodeShape ;
     sh:closed false ;
     sh:description "Area divided off from other areas. It may be part of the electrical network, a land area where special restrictions apply, weather areas, etc. For weather, it is an area where a set of relatively homogenous weather measurements apply." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class cim:VoltageLevel ;
-            sh:description "All power system resources at this location." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path cim:Location.PowerSystemResources ],
+    sh:property [ sh:datatype xsd:string ;
+            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
+For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:description "Kind of this zone." ;
+            sh:in ( cim:ZoneKind.electricalNetwork cim:ZoneKind.other cim:ZoneKind.specialRestrictionLand cim:ZoneKind.weatherZone ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path cim:Zone.kind ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path cim:IdentifiedObject.description ],
         [ sh:datatype xsd:string ;
             sh:description """The name is any free human readable and possibly non unique text naming the object.\r
 """ ;
@@ -710,49 +725,29 @@ cim:Zone a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path cim:IdentifiedObject.name ],
-        [ sh:description "Kind of this zone." ;
-            sh:in ( cim:ZoneKind.electricalNetwork cim:ZoneKind.other cim:ZoneKind.specialRestrictionLand cim:ZoneKind.weatherZone ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path cim:Zone.kind ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 6 ;
+            sh:path cim:IdentifiedObject.Names ],
         [ sh:class cim:StreetAddress ;
             sh:description "Main address of the location." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 1 ;
             sh:path cim:Location.mainAddress ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 6 ;
-            sh:path cim:IdentifiedObject.Names ],
-        [ sh:datatype xsd:string ;
-            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
-For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path cim:IdentifiedObject.mRID ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path cim:IdentifiedObject.description ] ;
+        [ sh:class cim:VoltageLevel ;
+            sh:description "All power system resources at this location." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path cim:Location.PowerSystemResources ] ;
     sh:targetClass cim:Zone .
 
 eu:BoundaryPoint a sh:NodeShape ;
     sh:closed false ;
     sh:description "Designates a connection point at which one or more model authority sets shall connect to. The location of the connection point as well as other properties are agreed between organisations responsible for the interconnection, hence all attributes of the class represent this agreement.  It is primarily used in a boundary model authority set which can contain one or many BoundaryPoint-s among other Equipment-s and their connections." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 6 ;
-            sh:path cim:IdentifiedObject.Names ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
             sh:maxCount 1 ;
@@ -760,12 +755,6 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path cim:IdentifiedObject.mRID ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path cim:IdentifiedObject.description ],
         [ sh:datatype xsd:string ;
             sh:description "Identifies the name of the transmission system operator, distribution system operator or other entity at which the \"From\" side of the interconnection is connected to. The length of the string is 64 characters maximum." ;
             sh:maxCount 1 ;
@@ -780,66 +769,83 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path eu:BoundaryPoint.toEndNameTso ],
-        [ sh:class cim:ConnectivityNode ;
-            sh:description "The connectivity node that is designated as a boundary point." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path eu:BoundaryPoint.ConnectivityNode ],
         [ sh:datatype xsd:string ;
             sh:description """The name is any free human readable and possibly non unique text naming the object.\r
 """ ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
-            sh:path cim:IdentifiedObject.name ] ;
+            sh:path cim:IdentifiedObject.name ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 6 ;
+            sh:path cim:IdentifiedObject.Names ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path cim:IdentifiedObject.description ],
+        [ sh:class cim:ConnectivityNode ;
+            sh:description "The connectivity node that is designated as a boundary point." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path eu:BoundaryPoint.ConnectivityNode ] ;
     sh:targetClass eu:BoundaryPoint .
 
 cim:Asset a sh:NodeShape ;
     sh:closed false ;
     sh:description "Tangible resource of the utility, including power system equipment, various end devices, cabinets, buildings, etc. For electrical network equipment, the role of the asset is defined through PowerSystemResource and its subclasses, defined mainly in the Wires model (refer to IEC61970-301 and model package IEC61970::Wires). Asset description places emphasis on the physical characteristics of the equipment fulfilling that role." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class cim:PowerTransformer ;
+    sh:property [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 4 ;
+            sh:path cim:IdentifiedObject.Names ],
+        [ sh:datatype xsd:string ;
+            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
+For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path cim:IdentifiedObject.description ],
+        [ sh:class cim:PowerTransformer ;
             sh:description "All power system resources used to electrically model this asset. For example, transformer asset is electrically modelled with a transformer and its windings and tap changer." ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path cim:Asset.PowerSystemResources ],
         [ sh:datatype xsd:string ;
-            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
-For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path cim:IdentifiedObject.mRID ],
-        [ sh:datatype xsd:string ;
             sh:description """The name is any free human readable and possibly non unique text naming the object.\r
 """ ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
-            sh:path cim:IdentifiedObject.name ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 4 ;
-            sh:path cim:IdentifiedObject.Names ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path cim:IdentifiedObject.description ] ;
+            sh:path cim:IdentifiedObject.name ] ;
     sh:targetClass cim:Asset .
 
 cim:ConnectivityNodeContainer a sh:NodeShape ;
     sh:closed false ;
     sh:description """A base class for all objects that may contain connectivity nodes or topological nodes.\r
 """ ;
-    sh:ignoredProperties ( cim:Substation rdf:type <http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart-ls/:Region> cim:BaseVoltage ) ;
+    sh:ignoredProperties ( rdf:type <http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart-ls/:Region> cim:BaseVoltage cim:Substation ) ;
     sh:property [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cim:IdentifiedObject.description ],
+        [ sh:datatype xsd:string ;
             sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
             sh:maxCount 1 ;
@@ -847,24 +853,18 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path cim:IdentifiedObject.mRID ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path cim:IdentifiedObject.description ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path cim:IdentifiedObject.Names ],
         [ sh:datatype xsd:string ;
             sh:description """The name is any free human readable and possibly non unique text naming the object.\r
 """ ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path cim:IdentifiedObject.name ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path cim:IdentifiedObject.Names ] ;
+            sh:path cim:IdentifiedObject.name ] ;
     sh:targetClass cim:ConnectivityNodeContainer .
 
 cim:GeographicalRegion a sh:NodeShape ;
@@ -872,11 +872,12 @@ cim:GeographicalRegion a sh:NodeShape ;
     sh:description """A geographical region of a power system network model.\r
 """ ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path cim:IdentifiedObject.Names ],
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cim:IdentifiedObject.description ],
         [ sh:datatype xsd:string ;
             sh:description """The name is any free human readable and possibly non unique text naming the object.\r
 """ ;
@@ -885,19 +886,18 @@ cim:GeographicalRegion a sh:NodeShape ;
             sh:order 2 ;
             sh:path cim:IdentifiedObject.name ],
         [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:datatype xsd:string ;
             sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path cim:IdentifiedObject.mRID ] ;
+            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path cim:IdentifiedObject.Names ] ;
     sh:targetClass cim:GeographicalRegion .
 
 cim:NameType a sh:NodeShape ;
@@ -906,20 +906,20 @@ cim:NameType a sh:NodeShape ;
 The localName is a human readable name of the object. It is a free text name local to a node in a naming hierarchy similar to a file directory structure. A power system related naming hierarchy may be: Substation, VoltageLevel, Equipment etc. Children of the same parent in such a hierarchy have names that typically are unique among them.\r
 """ ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description """Description of the name type.\r
-""" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path cim:NameType.description ],
-        [ sh:class cim:NameTypeAuthority ;
+    sh:property [ sh:class cim:NameTypeAuthority ;
             sh:description "Authority responsible for managing names of this type." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 2 ;
             sh:path cim:NameType.NameTypeAuthority ],
+        [ sh:datatype xsd:string ;
+            sh:description """Description of the name type.\r
+""" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cim:NameType.description ],
         [ sh:datatype xsd:string ;
             sh:description """Name of the name type.\r
 """ ;
@@ -963,12 +963,6 @@ cim:OperatingParticipant a sh:NodeShape ;
             sh:order 3 ;
             sh:path cim:IdentifiedObject.Names ],
         [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:datatype xsd:string ;
             sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
             sh:maxCount 1 ;
@@ -982,7 +976,13 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path cim:IdentifiedObject.name ] ;
+            sh:path cim:IdentifiedObject.name ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cim:IdentifiedObject.description ] ;
     sh:targetClass cim:OperatingParticipant .
 
 cim:SubGeographicalRegion a sh:NodeShape ;
@@ -990,11 +990,13 @@ cim:SubGeographicalRegion a sh:NodeShape ;
     sh:description """A subset of a geographical region of a power system network model.\r
 """ ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 4 ;
-            sh:path cim:IdentifiedObject.Names ],
+    sh:property [ sh:datatype xsd:string ;
+            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
+""" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path cim:IdentifiedObject.name ],
         [ sh:datatype xsd:string ;
             sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
@@ -1004,25 +1006,23 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:order 2 ;
             sh:path cim:IdentifiedObject.mRID ],
         [ sh:datatype xsd:string ;
-            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
-""" ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path cim:IdentifiedObject.name ],
+            sh:order 1 ;
+            sh:path cim:IdentifiedObject.description ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 4 ;
+            sh:path cim:IdentifiedObject.Names ],
         [ sh:class cim:GeographicalRegion ;
             sh:description "The geographical region which this sub-geographical region is within." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path cim:SubGeographicalRegion.Region ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path cim:IdentifiedObject.description ] ;
+            sh:path cim:SubGeographicalRegion.Region ] ;
     sh:targetClass cim:SubGeographicalRegion .
 
 cim:Voltage a sh:NodeShape ;
@@ -1034,17 +1034,17 @@ cim:Voltage a sh:NodeShape ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path cim:Voltage.multiplier ],
+        [ sh:in ( cim:UnitSymbol.A cim:UnitSymbol.Ah cim:UnitSymbol.none cim:UnitSymbol.ohm cim:UnitSymbol.V cim:UnitSymbol.VA cim:UnitSymbol.VAh cim:UnitSymbol.VAr cim:UnitSymbol.VArh cim:UnitSymbol.W cim:UnitSymbol.Wb cim:UnitSymbol.Wh ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path cim:Voltage.unit ],
         [ sh:datatype xsd:float ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path cim:Voltage.value ],
-        [ sh:in ( cim:UnitSymbol.A cim:UnitSymbol.Ah cim:UnitSymbol.none cim:UnitSymbol.ohm cim:UnitSymbol.V cim:UnitSymbol.VA cim:UnitSymbol.VAh cim:UnitSymbol.VAr cim:UnitSymbol.VArh cim:UnitSymbol.W cim:UnitSymbol.Wb cim:UnitSymbol.Wh ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path cim:Voltage.unit ] ;
+            sh:path cim:Voltage.value ] ;
     sh:targetClass cim:Voltage .
 
 ck:ContingencyInfo a sh:NodeShape ;
@@ -1052,17 +1052,17 @@ ck:ContingencyInfo a sh:NodeShape ;
     sh:description "Additional information for the Contingency.  Allows free-format text and a link to additional information, such as a congestion report." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "Additional (free-format) information associated with the contingency." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:datatype xsd:string ;
             sh:description "URL for additional (congestion) information for this EnergyArea." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path ck:CongestionInfo.contingencyURL ] ;
+            sh:path ck:CongestionInfo.contingencyURL ],
+        [ sh:datatype xsd:string ;
+            sh:description "Additional (free-format) information associated with the contingency." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cim:IdentifiedObject.description ] ;
     sh:targetClass ck:ContingencyInfo .
 
 cim:DateTimeInterval a sh:NodeShape ;
@@ -1070,11 +1070,11 @@ cim:DateTimeInterval a sh:NodeShape ;
     sh:description "Interval between two date and time points, where the interval includes the start time but excludes end time.  " ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:date ;
-            sh:description "End date and time of this interval.  The end date and time where the interval is defined up to, but excluded." ;
+            sh:description "Start date and time of this interval. The start date and time is included in the defined interval." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path cim:DateTimeInterval.end ],
+            sh:order 1 ;
+            sh:path cim:DateTimeInterval.start ],
         [ sh:datatype xsd:integer ;
             sh:description "Quarter indicator for when this Work is completed. Use in combination with ck:DateTimeInterval.year." ;
             sh:maxCount 1 ;
@@ -1083,42 +1083,35 @@ cim:DateTimeInterval a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path ck:DateTimeInterval.quarter ],
-        [ sh:datatype xsd:date ;
-            sh:description "Start date and time of this interval. The start date and time is included in the defined interval." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path cim:DateTimeInterval.start ],
         [ sh:datatype xsd:integer ;
             sh:description "Year indicator for when this Work is completed. Use in combination with ck:DateTimeInterval.quarter." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
-            sh:path ck:DateTimeInterval.year ] ;
+            sh:path ck:DateTimeInterval.year ],
+        [ sh:datatype xsd:date ;
+            sh:description "End date and time of this interval.  The end date and time where the interval is defined up to, but excluded." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cim:DateTimeInterval.end ] ;
     sh:targetClass cim:DateTimeInterval .
 
 cim:Equipment a sh:NodeShape ;
     sh:closed false ;
     sh:description "The parts of a power system that are physical devices, electronic or mechanical." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 5 ;
+            sh:path cim:IdentifiedObject.Names ],
+        [ sh:datatype xsd:string ;
             sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path cim:IdentifiedObject.description ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 5 ;
-            sh:path cim:IdentifiedObject.Names ],
-        [ sh:datatype xsd:boolean ;
-            sh:description """The aggregate flag provides an alternative way of representing an aggregated (equivalent) element. It is applicable in cases when the dedicated classes for equivalent equipment do not have all of the attributes necessary to represent the required level of detail.  In case the flag is set to “true” the single instance of equipment represents multiple pieces of equipment that have been modelled together as an aggregate equivalent obtained by a network reduction procedure. Examples would be power transformers or synchronous machines operating in parallel modelled as a single aggregate power transformer or aggregate synchronous machine.  \r
-The attribute is not used for EquivalentBranch, EquivalentShunt and EquivalentInjection.""" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path cim:Equipment.aggregate ],
         [ sh:datatype xsd:string ;
             sh:description """The name is any free human readable and possibly non unique text naming the object.\r
 """ ;
@@ -1134,6 +1127,13 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path cim:IdentifiedObject.mRID ],
+        [ sh:datatype xsd:boolean ;
+            sh:description """The aggregate flag provides an alternative way of representing an aggregated (equivalent) element. It is applicable in cases when the dedicated classes for equivalent equipment do not have all of the attributes necessary to represent the required level of detail.  In case the flag is set to “true” the single instance of equipment represents multiple pieces of equipment that have been modelled together as an aggregate equivalent obtained by a network reduction procedure. Examples would be power transformers or synchronous machines operating in parallel modelled as a single aggregate power transformer or aggregate synchronous machine.  \r
+The attribute is not used for EquivalentBranch, EquivalentShunt and EquivalentInjection.""" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cim:Equipment.aggregate ],
         [ sh:class cim:EquipmentContainer ;
             sh:description "Container of this equipment." ;
             sh:maxCount 1 ;
@@ -1146,18 +1146,26 @@ cim:Contingency a sh:NodeShape ;
     sh:closed false ;
     sh:description "An event threatening system reliability, consisting of one or more contingency elements." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:boolean ;
+            sh:description "Set true if must study this contingency." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cim:Contingency.mustStudy ],
+        [ sh:datatype xsd:string ;
             sh:description """The name is any free human readable and possibly non unique text naming the object.\r
 """ ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 6 ;
             sh:path cim:IdentifiedObject.name ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 7 ;
-            sh:path cim:IdentifiedObject.Names ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path cim:IdentifiedObject.description ],
         [ sh:description "A RAG definition of the demand constraints at the Equipment. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation." ;
             sh:in ( ck:RAGKind.Transparant ck:RAGKind.Red ck:RAGKind.Amber ck:RAGKind.Yellow ) ;
             sh:maxCount 1 ;
@@ -1169,19 +1177,11 @@ cim:Contingency a sh:NodeShape ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
             sh:path ck:Contingency.ContingencyInfo ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Set true if must study this contingency." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path cim:Contingency.mustStudy ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 7 ;
+            sh:path cim:IdentifiedObject.Names ],
         [ sh:description "A RAG definition of the generation constraints at the Equipment. A utility should provide details on how this RAG status is calculated as part of the accompanying documentation." ;
             sh:in ( ck:RAGKind.Transparant ck:RAGKind.Red ck:RAGKind.Amber ck:RAGKind.Yellow ) ;
             sh:maxCount 1 ;
@@ -1228,6 +1228,12 @@ cim:WorkTimeSchedule a sh:NodeShape ;
             sh:order 4 ;
             sh:path cim:IdentifiedObject.Names ],
         [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path cim:IdentifiedObject.description ],
+        [ sh:datatype xsd:string ;
             sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
             sh:maxCount 1 ;
@@ -1235,12 +1241,6 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path cim:IdentifiedObject.mRID ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path cim:IdentifiedObject.description ],
         [ sh:class cim:DateTimeInterval ;
             sh:description "Schedule date and time interval." ;
             sh:maxCount 1 ;
@@ -1254,12 +1254,7 @@ cim:Terminal a sh:NodeShape ;
     sh:closed false ;
     sh:description "An AC electrical connection point to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 5 ;
-            sh:path cim:IdentifiedObject.Names ],
-        [ sh:datatype xsd:integer ;
+    sh:property [ sh:datatype xsd:integer ;
             sh:description """The orientation of the terminal connections for a multiple terminal conducting equipment.  The sequence numbering starts with 1 and additional terminals should follow in increasing order.   The first terminal is the "starting point" for a two terminal branch.\r
 """ ;
             sh:maxCount 1 ;
@@ -1274,13 +1269,11 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path cim:IdentifiedObject.mRID ],
-        [ sh:datatype xsd:string ;
-            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
-""" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path cim:IdentifiedObject.name ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 5 ;
+            sh:path cim:IdentifiedObject.Names ],
         [ sh:datatype xsd:string ;
             sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
             sh:maxCount 1 ;
@@ -1292,24 +1285,41 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path cim:Terminal.ConnectivityNode ] ;
+            sh:path cim:Terminal.ConnectivityNode ],
+        [ sh:datatype xsd:string ;
+            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
+""" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path cim:IdentifiedObject.name ] ;
     sh:targetClass cim:Terminal .
 
 cim:Work a sh:NodeShape ;
     sh:closed false ;
     sh:description "Document used to request, initiate, track and record work." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Kind of work." ;
-            sh:in ( cim:ServiceRequestKind.connect cim:ServiceRequestKind.construction cim:ServiceRequestKind.disconnect cim:ServiceRequestKind.inspection cim:ServiceRequestKind.newservice cim:ServiceRequestKind.other cim:ServiceRequestKind.reconnect cim:ServiceRequestKind.repair cim:ServiceRequestKind.replace cim:ServiceRequestKind.test cim:ServiceRequestKind.turn-off cim:ServiceRequestKind.turn-on ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
+For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
             sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path cim:BaseWork.kind ],
-        [ sh:class cim:WorkTimeSchedule ;
-            sh:description "All time schedules for this work or work task." ;
             sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path cim:BaseWork.TimeSchedules ],
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:datatype xsd:string ;
+            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
+""" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path cim:IdentifiedObject.name ],
+        [ sh:datatype xsd:string ;
+            sh:description "Work order number (or other unique identifying information) for this work." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cim:Work.workOrderNumber ],
         [ sh:class cim:Project ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -1320,63 +1330,53 @@ cim:Work a sh:NodeShape ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 9 ;
             sh:path cim:IdentifiedObject.Names ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:description "Kind of work status." ;
-            sh:in ( cim:WorkStatusKind.approved cim:WorkStatusKind.cancelled cim:WorkStatusKind.closed cim:WorkStatusKind.completed cim:WorkStatusKind.dispatched cim:WorkStatusKind.enroute cim:WorkStatusKind.inProgress cim:WorkStatusKind.onSite cim:WorkStatusKind.scheduled cim:WorkStatusKind.waitingOnApproval cim:WorkStatusKind.waitingOnMaterial cim:WorkStatusKind.waitingToBeScheduled ) ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path cim:BaseWork.statusKind ],
-        [ sh:datatype xsd:string ;
-            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
-""" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path cim:IdentifiedObject.name ],
         [ sh:class cim:WorkLocation ;
             sh:description "Location for this work/task." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
             sh:path cim:BaseWork.WorkLocation ],
+        [ sh:description "Kind of work." ;
+            sh:in ( cim:ServiceRequestKind.connect cim:ServiceRequestKind.construction cim:ServiceRequestKind.disconnect cim:ServiceRequestKind.inspection cim:ServiceRequestKind.newservice cim:ServiceRequestKind.other cim:ServiceRequestKind.reconnect cim:ServiceRequestKind.repair cim:ServiceRequestKind.replace cim:ServiceRequestKind.test cim:ServiceRequestKind.turn-off cim:ServiceRequestKind.turn-on ) ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path cim:BaseWork.kind ],
+        [ sh:description "Kind of work status." ;
+            sh:in ( cim:WorkStatusKind.approved cim:WorkStatusKind.cancelled cim:WorkStatusKind.closed cim:WorkStatusKind.completed cim:WorkStatusKind.dispatched cim:WorkStatusKind.enroute cim:WorkStatusKind.inProgress cim:WorkStatusKind.onSite cim:WorkStatusKind.scheduled cim:WorkStatusKind.waitingOnApproval cim:WorkStatusKind.waitingOnMaterial cim:WorkStatusKind.waitingToBeScheduled ) ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path cim:BaseWork.statusKind ],
         [ sh:datatype xsd:string ;
-            sh:description "Work order number (or other unique identifying information) for this work." ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path cim:Work.workOrderNumber ],
-        [ sh:datatype xsd:string ;
-            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
-For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
-            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path cim:IdentifiedObject.description ],
+        [ sh:class cim:WorkTimeSchedule ;
+            sh:description "All time schedules for this work or work task." ;
             sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path cim:IdentifiedObject.mRID ] ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path cim:BaseWork.TimeSchedules ] ;
     sh:targetClass cim:Work .
 
 cim:EquipmentContainer a sh:NodeShape ;
     sh:closed false ;
     sh:description "A modelling construct to provide a root class for containing equipment. " ;
-    sh:ignoredProperties ( cim:Substation rdf:type <http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart-ls/:Region> cim:BaseVoltage ) ;
+    sh:ignoredProperties ( rdf:type <http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart-ls/:Region> cim:BaseVoltage cim:Substation ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:datatype xsd:string ;
             sh:description """The name is any free human readable and possibly non unique text naming the object.\r
 """ ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path cim:IdentifiedObject.name ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cim:IdentifiedObject.description ],
         [ sh:datatype xsd:string ;
             sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
@@ -1399,57 +1399,13 @@ A power transformer may be composed of separate transformer tanks that need not 
 A power transformer can be modelled with or without tanks and is intended for use in both balanced and unbalanced representations.   A power transformer typically has two terminals, but may have one (grounding), three or more terminals.\r
 The inherited association ConductingEquipment.BaseVoltage should not be used.  The association from TransformerEnd to BaseVoltage should be used instead.""" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:boolean ;
-            sh:description """The aggregate flag provides an alternative way of representing an aggregated (equivalent) element. It is applicable in cases when the dedicated classes for equivalent equipment do not have all of the attributes necessary to represent the required level of detail.  In case the flag is set to “true” the single instance of equipment represents multiple pieces of equipment that have been modelled together as an aggregate equivalent obtained by a network reduction procedure. Examples would be power transformers or synchronous machines operating in parallel modelled as a single aggregate power transformer or aggregate synchronous machine.  \r
-The attribute is not used for EquivalentBranch, EquivalentShunt and EquivalentInjection.""" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path cim:Equipment.aggregate ],
-        [ sh:class cim:EquipmentContainer ;
-            sh:description "Container of this equipment." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path cim:Equipment.EquipmentContainer ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 5 ;
-            sh:path cim:IdentifiedObject.Names ],
-        [ sh:datatype xsd:string ;
-            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
-For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path cim:IdentifiedObject.mRID ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path cim:IdentifiedObject.description ],
         [ sh:datatype xsd:string ;
-            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
-""" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path cim:IdentifiedObject.name ] ;
-    sh:targetClass cim:PowerTransformer .
-
-cim:Project a sh:NodeShape ;
-    sh:closed false ;
-    sh:description "A collection of related work. For construction projects and maintenance projects, multiple phases may be performed." ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class cim:Project ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path cim:Project.ParentProject ],
-        [ sh:datatype xsd:string ;
             sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
             sh:maxCount 1 ;
@@ -1457,11 +1413,54 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path cim:IdentifiedObject.mRID ],
+        [ sh:datatype xsd:string ;
+            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
+""" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path cim:IdentifiedObject.name ],
+        [ sh:datatype xsd:boolean ;
+            sh:description """The aggregate flag provides an alternative way of representing an aggregated (equivalent) element. It is applicable in cases when the dedicated classes for equivalent equipment do not have all of the attributes necessary to represent the required level of detail.  In case the flag is set to “true” the single instance of equipment represents multiple pieces of equipment that have been modelled together as an aggregate equivalent obtained by a network reduction procedure. Examples would be power transformers or synchronous machines operating in parallel modelled as a single aggregate power transformer or aggregate synchronous machine.  \r
+The attribute is not used for EquivalentBranch, EquivalentShunt and EquivalentInjection.""" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cim:Equipment.aggregate ],
         [ sh:class cim:Name ;
             sh:description "All names of this identified object." ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 5 ;
             sh:path cim:IdentifiedObject.Names ],
+        [ sh:class cim:EquipmentContainer ;
+            sh:description "Container of this equipment." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path cim:Equipment.EquipmentContainer ] ;
+    sh:targetClass cim:PowerTransformer .
+
+cim:Project a sh:NodeShape ;
+    sh:closed false ;
+    sh:description "A collection of related work. For construction projects and maintenance projects, multiple phases may be performed." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path cim:IdentifiedObject.description ],
+        [ sh:class cim:Project ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path cim:Project.ParentProject ],
+        [ sh:datatype xsd:string ;
+            sh:description "URL to the project web page or portal where the project information can be found." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ck:Project.projectURL ],
         [ sh:datatype xsd:string ;
             sh:description """The name is any free human readable and possibly non unique text naming the object.\r
 """ ;
@@ -1470,17 +1469,18 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:order 4 ;
             sh:path cim:IdentifiedObject.name ],
         [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
+For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
             sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:datatype xsd:string ;
-            sh:description "URL to the project web page or portal where the project information can be found." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path ck:Project.projectURL ] ;
+            sh:order 3 ;
+            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 5 ;
+            sh:path cim:IdentifiedObject.Names ] ;
     sh:targetClass cim:Project .
 
 cim:Substation a sh:NodeShape ;
@@ -1489,12 +1489,6 @@ cim:Substation a sh:NodeShape ;
 """ ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:datatype xsd:string ;
             sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
             sh:maxCount 1 ;
@@ -1502,36 +1496,59 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path cim:IdentifiedObject.mRID ],
-        [ sh:class cim:SubGeographicalRegion ;
-            sh:description "The SubGeographicalRegion containing the substation." ;
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path cim:Substation.Region ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 4 ;
-            sh:path cim:IdentifiedObject.Names ],
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path cim:IdentifiedObject.description ],
         [ sh:datatype xsd:string ;
             sh:description """The name is any free human readable and possibly non unique text naming the object.\r
 """ ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
-            sh:path cim:IdentifiedObject.name ] ;
+            sh:path cim:IdentifiedObject.name ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 4 ;
+            sh:path cim:IdentifiedObject.Names ],
+        [ sh:class cim:SubGeographicalRegion ;
+            sh:description "The SubGeographicalRegion containing the substation." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path cim:Substation.Region ] ;
     sh:targetClass cim:Substation .
 
 cim:VoltageLevel a sh:NodeShape ;
     sh:closed false ;
     sh:description "A collection of equipment at one common system voltage forming a switchgear. The equipment typically consists of breakers, busbars, instrumentation, control, regulation and protection devices as well as assemblies of all these." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 5 ;
-            sh:path cim:IdentifiedObject.Names ],
+    sh:property [ sh:datatype xsd:string ;
+            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
+""" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path cim:IdentifiedObject.name ],
+        [ sh:class cim:Substation ;
+            sh:description "The substation of the voltage level." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path cim:VoltageLevel.Substation ],
+        [ sh:datatype xsd:string ;
+            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
+For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path cim:IdentifiedObject.mRID ],
         [ sh:class cim:BaseVoltage ;
             sh:description "The base voltage used for all equipment within the voltage level." ;
             sh:maxCount 1 ;
@@ -1545,6 +1562,28 @@ cim:VoltageLevel a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path cim:IdentifiedObject.description ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 5 ;
+            sh:path cim:IdentifiedObject.Names ] ;
+    sh:targetClass cim:VoltageLevel .
+
+cim:WorkLocation a sh:NodeShape ;
+    sh:closed false ;
+    sh:description "Information about a particular location for various forms of work." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 5 ;
+            sh:path cim:IdentifiedObject.Names ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path cim:IdentifiedObject.description ],
         [ sh:datatype xsd:string ;
             sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
 For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
@@ -1553,27 +1592,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path cim:IdentifiedObject.mRID ],
-        [ sh:class cim:Substation ;
-            sh:description "The substation of the voltage level." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path cim:VoltageLevel.Substation ],
         [ sh:datatype xsd:string ;
-            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
-""" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path cim:IdentifiedObject.name ] ;
-    sh:targetClass cim:VoltageLevel .
-
-cim:WorkLocation a sh:NodeShape ;
-    sh:closed false ;
-    sh:description "Information about a particular location for various forms of work." ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
             sh:description """The name is any free human readable and possibly non unique text naming the object.\r
 """ ;
             sh:maxCount 1 ;
@@ -1586,35 +1605,54 @@ cim:WorkLocation a sh:NodeShape ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 0 ;
             sh:path cim:Location.mainAddress ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 5 ;
-            sh:path cim:IdentifiedObject.Names ],
         [ sh:class cim:VoltageLevel ;
             sh:description "All power system resources at this location." ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
-            sh:path cim:Location.PowerSystemResources ],
-        [ sh:datatype xsd:string ;
-            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
-For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path cim:IdentifiedObject.mRID ] ;
+            sh:path cim:Location.PowerSystemResources ] ;
     sh:targetClass cim:WorkLocation .
 
 cim:ConnectivityNode a sh:NodeShape ;
     sh:closed false ;
     sh:description "Connectivity nodes are points where terminals of AC conducting equipment are connected together with zero impedance." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
+For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:class cim:VoltageLevel ;
+            sh:description "Container of this connectivity node." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path cim:ConnectivityNode.ConnectivityNodeContainer ],
+        [ sh:datatype xsd:string ;
+            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
+""" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path cim:IdentifiedObject.name ],
+        [ sh:class cim:Name ;
+            sh:description "All names of this identified object." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 4 ;
+            sh:path cim:IdentifiedObject.Names ],
+        [ sh:datatype xsd:string ;
+            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path cim:IdentifiedObject.description ] ;
+    sh:targetClass cim:ConnectivityNode .
+
+cim:BaseVoltage a sh:NodeShape ;
+    sh:closed false ;
+    sh:description "Defines a system base voltage which is referenced. " ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:class cim:Name ;
             sh:description "All names of this identified object." ;
@@ -1628,40 +1666,6 @@ cim:ConnectivityNode a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path cim:IdentifiedObject.name ],
-        [ sh:datatype xsd:string ;
-            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
-For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path cim:IdentifiedObject.mRID ],
-        [ sh:datatype xsd:string ;
-            sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:class cim:VoltageLevel ;
-            sh:description "Container of this connectivity node." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path cim:ConnectivityNode.ConnectivityNodeContainer ] ;
-    sh:targetClass cim:ConnectivityNode .
-
-cim:BaseVoltage a sh:NodeShape ;
-    sh:closed false ;
-    sh:description "Defines a system base voltage which is referenced. " ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
-For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path cim:IdentifiedObject.mRID ],
         [ sh:class cim:Voltage ;
             sh:description "The power system resource's base voltage.  Shall be a positive value and not zero." ;
             sh:maxCount 1 ;
@@ -1670,23 +1674,19 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
             sh:order 0 ;
             sh:path cim:BaseVoltage.nominalVoltage ],
         [ sh:datatype xsd:string ;
+            sh:description """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r
+For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path cim:IdentifiedObject.mRID ],
+        [ sh:datatype xsd:string ;
             sh:description "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path cim:IdentifiedObject.description ],
-        [ sh:datatype xsd:string ;
-            sh:description """The name is any free human readable and possibly non unique text naming the object.\r
-""" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path cim:IdentifiedObject.name ],
-        [ sh:class cim:Name ;
-            sh:description "All names of this identified object." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 4 ;
-            sh:path cim:IdentifiedObject.Names ] ;
+            sh:path cim:IdentifiedObject.description ] ;
     sh:targetClass cim:BaseVoltage .
 
 cim:Name a sh:NodeShape ;
