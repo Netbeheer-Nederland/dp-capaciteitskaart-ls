@@ -135,6 +135,16 @@ OperatingShare -> OperatingParticipant: "OperatingShare.OperatingParticipant"
 BoundaryPoint -> ConnectivityNode: "BoundaryPoint.ConnectivityNode"
 ----
 
+This data product requires the use of
+https://netbeheer-nederland.github.io/docs-dev/im-object/latest/object_register.html[NBNL
+Object Register] for instantiation of its datasets.
+
+== Required background
+
+* knowledge of connectivity in the CIM;
+* knowledge of identification of individuals in the CIM;
+* knowledge of mRID persistence and master data management.
+
 == Additional artifacts
 
 * xref:schema:attachment$schemas/shacl/dp_capaciteitskaart_ls.shacl.ttl[SHACL Schema]
