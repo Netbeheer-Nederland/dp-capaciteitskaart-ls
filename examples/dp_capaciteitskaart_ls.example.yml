@@ -61,7 +61,14 @@
     cim:IdentifiedObject.mRID: b69112f9-1e8f-4527-8907-92bc78e6a391
   - '@id': urn:uuid:58bacc10-cb90-4020-911b-cfc3d11aa5fd
     '@type': cim:Terminal
+    cim:Terminal.ConnectivityNode:
+      '@id': urn:uuid:283b0f59-18fc-429d-92cc-d8eb45741b8f
     cim:IdentifiedObject.mRID: 58bacc10-cb90-4020-911b-cfc3d11aa5fd
+  - '@id': urn:uuid:283b0f59-18fc-429d-92cc-d8eb45741b8f
+    '@type': cim:ConnectivityNode
+    cim:ConnectivityNode.ConnectivityNodeContainer:
+      '@id': urn:uuid:a60510c9-976e-4eb3-9746-ce4f8125bba8
+    cim:IdentifiedObject.mRID: 283b0f59-18fc-429d-92cc-d8eb45741b8f
   - '@id': urn:uuid:d2c5435c-fadb-4d28-8af5-8785160f4769
     '@type': cim:ContingencyEquipment
     cim:ContingencyEquipment.Equipment:
@@ -120,6 +127,8 @@
     cim:TransformerEnd.endNumber: 2
     cim:TransformerEnd.BaseVoltage:
       '@id': urn:uuid:8430da67-c674-4907-8011-718ca928c6b2
+    cim:TransformerEnd.Terminal:
+      '@id': urn:uuid:58bacc10-cb90-4020-911b-cfc3d11aa5fd
     cim:IdentifiedObject.mRID: 141471ee-b79c-40b7-9ce3-361e78a5b404
   - '@id': urn:uuid:b2536d67-03b9-4408-8a72-be7a846e5d35
     '@type': cim:Zone
