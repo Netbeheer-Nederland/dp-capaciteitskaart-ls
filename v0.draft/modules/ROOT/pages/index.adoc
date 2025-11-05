@@ -135,9 +135,9 @@ OperatingShare -> OperatingParticipant: "OperatingShare.OperatingParticipant"
 BoundaryPoint -> ConnectivityNode: "BoundaryPoint.ConnectivityNode"
 ----
 
-This data product requires the use of
-https://netbeheer-nederland.github.io/docs-dev/im-object/latest/object_register.html[NBNL
-Object Register] for instantiation of its datasets.
+This data product requires the use of the
+xref:im-object::object_register.adoc[NBNL Object Register] for instantiation of
+its datasets.
 
 == Required background
 
