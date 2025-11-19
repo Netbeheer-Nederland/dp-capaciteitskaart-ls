@@ -243,7 +243,7 @@ generate-documentation: _post-process-linkml-schema
     @echo
     cp -r "documentation" "artifacts"
     mkdir -p "artifacts/documentation/modules/schema"
-    python -m linkml_asciidoc_generator.main \
+    poetry run python -m linkml_asciidoc_generator.main \
         "artifacts/information_models/dp_capaciteitskaart_ls.schema.linkml.yml" \
         "artifacts/documentation/modules/schema" \
         --relations-diagrams
