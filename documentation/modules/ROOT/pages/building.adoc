@@ -1,0 +1,252 @@
+= Building the dataset
+
+== Topology
+
+.Topology
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    layout-engine: elk
+    pad: 20
+  }
+}
+
+legend: "" {
+  style: {
+    fill: transparent
+    stroke: transparent
+  }
+  grid-rows: 3
+  grid-columns: 2
+  grid-gap: 10
+  near: bottom-right
+  iec61968_color: "" {
+    style: {
+      fill: "#d1e7c2"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61968_text: "IEC61968 (Enterprise)" {
+    shape: text
+  }
+  iec61970_color: "" {
+    style: {
+      fill: "#eccfcb"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61970_text: "IEC61970 (Grid)" {
+    shape: text
+  }
+  iec62325_color: "" {
+    style: {
+      fill: "#fffbef"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec62325_text: "IEC62325 (Market)" {
+    shape: text
+  }
+}
+
+classes: {
+  grid: {
+    style: {
+      fill: "#eccfcb"
+      shadow: true
+    }
+  }
+  enterprise: {
+    style: {
+      fill: "#d1e7c2"
+      shadow: true
+    }
+  }
+  market: {
+    style: {
+      fill: "#fffbef"
+      shadow: true
+    }
+  }
+}
+
+direction: up
+
+Substation.class: grid
+VoltageLevel.class: grid
+BaseVoltage.class: grid
+PowerTransformer.class: grid
+PowerTransformerEnd.class: grid
+ConnectivityNode.class: grid
+Terminal.class: grid
+TopologicalNode.class: grid
+
+PowerTransformer -- Substation
+PowerTransformerEnd -- PowerTransformer
+PowerTransformerEnd -- BaseVoltage
+PowerTransformerEnd -- Terminal
+Terminal -- ConnectivityNode
+TopologicalNode -- Terminal
+TopologicalNode -- ConnectivityNode
+VoltageLevel -- Substation
+VoltageLevel -- BaseVoltage
+----
+
+Topology describes the structural arrangement of equipment within the
+electrical network. In this context, the model focuses on representing
+substations and the main elements that define voltage levels and connectivity
+between them. The aim is to provide just enough information for consistent
+representation of network hierarchy and interconnection points.
+
+=== Core entities
+
+* Substation: represents the physical location where equipment is grouped.
+* VoltageLevel: partitions the substation according to operating voltage.
+* BaseVoltage: standard reference voltage associated with a voltage level.
+* PowerTransformer: equipment used to connect different voltage levels.
+* PowerTransformerEnd: describes the individual winding of a transformer.
+
+=== Modelling choices
+
+* Each transformer is expressed through its PowerTransformer entity and
+associated PowerTransformerEnd elements.
+* Hierarchy is captured by linking VoltageLevel to BaseVoltage, ensuring
+consistent reference to nominal operating values.
+* Connectivity between transformer ends is represented through terminals. Two
+PowerTransformerEnd terminals are associated via a TopologyNode, establishing
+the link within the network model.
+* PowerTransformers are associated with a VoltageLevel by associating the
+terminal of a PowerTransformerEnd with a ConnectivityNode in the VoltageLevel.
+* Each PowerTransformer instance may represent multiple physical transformers
+in the field, reflecting redundancy and aggregated modelling.
+* This abstraction supports grid security (N-1) planning, ensuring the model
+can reflect operation under the loss of one transformer while maintaining
+service continuity.
+
+== Congestion
+
+Congestion represents situations where network equipment is operating at or
+near its limits. Modelling congestion explicitly allows the dataset to
+highlight where capacity is constrained and how such constraints propagate
+through the grid.
+
+=== Core entities
+
+* Contingency: represents a condition or event that may lead to congestion,
+such as equipment outage or high demand.
+* ContingencyEquipment: links a contingency to specific items of equipment.
+* PowerTransformer: equipment that may be subject to congestion when
+associated with a contingency.
+
+=== Modelling choices
+
+* ContingencyEquipment is used to associate a Contingency with a
+PowerTransformer, explicitly marking transformers under congestion.
+* This association allows data consumers to trace where congestion is present
+in the grid.
+* Congestion cascades through the network: once a transformer is marked as
+congested, the effect can be followed through the connected topology to
+understand its impact on zones and demand areas.
+* Representing congestion in this way supports planning and investment
+decisions, by making it possible to identify which parts of the grid require
+reinforcement or expansion.
+
+== Boundary Points
+
+Boundary points define the places in the grid where responsibility for
+operation changes hands. These points capture the interface between system
+operators or between an operator and an end customer, and they are essential
+for modelling ownership and accountability within the network.
+
+=== Core entities
+
+* ConnectivityNode: connection point in the network, linked to terminals.
+* Terminal: represents a conducting connection; here associated with a
+PowerTransformerEnd.
+* BoundaryPoint: represents the boundary point between TSO/TSO, TSO/DSO and/or
+SO/customer.
+* OperatingShare: specifies the share of operational responsibility.
+* OperatingParticipant: represents an entity with operational responsibility.
+* VoltageLevel: partitions a substation by operating voltage and can be linked
+to operating shares and participants.
+
+=== Modelling choices
+
+* A ConnectivityNode is associated with a Terminal from a PowerTransformerEnd,
+forming the electrical point of interconnection.
+* A BoundaryPoint is linked to the ConnectivityNode, marking the boundary point
+in the grid.
+* This boundary indicates where responsibility shifts from one system operator
+to another, or to an end customer.
+* Ownership of a VoltageLevel is captured using OperatingShare and
+OperatingParticipant, ensuring the model can represent shared or full
+responsibility among multiple parties.
+
+== Location
+
+Location provides the link between network elements and the geographic or
+administrative areas they serve. This allows the model to connect electrical
+topology with zones of demand, supporting planning and analysis across
+different levels of spatial granularity.
+
+=== Core entities
+
+* GeographicalRegion: high-level area used as a country indicator (e.g. NL).
+* SubGeographicalRegion: subdivision of a geographical region, used to denote
+the responsible system operator.
+* Zone: represents a spatial area; may correspond to a postal code region or a
+cbs:buurt (neighbourhood).
+* VoltageLevel: partitions a substation by operating voltage and can be linked
+to one or more zones.
+* WorkLocation: represents the spatial focus of planned or ongoing work
+activities, supporting geographically targeted programmes.
+
+=== Modelling choices
+
+* A GeographicalRegion is used to identify the country in which the modelled
+data applies (e.g. NL).
+* Each SubGeographicalRegion represents a system operator’s area of
+responsibility within the country.
+* A VoltageLevel is associated with one or more Zone entities, enabling
+representation of postal code coverage and neighbourhoods.
+* A Zone may be defined as a cbs:buurt, providing alignment with external
+statistical or administrative boundaries.
+* Multiple VoltageLevel instances may supply a single Zone, reflecting
+dependency on topology and real-world distribution arrangements.
+* WorkLocation is linked to VoltageLevel and is used to capture work activities
+in the context of the _Buurtgebonden aanpak_ (neighbourhood-oriented programme).
+
+== Assets and Work Management
+
+This part of the model covers the relationship between assets and the work
+performed on them, including projects that drive network expansion. The focus
+is providing a structure for linking operational projects to capacity upgrades.
+
+=== Core entities
+
+* Asset: represents the physical instance of equipment in the field.
+* WorkTask: a defined task carried out as part of a work activity.
+* Work: a collection of tasks, representing a cohesive body of work.
+* Project: groups together multiple work activities, typically for strategic
+objectives such as network reinforcement or expansion.
+
+=== Modelling choices
+
+* The model distinguishes between function (e.g. PowerTransformer) and asset
+(e.g. Asset) to separate equipment functionality from their physical
+representation.
+* Each Asset is linked to a PowerTransformer, enabling the association of
+physical equipment with the functional topology.
+* WorkTask aggregates into Work, which in turn is organised under a Project.
+* This structure allows projects to be explicitly linked to assets, ensuring
+visibility of work undertaken to expand available transport capacity.

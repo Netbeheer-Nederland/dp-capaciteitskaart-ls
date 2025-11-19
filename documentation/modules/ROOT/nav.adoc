@@ -1,1 +1,1 @@
-* xref:dp-capaciteitskaart-ls::design.adoc[]
+* xref::building.adoc[]

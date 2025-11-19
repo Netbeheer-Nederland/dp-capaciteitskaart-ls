@@ -1,0 +1,163 @@
+'@context':
+  linkml: https://w3id.org/linkml/
+  cim: https://cim.ucaiug.io/ns#
+  eu: https://cim.ucaiug.io/ns/eu#
+  dcterms: http://purl.org/dc/terms/
+  dcat: http://www.w3.org/ns/dcat#
+  prov: http://www.w3.org/ns/prov#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  ck: http://data.netbeheernederland.nl/dp-capaciteitskaart-ls/def#
+'@graph':
+  - '@id': urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be
+    '@type': cim:GeographicalRegion
+    cim:IdentifiedObject.mRID: 3061d9bc-a20e-4b72-85b7-042c731f86be
+    cim:IdentifiedObject.name: 'NL'
+  - '@id': urn:uuid:4f74c8e2-adb5-4815-9607-eb00fb6a0d55
+    '@type': cim:SubGeographicalRegion
+    cim:SubGeographicalRegion.Region:
+      '@id': urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be
+    cim:IdentifiedObject.name: 'Liander'
+    cim:IdentifiedObject.mRID: 4f74c8e2-adb5-4815-9607-eb00fb6a0d55
+  - '@id': urn:uuid:c5eac295-702d-42b5-a428-1c38e3d96ada
+    '@type': cim:Substation
+    cim:Substation.Region:
+      '@id': urn:uuid:4f74c8e2-adb5-4815-9607-eb00fb6a0d55
+    cim:IdentifiedObject.name: '004'
+    cim:IdentifiedObject.mRID: c5eac295-702d-42b5-a428-1c38e3d96ada
+  - '@id': urn:uuid:a60510c9-976e-4eb3-9746-ce4f8125bba8
+    '@type': cim:VoltageLevel
+    cim:VoltageLevel.BaseVoltage:
+      '@id': urn:uuid:8430da67-c674-4907-8011-718ca928c6b2
+    cim:VoltageLevel.Substation:
+      '@id': urn:uuid:c5eac295-702d-42b5-a428-1c38e3d96ada
+    cim:IdentifiedObject.mRID: a60510c9-976e-4eb3-9746-ce4f8125bba8
+  - '@id': urn:uuid:0090a39a-0002-404d-a0da-c38bfe8cbccc
+    '@type': cim:Voltage
+    cim:Voltage.multiplier:
+      '@id': cim:UnitMultiplier.none
+    cim:Voltage.unit:
+      '@id': cim:UnitSymbol.V
+    cim:Voltage.value:
+      '@value': 400.0
+      '@type': xsd:float
+  - '@id': urn:uuid:0436dcbf-5d9e-4412-a50e-1e7f7200a1bd
+    '@type': cim:Voltage
+    cim:Voltage.multiplier:
+      '@id': cim:UnitMultiplier.k
+    cim:Voltage.unit:
+      '@id': cim:UnitSymbol.V
+    cim:Voltage.value:
+      '@value': 10.0
+      '@type': xsd:float
+  - '@id': urn:uuid:8430da67-c674-4907-8011-718ca928c6b2
+    '@type': cim:BaseVoltage
+    cim:BaseVoltage.nominalVoltage:
+      '@id': urn:uuid:0090a39a-0002-404d-a0da-c38bfe8cbccc
+    cim:IdentifiedObject.mRID: 8430da67-c674-4907-8011-718ca928c6b2
+  - '@id': urn:uuid:b69112f9-1e8f-4527-8907-92bc78e6a391
+    '@type': cim:BaseVoltage
+    cim:BaseVoltage.nominalVoltage:
+      '@id': urn:uuid:0436dcbf-5d9e-4412-a50e-1e7f7200a1bd
+    cim:IdentifiedObject.mRID: b69112f9-1e8f-4527-8907-92bc78e6a391
+  - '@id': urn:uuid:58bacc10-cb90-4020-911b-cfc3d11aa5fd
+    '@type': cim:Terminal
+    cim:Terminal.ConnectivityNode:
+      '@id': urn:uuid:283b0f59-18fc-429d-92cc-d8eb45741b8f
+    cim:IdentifiedObject.mRID: 58bacc10-cb90-4020-911b-cfc3d11aa5fd
+  - '@id': urn:uuid:283b0f59-18fc-429d-92cc-d8eb45741b8f
+    '@type': cim:ConnectivityNode
+    cim:ConnectivityNode.ConnectivityNodeContainer:
+      '@id': urn:uuid:a60510c9-976e-4eb3-9746-ce4f8125bba8
+    cim:IdentifiedObject.mRID: 283b0f59-18fc-429d-92cc-d8eb45741b8f
+  - '@id': urn:uuid:d2c5435c-fadb-4d28-8af5-8785160f4769
+    '@type': cim:ContingencyEquipment
+    cim:ContingencyEquipment.Equipment:
+      '@id': urn:uuid:96015158-a374-4bcb-aaf8-493102a3bd15
+    cim:ContingencyElement.Contingency:
+      '@id': urn:uuid:11cab2fb-fafc-4722-a7b1-73658cb40290
+    cim:IdentifiedObject.mRID: d2c5435c-fadb-4d28-8af5-8785160f4769
+  - '@id': urn:uuid:f2068540-d04b-4897-aa01-30261cc54325
+    '@type': cim:Asset
+    cim:Asset.PowerSystemResources:
+      - '@id': urn:uuid:96015158-a374-4bcb-aaf8-493102a3bd15
+    cim:IdentifiedObject.mRID: f2068540-d04b-4897-aa01-30261cc54325
+  - '@id': urn:uuid:16b60340-e153-4f91-b629-e7c2237718c9
+    '@type': cim:WorkTask
+    cim:WorkTask.Work:
+      '@id': urn:uuid:34f3a7f8-eb31-4d72-b20e-5453bc5c9c18
+    cim:BaseWork.TimeSchedules:
+      - '@id': urn:uuid:d125d8df-0c03-4c5c-b545-15bd2c6775f2
+    cim:BaseWork.WorkLocation:
+      '@id': urn:uuid:83991034-ba63-4253-bd7d-b16850695c1b
+    cim:IdentifiedObject.description: 'Vervanging transformator'
+    cim:IdentifiedObject.mRID: 16b60340-e153-4f91-b629-e7c2237718c9
+  - '@id': urn:uuid:34f3a7f8-eb31-4d72-b20e-5453bc5c9c18
+    '@type': cim:Work
+    cim:BaseWork.TimeSchedules:
+      - '@id': urn:uuid:d125d8df-0c03-4c5c-b545-15bd2c6775f2
+    cim:IdentifiedObject.name: 'WO#_1234_Verzwaring_Pieterslaan'
+    cim:IdentifiedObject.description: 'Uitbreiding netstation Pieterslaan'
+    cim:IdentifiedObject.mRID: 34f3a7f8-eb31-4d72-b20e-5453bc5c9c18
+  - '@id': urn:uuid:83991034-ba63-4253-bd7d-b16850695c1b
+    '@type': cim:WorkLocation
+    cim:Location.PowerSystemResources:
+      - '@id': urn:uuid:a60510c9-976e-4eb3-9746-ce4f8125bba8
+    cim:IdentifiedObject.description: ''
+    cim:IdentifiedObject.mRID: 83991034-ba63-4253-bd7d-b16850695c1b
+  - '@id': urn:uuid:d125d8df-0c03-4c5c-b545-15bd2c6775f2
+    '@type': cim:WorkTimeSchedule
+    cim:TimeSchedule.scheduleInterval:
+      '@id': urn:uuid:2693cbcd-4f19-4913-998b-d34936a5c18d
+    cim:IdentifiedObject.mRID: d125d8df-0c03-4c5c-b545-15bd2c6775f2
+  - '@id': urn:uuid:96015158-a374-4bcb-aaf8-493102a3bd15
+    '@type': cim:PowerTransformer
+    cim:IdentifiedObject.mRID: 96015158-a374-4bcb-aaf8-493102a3bd15
+  - '@id': urn:uuid:50c6e194-1b7c-416c-a79b-8fa7ec732787
+    '@type': cim:PowerTransformerEnd
+    cim:PowerTransformerEnd.PowerTransformer:
+      '@id': urn:uuid:96015158-a374-4bcb-aaf8-493102a3bd15
+    cim:TransformerEnd.endNumber: 1
+    cim:TransformerEnd.BaseVoltage:
+      '@id': urn:uuid:8430da67-c674-4907-8011-718ca928c6b2
+    cim:IdentifiedObject.mRID: 50c6e194-1b7c-416c-a79b-8fa7ec732787
+  - '@id': urn:uuid:141471ee-b79c-40b7-9ce3-361e78a5b404
+    '@type': cim:PowerTransformerEnd
+    cim:PowerTransformerEnd.PowerTransformer:
+      '@id': urn:uuid:96015158-a374-4bcb-aaf8-493102a3bd15
+    cim:TransformerEnd.endNumber: 2
+    cim:TransformerEnd.BaseVoltage:
+      '@id': urn:uuid:8430da67-c674-4907-8011-718ca928c6b2
+    cim:TransformerEnd.Terminal:
+      '@id': urn:uuid:58bacc10-cb90-4020-911b-cfc3d11aa5fd
+    cim:IdentifiedObject.mRID: 141471ee-b79c-40b7-9ce3-361e78a5b404
+  - '@id': urn:uuid:b2536d67-03b9-4408-8a72-be7a846e5d35
+    '@type': cim:Zone
+    cim:Zone.kind:
+      '@id': cim:ZoneKind.electricalNetwork
+    cim:Location.PowerSystemResources:
+      - '@id': urn:uuid:a60510c9-976e-4eb3-9746-ce4f8125bba8
+    cim:Location.mainAddress:
+      '@id': urn:uuid:8c7821bb-5f6d-45e5-b6fa-272d3ed2792e
+    cim:IdentifiedObject.mRID: b2536d67-03b9-4408-8a72-be7a846e5d35
+  - '@id': urn:uuid:8c7821bb-5f6d-45e5-b6fa-272d3ed2792e
+    '@type': cim:StreetAddress
+    cim:StreetAddress.postalCode: '6845DV'
+  - '@id': urn:uuid:11cab2fb-fafc-4722-a7b1-73658cb40290
+    '@type': cim:Contingency
+    cim:Contingency.mustStudy: true
+    ck:Contingency.demandConstraint:
+      '@id': ck:RAGKind.Red
+    ck:Contingency.generationConstraint:
+      '@id': ck:RAGKind.Yellow
+    cim:IdentifiedObject.mRID: 11cab2fb-fafc-4722-a7b1-73658cb40290
+  - '@id': urn:uuid:10f983cf-f051-4487-b611-84c62f4b1a51
+    '@type': ck:ContingencyInfo
+    ck:CongestionInfo.contingencyURL: 'https://example.com/report'
+  - '@id': urn:uuid:2693cbcd-4f19-4913-998b-d34936a5c18d
+    '@type': cim:DateTimeInterval
+    cim:DateTimeInterval.end:
+      '@value': '2026-08-28'
+      '@type': xsd:date
+    cim:DateTimeInterval.start:
+      '@value': '2025-08-28'
+      '@type': xsd:date
